@@ -35,5 +35,3 @@ app.get("/", (c: Context) => {
 });
 
 export { app };
-
-
