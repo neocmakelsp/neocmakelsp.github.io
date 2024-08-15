@@ -1,5 +1,6 @@
 {
   "imports": {
+    "@std/cli": "jsr:@std/cli@^1.0.3",
     "@std/fs": "jsr:@std/fs@^1.0.1",
     "@std/path": "jsr:@std/path@^1.0.2",
     "esbuild": "npm:esbuild@^0.23.0",
@@ -10,7 +11,8 @@
   },
   "tasks": {
     "start": "deno run --allow-net main.tsx",
-    "build:aws": "deno run --allow-env --allow-read --allow-write --allow-run build.ts"
+    "build:aws": "deno run --allow-env --allow-read --allow-write --allow-run build.ts --aws",
+    "build:ssg": "deno run --allow-env --allow-read --allow-write --allow-run build.ts --ssg"
   },
   "compilerOptions": {
     "jsx": "precompile",
