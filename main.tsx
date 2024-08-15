@@ -12,14 +12,14 @@ type Props = {
   children?: any;
 };
 
-const Layout = (props: Props) =>
+const Layout = ({ title, children }: Props) =>
   html`<!DOCTYPE html>
   <html>
     <head>
-      <title>${props.title}</title>
+      <title>${title}</title>
     </head>
     <body>
-      ${props.children}
+      ${children}
     </body>
   </html>`;
 
