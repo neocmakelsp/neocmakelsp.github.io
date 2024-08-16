@@ -1,5 +1,6 @@
 {
   "imports": {
+    "~/styles/": "./styles/",
     "@std/cli": "jsr:@std/cli@^1.0.3",
     "@std/fs": "jsr:@std/fs@^1.0.1",
     "@std/path": "jsr:@std/path@^1.0.2",
@@ -7,10 +8,11 @@
     "esbuild_deno_loader": "jsr:@luca/esbuild-deno-loader@^0.10.3",
     "hono": "jsr:@hono/hono@^4.5.5",
     "preact": "npm:preact@^10.23.2",
-    "react": "npm:react@^18.3.1"
+    "react": "npm:react@^18.3.1",
+    "styled-components": "npm:styled-components@^6.1.12"
   },
   "tasks": {
-    "start": "deno run --allow-net main.tsx",
+    "start": "deno run --allow-net --allow-env main.tsx",
     "build:aws": "deno run --allow-env --allow-read --allow-write --allow-run build.ts --aws",
     "build:ssg": "deno run --allow-env --allow-read --allow-write --allow-run build.ts --ssg"
   },
