@@ -1,5 +1,7 @@
 import { Context, Hono } from "hono";
 
+import { PropsWithChildren } from "react";
+
 import { Home } from "~/pages/home.tsx";
 
 import { Style } from "hono/css";
@@ -8,13 +10,11 @@ import Whole from "~/styles/whole.ts";
 
 const app = new Hono();
 
-type Props = {
+type LayoutProps = {
   title: string;
-  // deno-lint-ignore no-explicit-any
-  children?: any;
 };
 
-const Layout = ({ title, children }: Props) => {
+const Layout = ({ title, children }: PropsWithChildren<LayoutProps>) => {
   return (
     <html>
       <head>
