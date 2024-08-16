@@ -4,6 +4,8 @@ import { Home } from "~/pages/home.tsx";
 
 import { Style } from "hono/css";
 
+import Whole from "~/styles/whole.ts";
+
 const app = new Hono();
 
 type Props = {
@@ -16,7 +18,7 @@ const Layout = ({ title, children }: Props) => {
   return (
     <html>
       <head>
-        <Style />
+        <Style>{Whole}</Style>
         <title>{title}</title>
       </head>
       <body>
