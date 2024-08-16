@@ -2,7 +2,7 @@ import { delay } from "@std/async";
 
 function start_server() {
   return new Deno.Command(Deno.execPath(), {
-    args: ["run", "--allow-net", "--allow-env", "main.tsx"],
+    args: ["run", "--allow-net", "--allow-env", "--allow-read", "main.tsx"],
     stdout: "inherit",
   });
 }

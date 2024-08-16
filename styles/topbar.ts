@@ -3,6 +3,7 @@ import { css } from "hono/css";
 const TopBar = css`
   overflow: hidden;
   background-color: #333;
+  opacity: 0.8;
   & a {
     float: left;
     color: #f2f2f2;
@@ -14,11 +15,6 @@ const TopBar = css`
   & a:hover {
     background-color: #ddd;
     color: black;
-  }
-
-  & a.active {
-    background-color: #04AA6D;
-    color: white;
   }
 `;
 
