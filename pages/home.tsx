@@ -1,23 +1,19 @@
-import { PropsWithChildren } from "react";
-
-import TopBar from "~/styles/topbar.ts";
+import TitleBar from "~/components/titlebar.tsx";
 
 export interface HomeProps {
   label: string;
 }
 
 export function Home(
-  { children, label }: PropsWithChildren<HomeProps>,
+  { label }: HomeProps,
 ) {
   return (
     <div>
-      <div
-        class={TopBar}
-      >
+      <TitleBar>
         <a class="active" href="#home">{label}</a>
         <a href="#News">News</a>
-      </div>
-      {children}
+      </TitleBar>
+      <h1> abcd </h1>
     </div>
   );
 }

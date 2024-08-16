@@ -31,9 +31,7 @@ const Layout = ({ title, children }: PropsWithChildren<LayoutProps>) => {
 app.get("/", (c: Context) => {
   return c.html(
     <Layout title="Hello Deno!">
-      <Home label="abcd">
-        <h1>ABCDEF</h1>
-      </Home>
+      <Home label="abcd" />
     </Layout>,
   );
 });
