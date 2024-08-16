@@ -1,8 +1,6 @@
 {
   "imports": {
-    "~/styles/": "./styles/",
-    "~/pages/": "./pages/",
-    "~/components/": "./components/",
+    "@std/async": "jsr:@std/async@^1.0.3",
     "@std/cli": "jsr:@std/cli@^1.0.3",
     "@std/fs": "jsr:@std/fs@^1.0.1",
     "@std/path": "jsr:@std/path@^1.0.2",
@@ -11,10 +9,13 @@
     "hono": "jsr:@hono/hono@^4.5.5",
     "preact": "npm:preact@^10.23.2",
     "react": "npm:react@^18.3.1",
-    "styled-components": "npm:styled-components@^6.1.12"
+    "styled-components": "npm:styled-components@^6.1.12",
+    "~/components/": "./components/",
+    "~/pages/": "./pages/",
+    "~/styles/": "./styles/"
   },
   "tasks": {
-    "start": "deno run --allow-net --allow-env main.tsx",
+    "start": "deno run --allow-net --allow-read --allow-env watch.ts",
     "build:aws": "deno run --allow-env --allow-read --allow-write --allow-run build.ts --aws",
     "build:ssg": "deno run --allow-env --allow-read --allow-write --allow-run build.ts --ssg"
   },
