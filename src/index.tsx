@@ -1,6 +1,6 @@
 import { Context, Hono } from "hono";
 
-import { Home } from "./mycomponent.tsx";
+import { Home } from "~/pages/home.tsx";
 
 import { Style } from "hono/css";
 
