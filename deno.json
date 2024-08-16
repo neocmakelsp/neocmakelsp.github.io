@@ -15,7 +15,7 @@
     "~/styles/": "./styles/"
   },
   "tasks": {
-    "start": "deno run --allow-net --allow-read --allow-env watch.ts",
+    "start": "deno run --allow-net --allow-read --allow-run --allow-env watch.ts",
     "build:aws": "deno run --allow-env --allow-read --allow-write --allow-run build.ts --aws",
     "build:ssg": "deno run --allow-env --allow-read --allow-write --allow-run build.ts --ssg"
   },
