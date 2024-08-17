@@ -39,7 +39,7 @@ export function Home() {
             of{" "}
             <DescriptionInlineLink link="#feature" tips="features">
               features
-            </DescriptionInlineLink>. Neocmakelsp use the
+            </DescriptionInlineLink>. Neocmakelsp use the{" "}
             <DescriptionInlineLink
               link="https://microsoft.github.io/language-server-protocol/"
               tips="microsoft.github.io"
