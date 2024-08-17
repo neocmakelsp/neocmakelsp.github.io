@@ -1,4 +1,8 @@
-import { InstallBodyCSS, InstallMainCSS, InstallTitleCSS } from "~/styles/install.ts";
+import {
+  InstallBodyCSS,
+  InstallMainCSS,
+  InstallTitleCSS,
+} from "~/styles/install.ts";
 
 import { PropsWithChildren } from "react";
 export default function InstallMain(

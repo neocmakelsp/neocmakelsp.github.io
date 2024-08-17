@@ -54,13 +54,6 @@ const TopMainSmallTitleCSS = css`
   margin-top: 1px;
 `;
 
-
-
 export default TopMainAreaCSS;
 
-export {
-  TopMainSmallTitleCSS,
-  TopMainTitleCSS,
-  TopTextCSS,
-  TopVideoCSS,
-};
+export { TopMainSmallTitleCSS, TopMainTitleCSS, TopTextCSS, TopVideoCSS };

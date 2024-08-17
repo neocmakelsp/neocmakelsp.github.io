@@ -15,4 +15,4 @@ const ContributeTitleCSS = css`
   font-weight: 500
 `;
 
-export { ContributeMainCSS, ContributeTitleCSS }
+export { ContributeMainCSS, ContributeTitleCSS };
