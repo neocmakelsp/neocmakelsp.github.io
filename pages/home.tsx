@@ -2,6 +2,7 @@ import TitleBar from "~/components/titlebar.tsx";
 
 import FirstIconCSS from "~/styles/tobarfirst.ts";
 import TopMainArea, {
+  DescriptionInlineLink,
   TopMainAreaSmallTitle,
   TopMainAreaTitle,
   TopText,
@@ -23,10 +24,19 @@ export function Home() {
       <TopMainArea>
         <TopText>
           <TopMainAreaTitle>
-            Another lsp for cmake
+            neocmakelsp
           </TopMainAreaTitle>
           <TopMainAreaSmallTitle>
-            powered by treesitter, and rust
+            Another lsp for cmake made for rust. The neocmakelsp also use the
+            {" "}
+            <DescriptionInlineLink
+              link="https://microsoft.github.io/language-server-protocol/"
+              tips="microsoft.github.io"
+            >
+              Language Server Protocal
+            </DescriptionInlineLink>{" "}
+            to provide various features for cmake, make it easiler for
+            developing cpp program.
           </TopMainAreaSmallTitle>
         </TopText>
         <video autoplay={true} loop={true} muted={true} class={TopVideoCSS}>

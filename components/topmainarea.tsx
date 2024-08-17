@@ -1,4 +1,5 @@
 import TopMainAreaCSS, {
+  InlineLinkCSS,
   TopMainSmallTitleCSS,
   TopMainTitleCSS,
   TopTextCSS,
@@ -39,8 +40,26 @@ export function TopMainAreaSmallTitle(
   { children }: PropsWithChildren,
 ) {
   return (
-    <h3 class={TopMainSmallTitleCSS}>
+    <p class={TopMainSmallTitleCSS}>
       {children}
-    </h3>
+    </p>
+  );
+}
+
+export type InlineLinkProps = {
+  link: string;
+  tips: string;
+};
+
+export function DescriptionInlineLink(
+  { tips, link, children }: PropsWithChildren<InlineLinkProps>,
+) {
+  return (
+    <span class={InlineLinkCSS}>
+      <a href={link}>
+        {children}
+      </a>
+      <span class="tooltiptext">{tips}</span>
+    </span>
   );
 }
