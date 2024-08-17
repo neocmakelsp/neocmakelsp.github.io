@@ -118,7 +118,7 @@ export function Home() {
             </DescriptionInlineLink>{" "}
             or from{" "}
             <DescriptionInlineLink
-              link="https://api.github.com/repos/neocmakelsp/neocmakelsp/releases/latest"
+              link="https://github.com/neocmakelsp/neocmakelsp/releases"
               tips="Github"
             >
               latest release
