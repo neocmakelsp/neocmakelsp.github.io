@@ -2,13 +2,14 @@ import TitleBar from "~/components/titlebar.tsx";
 
 import FirstIconCSS from "~/styles/tobarfirst.ts";
 import TopMainArea, {
-  DescriptionInlineLink,
   TopMainAreaSmallTitle,
   TopMainAreaTitle,
   TopText,
 } from "~/components/topmainarea.tsx";
 
 import { TopVideoCSS } from "~/styles/topmainarea.ts";
+import FeatureMain, { FeatureAreaTitle } from "~/components/feature.tsx";
+import { DescriptionInlineLink } from "~/components/common.tsx";
 
 export function Home() {
   return (
@@ -43,7 +44,9 @@ export function Home() {
           <source src="/static/neocmakelsp.mp4" type="video/mp4" />
         </video>
       </TopMainArea>
-      <h1>ee</h1>
+      <FeatureMain>
+        <FeatureAreaTitle>Features</FeatureAreaTitle>
+      </FeatureMain>
     </div>
   );
 }

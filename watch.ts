@@ -13,7 +13,11 @@ let command = start_server();
 
 let child = command.spawn();
 for await (const _event of watcher) {
-  child.kill("SIGINT");
+  try {
+    child.kill("SIGINT");
+  } catch (_e) {
+    console.log("process already killed");
+  }
   await delay(100);
   command = start_server();
   child = command.spawn();
