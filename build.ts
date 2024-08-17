@@ -1,7 +1,7 @@
 import * as esbuild from "esbuild";
 import { denoPlugins } from "esbuild_deno_loader";
 import { resolve } from "@std/path";
-import { ensureDir, existsSync } from "@std/fs";
+import { copySync, ensureDir, existsSync } from "@std/fs";
 
 import { parseArgs } from "@std/cli";
 import { toSSG } from "hono/deno";
@@ -51,7 +51,11 @@ async function buildAws() {
 
 function buildSSG() {
   const dir = "dist/ssg";
+  const static_dir = "dist/ssg/static";
   ensureDir(dir);
+  const options = { overwrite: true };
+  copySync("static", static_dir, options);
+  copySync("favicon.ico", "dist/ssg/favicon.ico", options);
   toSSG(app, { dir });
 }
 
