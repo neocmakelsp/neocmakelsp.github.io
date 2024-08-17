@@ -1,7 +1,6 @@
 import { css } from "hono/css";
 
 const InlineLinkCSS = css`
-  font-size: 1em;
   position: relative;
   display: inline-block;
   & .tooltiptext {

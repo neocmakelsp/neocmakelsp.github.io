@@ -7,7 +7,7 @@ import FeatureMainCSS, {
 } from "~/styles/feature.ts";
 
 import { PropsWithChildren } from "react";
-export default function FetureMainA(
+export default function FeatureMain(
   { children }: PropsWithChildren,
 ) {
   return (

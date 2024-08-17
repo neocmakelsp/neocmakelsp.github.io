@@ -1,6 +1,5 @@
 import TitleBar from "~/components/titlebar.tsx";
 
-import FirstIconCSS from "~/styles/tobarfirst.ts";
 import TopMainArea, {
   TopMainAreaSmallTitle,
   TopMainAreaTitle,
@@ -15,14 +14,17 @@ import FeatureMain, {
   FeatureDisplayGrid,
 } from "~/components/feature.tsx";
 import { DescriptionInlineLink } from "~/components/common.tsx";
+import InstallMain, {
+  InstallAreaTitle,
+  InstallBody,
+} from "~/components/install.tsx";
+import ContributeMain, { ContributeTitle } from "~/components/contribute.tsx";
 
 export function Home() {
   return (
     <div>
       <TitleBar>
-        <a class={FirstIconCSS} href="/">NeoCMakeLsp</a>
-        {/* TODO: link to document later */}
-        <a>Documents</a>
+        <a href="/">NeoCMakeLsp</a>
         <a class="right" href="https://github.com/Decodetalkers/neocmakelsp">
           Github
         </a>
@@ -33,8 +35,10 @@ export function Home() {
             neocmakelsp
           </TopMainAreaTitle>
           <TopMainAreaSmallTitle>
-            Another lsp for cmake made for rust. The neocmakelsp also use the
-            {" "}
+            Another lsp for cmake made for rust with lots of{" "}
+            <DescriptionInlineLink link="#feature" tips="featues">
+              features
+            </DescriptionInlineLink>. The neocmakelsp also use the{" "}
             <DescriptionInlineLink
               link="https://microsoft.github.io/language-server-protocol/"
               tips="microsoft.github.io"
@@ -92,11 +96,51 @@ export function Home() {
           </FeatureCard>
           <FeatureCard title="Document symbol">
             <FeatureCardDescription>
-              Support lsp document_symbol, which provide folder support in vscode and outline support.
+              Support lsp document_symbol, which provide folder support in
+              vscode and outline support.
             </FeatureCardDescription>
           </FeatureCard>
         </FeatureDisplayGrid>
       </FeatureMain>
+      <InstallMain>
+        <InstallAreaTitle>
+          How to Install
+        </InstallAreaTitle>
+        <InstallBody>
+          <p>
+            The lsp itself can be installed either from{" "}
+            <DescriptionInlineLink
+              link="https://crates.io/crates/neocmakelsp"
+              tips="need to install rust"
+            >
+              crates.io
+            </DescriptionInlineLink>{" "}
+            or from{" "}
+            <DescriptionInlineLink
+              link="https://api.github.com/repos/Decodetalkers/neocmakelsp/releases/latest"
+              tips="Github"
+            >
+              latest release
+            </DescriptionInlineLink>{" "}
+            from github.
+          </p>
+          <p>
+            For vscode user, you can use plugin{" "}
+            <DescriptionInlineLink
+              link="https://github.com/neocmakelsp/neocmakelsp-vscode"
+              tips="can be installed from vscode / codeoss market"
+            >
+              neocmakelsp-vscode
+            </DescriptionInlineLink>, for neovim or emacs user, you should read
+            our README.md.
+          </p>
+        </InstallBody>
+      </InstallMain>
+      <ContributeMain>
+        <ContributeTitle>
+          You can help and make contributions for us on the Github.
+        </ContributeTitle>
+      </ContributeMain>
     </div>
   );
 }
