@@ -36,7 +36,7 @@ export function Home() {
           </TopMainAreaTitle>
           <TopMainAreaSmallTitle>
             Another lsp for cmake made with rust powered by tower-lsp with lots
-            of
+            of{" "}
             <DescriptionInlineLink link="#feature" tips="features">
               features
             </DescriptionInlineLink>. Neocmakelsp use the
