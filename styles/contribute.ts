@@ -12,7 +12,7 @@ const ContributeMainCSS = css`
 const ContributeTitleCSS = css`
   text-align: center;
   font-size: 1em;
-  font-weigth: 500
+  font-weight: 500
 `;
 
 export { ContributeMainCSS, ContributeTitleCSS }

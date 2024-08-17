@@ -20,13 +20,13 @@ export default FeatureMainCSS;
 const FeatureTitleCSS = css`
   text-align: center;
   font-size: 3em;
-  font-weigth: 500
+  font-weight: 500
 `;
 
 const FeatureCardTitleCSS = css`
   text-align: center;
   font-size: 2em;
-  font-weigth: 100
+  font-weight: 100
 `;
 
 const FeatureGridCSS = css`

@@ -36,14 +36,14 @@ export function Home() {
           </TopMainAreaTitle>
           <TopMainAreaSmallTitle>
             Another lsp for cmake made for rust with lots of{" "}
-            <DescriptionInlineLink link="#feature" tips="featues">
+            <DescriptionInlineLink link="#feature" tips="features">
               features
             </DescriptionInlineLink>. The neocmakelsp also use the{" "}
             <DescriptionInlineLink
               link="https://microsoft.github.io/language-server-protocol/"
               tips="microsoft.github.io"
             >
-              Language Server Protocal
+              Language Server Protocol
             </DescriptionInlineLink>{" "}
             to provide various features for cmake, make it easiler for
             developing cpp program.
@@ -83,7 +83,7 @@ export function Home() {
           </FeatureCard>
           <FeatureCard title="Semaction Highlight">
             <FeatureCardDescription>
-              Yes, it support lsp hightlight. So now your cmake files in vscode
+              Yes, it support lsp highlight. So now your cmake files in vscode
               will become light can colorful!!
             </FeatureCardDescription>
           </FeatureCard>

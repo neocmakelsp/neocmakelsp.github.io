@@ -44,7 +44,7 @@ const TopVideoCSS = css`
 const TopMainTitleCSS = css`
   text-align: center;
   font-size: 3em;
-  font-weigth: 500
+  font-weight: 500
 `;
 
 const TopMainSmallTitleCSS = css`

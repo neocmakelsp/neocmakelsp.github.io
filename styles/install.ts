@@ -18,7 +18,7 @@ const InstallMainCSS = css`
 const InstallTitleCSS = css`
   text-align: center;
   font-size: 3em;
-  font-weigth: 500
+  font-weight: 500
 `;
 
 const InstallBodyCSS = css`
