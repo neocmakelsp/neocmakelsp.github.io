@@ -35,10 +35,11 @@ export function Home() {
             neocmakelsp
           </TopMainAreaTitle>
           <TopMainAreaSmallTitle>
-            Another lsp for cmake made for rust with lots of{" "}
+            Another lsp for cmake made with rust powered by tower-lsp with lots
+            of
             <DescriptionInlineLink link="#feature" tips="features">
               features
-            </DescriptionInlineLink>. The neocmakelsp also use the{" "}
+            </DescriptionInlineLink>. Neocmakelsp use the
             <DescriptionInlineLink
               link="https://microsoft.github.io/language-server-protocol/"
               tips="microsoft.github.io"
