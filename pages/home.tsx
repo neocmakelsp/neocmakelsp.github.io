@@ -8,7 +8,12 @@ import TopMainArea, {
 } from "~/components/topmainarea.tsx";
 
 import { TopVideoCSS } from "~/styles/topmainarea.ts";
-import FeatureMain, { FeatureAreaTitle } from "~/components/feature.tsx";
+import FeatureMain, {
+  FeatureAreaTitle,
+  FeatureCard,
+  FeatureCardDescription,
+  FeatureDisplayGrid,
+} from "~/components/feature.tsx";
 import { DescriptionInlineLink } from "~/components/common.tsx";
 
 export function Home() {
@@ -46,6 +51,51 @@ export function Home() {
       </TopMainArea>
       <FeatureMain>
         <FeatureAreaTitle>Features</FeatureAreaTitle>
+        <FeatureDisplayGrid>
+          <FeatureCard title="Completion Support">
+            <FeatureCardDescription>
+              Support complete base cmake commands, cmake package name and
+              pkgconfig package name. It can even complete function in packages.
+            </FeatureCardDescription>
+          </FeatureCard>
+          <FeatureCard title="Hover Support">
+            <FeatureCardDescription>
+              Support show the document of base commands. Support show where
+              base information about where the function is from. Support show
+              the information about the package.
+            </FeatureCardDescription>
+          </FeatureCard>{" "}
+          <FeatureCard title="Jump Support">
+            <FeatureCardDescription>
+              Support jump between the cmake files. Support jump to the
+              definition of the function in cmake packages.
+            </FeatureCardDescription>
+          </FeatureCard>
+          <FeatureCard title="Format support">
+            <FeatureCardDescription>
+              NeoCMakeLsp has already support for builtin format, with the power
+              of tree-sitter.
+            </FeatureCardDescription>
+          </FeatureCard>
+          <FeatureCard title="Semaction Highlight">
+            <FeatureCardDescription>
+              Yes, it support lsp hightlight. So now your cmake files in vscode
+              will become light can colorful!!
+            </FeatureCardDescription>
+          </FeatureCard>
+          <FeatureCard title="Lint and gammar check">
+            <FeatureCardDescription>
+              NeoCMakeLsp support lint check and base gammar check. Lint check
+              is under the support of cmake-lint, and gammar check is by
+              tree-sitter.
+            </FeatureCardDescription>
+          </FeatureCard>
+          <FeatureCard title="Document symbol">
+            <FeatureCardDescription>
+              Support lsp document_symbol, which provide folder support in vscode and outline support.
+            </FeatureCardDescription>
+          </FeatureCard>
+        </FeatureDisplayGrid>
       </FeatureMain>
     </div>
   );
