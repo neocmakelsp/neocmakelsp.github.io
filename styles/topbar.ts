@@ -1,12 +1,13 @@
 import { css } from "hono/css";
 
 const TopBar = css`
+  backdrop-filter: blur(5px);
   overflow: hidden;
   background-color: #333;
   opacity: 0.8;
   position: fixed;
-  padding: 0px;
   width: 100%;
+  top: 0px;
   z-index: 3;
   & a {
     float: left;
