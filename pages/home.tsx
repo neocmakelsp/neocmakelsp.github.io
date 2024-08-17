@@ -25,7 +25,7 @@ export function Home() {
     <div>
       <TitleBar>
         <a href="/">NeoCMakeLsp</a>
-        <a class="right" href="https://github.com/Decodetalkers/neocmakelsp">
+        <a class="right" href="https://github.com/neocmakelsp/neocmakelsp">
           Github
         </a>
       </TitleBar>
@@ -118,7 +118,7 @@ export function Home() {
             </DescriptionInlineLink>{" "}
             or from{" "}
             <DescriptionInlineLink
-              link="https://api.github.com/repos/Decodetalkers/neocmakelsp/releases/latest"
+              link="https://api.github.com/repos/neocmakelsp/neocmakelsp/releases/latest"
               tips="Github"
             >
               latest release
