@@ -1,4 +1,3 @@
-import { css } from "hono/css";
 import styled from "@nobody/styled-components-deno";
 const TopMainAreaCSS = styled.section`
   display: grid;
