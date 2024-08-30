@@ -51,6 +51,9 @@ const TopMainSmallTitleCSS = styled.p`
   margin-right: 70px;
   font-size: 2em;
   margin-top: 1px;
+  & span {
+    font-size: 32px;
+  }
 `;
 
 export default TopMainAreaCSS;

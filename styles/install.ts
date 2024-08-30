@@ -26,6 +26,9 @@ const InstallBodyCSS = styled.div`
   margin-right: 20px;
   font-size: 30px;
   margin-bottom: 300px;
+  & span {
+    font-size: 32px;
+  }
 `;
 
 export { InstallBodyCSS, InstallMainCSS, InstallTitleCSS };

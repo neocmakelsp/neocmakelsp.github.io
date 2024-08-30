@@ -125,7 +125,7 @@ async function watch() {
     for (const pa of event.paths) {
       if (
         pa.includes("./dist") || pa.includes("./build.ts") ||
-        pa.includes(".git") ||
+        (pa.endsWith(".git") || pa.includes(".git/")) ||
         (!pa.endsWith("ts") && !pa.endsWith("tsx") && !pa.endsWith("css") &&
           !pa.endsWith("js") && !pa.endsWith("jsx"))
       ) {
