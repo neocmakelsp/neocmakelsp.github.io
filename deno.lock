@@ -3,7 +3,7 @@
   "packages": {
     "specifiers": {
       "jsr:@luca/esbuild-deno-loader@^0.10.3": "jsr:@luca/esbuild-deno-loader@0.10.3",
-      "jsr:@nobody/styled-components-deno@^0.3.1": "jsr:@nobody/styled-components-deno@0.3.1",
+      "jsr:@nobody/styled-components-deno@^0.4.0": "jsr:@nobody/styled-components-deno@0.4.0",
       "jsr:@std/assert@^0.213.1": "jsr:@std/assert@0.213.1",
       "jsr:@std/async@^1.0.3": "jsr:@std/async@1.0.3",
       "jsr:@std/cli@^1.0.3": "jsr:@std/cli@1.0.3",
@@ -35,8 +35,8 @@
           "jsr:@std/path@0.213"
         ]
       },
-      "@nobody/styled-components-deno@0.3.1": {
-        "integrity": "f4b50d9cfb5273fdbfb49afc87e0b7fca6ebf960f576021e48771818e0d6b4c1",
+      "@nobody/styled-components-deno@0.4.0": {
+        "integrity": "4fc30ede007aaf2abba541828923789e17c3397859d702a53e85bd38dcc5023f",
         "dependencies": [
           "npm:preact@^10.23.2",
           "npm:react@^18.3.1"
@@ -255,7 +255,7 @@
   "workspace": {
     "dependencies": [
       "jsr:@luca/esbuild-deno-loader@^0.10.3",
-      "jsr:@nobody/styled-components-deno@^0.3.1",
+      "jsr:@nobody/styled-components-deno@^0.4.0",
       "jsr:@std/async@^1.0.3",
       "jsr:@std/cli@^1.0.3",
       "jsr:@std/fs@^1.0.1",
