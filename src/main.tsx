@@ -7,7 +7,7 @@ import { Home } from "~/pages/home.tsx";
 const mount = document.getElementById("mount");
 
 if (mount) {
-  render(<App />, mount!);
+  render(<App />, mount);
 }
 
 function App() {
