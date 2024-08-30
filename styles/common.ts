@@ -1,4 +1,4 @@
-import styled from "@nobody/styled-components-deno"
+import styled from "@nobody/styled-components-deno";
 
 const InlineLinkCSS = styled.span`
   position: relative;
@@ -25,6 +25,5 @@ const InlineLinkCSS = styled.span`
     visibility: visible;
   }
 `;
-
 
 export { InlineLinkCSS };

@@ -2,7 +2,6 @@ import { ContributeMainCSS, ContributeTitleCSS } from "~/styles/contribute.ts";
 
 import { PropsWithChildren } from "react";
 
-
 export default function ContributeMain(
   { children }: PropsWithChildren,
 ) {

@@ -1,6 +1,6 @@
 # static website with deno and esbuild
 
-* Support hot reload
+- Support hot reload
 
 ## Start
 
