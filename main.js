@@ -254,7 +254,7 @@ n = p.slice, l = { __e: function(n2, l2, u3, t2) {
   return n2.__v.__b - l2.__v.__b;
 }, P.__r = 0, e = 0, c = F(false), s = F(true), a = 0;
 
-// https://jsr.io/@nobody/styled-components-deno/0.3.1/domElements.ts
+// https://jsr.io/@nobody/styled-components-deno/0.4.0/domElements.ts
 var elements = [
   "a",
   "abbr",
@@ -405,7 +405,7 @@ function u2(e2, t2, n2, o2, i3, u3) {
   return l.vnode && l.vnode(l2), l2;
 }
 
-// https://jsr.io/@nobody/styled-components-deno/0.3.1/styled.tsx
+// https://jsr.io/@nobody/styled-components-deno/0.4.0/styled.tsx
 var UniqueUid = class {
   uid = 0;
   constructor(uid) {
@@ -427,6 +427,31 @@ function injectStyles(className, styles) {
     styleSheet.innerHTML = `.${className} { ${styles} }`;
     document.head.appendChild(styleSheet);
   }
+}
+function injectStylesObject(className, styles) {
+  if (!document.querySelector(`.${className}`)) {
+    const styleSheet = document.createElement("style");
+    styleSheet.innerHTML = `.${className} ${styles}`;
+    document.head.appendChild(styleSheet);
+  }
+}
+function createElementObject(tag, defaultStyleObject) {
+  let defaultStyle = JSON.stringify(defaultStyleObject, null, 2);
+  defaultStyle = defaultStyle.replaceAll(",", ";");
+  defaultStyle = defaultStyle.replaceAll('"', "");
+  const Element = (props) => {
+    const { style, children, ...restProps } = props;
+    const newstyle = style || defaultStyle;
+    const className = generateClassName();
+    injectStylesObject(className, newstyle);
+    const newProp = {
+      className: props.className || className,
+      style,
+      ...restProps
+    };
+    return _(tag, newProp, children);
+  };
+  return Element;
 }
 function createElement(tag, defaultStyle) {
   const Element = (props) => {
@@ -464,13 +489,16 @@ function recreateElement(Component) {
 var styledTmp = recreateElement;
 domElements.forEach((domElement) => {
   styledTmp[domElement] = (style) => {
-    const style_css = style.join("");
-    return createElement(domElement, style_css);
+    if (Array.isArray(style) && "raw" in style) {
+      const style_css = style.join("");
+      return createElement(domElement, style_css);
+    }
+    return createElementObject(domElement, style);
   };
 });
 var styled = styledTmp;
 
-// https://jsr.io/@nobody/styled-components-deno/0.3.1/mod.ts
+// https://jsr.io/@nobody/styled-components-deno/0.4.0/mod.ts
 var mod_default = styled;
 
 // styles/topbar.ts
