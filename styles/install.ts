@@ -1,6 +1,6 @@
-import { css } from "hono/css";
+import styled from "@nobody/styled-components-deno";
 
-const InstallMainCSS = css`
+const InstallMainCSS = styled.section`
   display: flex;
   flex-direction: column;
 
@@ -15,13 +15,13 @@ const InstallMainCSS = css`
   }
 `;
 
-const InstallTitleCSS = css`
+const InstallTitleCSS = styled.h1`
   text-align: center;
   font-size: 3em;
   font-weight: 500
 `;
 
-const InstallBodyCSS = css`
+const InstallBodyCSS = styled.div`
   margin-left: 20px;
   margin-right: 20px;
   font-size: 30px;

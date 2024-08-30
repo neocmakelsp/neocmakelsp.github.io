@@ -1,6 +1,6 @@
-import { css } from "hono/css";
+import styled from "@nobody/styled-components-deno";
 
-const FeatureMainCSS = css`
+const FeatureMainCSS = styled.section`
   display: flex;
   flex-direction: column;
 
@@ -17,19 +17,19 @@ const FeatureMainCSS = css`
 
 export default FeatureMainCSS;
 
-const FeatureTitleCSS = css`
+const FeatureTitleCSS = styled.h1`
   text-align: center;
   font-size: 3em;
   font-weight: 500
 `;
 
-const FeatureCardTitleCSS = css`
+const FeatureCardTitleCSS = styled.h1`
   text-align: center;
   font-size: 2em;
   font-weight: 100
 `;
 
-const FeatureGridCSS = css`
+const FeatureGridCSS = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill,minmax(23em,1fr));
   width: 100%;
@@ -40,7 +40,7 @@ const FeatureGridCSS = css`
   margin-bottom: 20px;
 `;
 
-const FeatureCardCSS = css`
+const FeatureCardCSS = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #0d2e5f;
@@ -51,7 +51,7 @@ const FeatureCardCSS = css`
   border-radius: 30px;
 `;
 
-const FeatureDescriptionCSS = css`
+const FeatureDescriptionCSS = styled.p`
   margin-left: 20px;
   margin-right: 20px;
   font-size: 25px;

@@ -1,6 +1,6 @@
 import { css } from "hono/css";
-
-const TopMainAreaCSS = css`
+import styled from "@nobody/styled-components-deno";
+const TopMainAreaCSS = styled.section`
   display: grid;
   grid-template-columns: 50% 50%;
   @media screen and (max-width:1300px) {
@@ -19,7 +19,7 @@ const TopMainAreaCSS = css`
   }
 `;
 
-const TopTextCSS = css`
+const TopTextCSS = styled.div`
   margin-top: 300px;
   margin-bottom: 300px;
   @media screen and (max-width:1300px) {
@@ -30,7 +30,7 @@ const TopTextCSS = css`
 
 `;
 
-const TopVideoCSS = css`
+const TopVideoCSS = styled.video` 
   margin-top: 300px;
   margin-bottom: 300px;
   @media screen and (max-width:1300px) {
@@ -41,13 +41,13 @@ const TopVideoCSS = css`
   width: 100%;
 `;
 
-const TopMainTitleCSS = css`
+const TopMainTitleCSS = styled.h1`
   text-align: center;
   font-size: 3em;
   font-weight: 500
 `;
 
-const TopMainSmallTitleCSS = css`
+const TopMainSmallTitleCSS = styled.p`
   margin-left: 70px;
   margin-right: 70px;
   font-size: 2em;

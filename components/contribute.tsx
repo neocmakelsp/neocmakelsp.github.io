@@ -1,21 +1,23 @@
 import { ContributeMainCSS, ContributeTitleCSS } from "~/styles/contribute.ts";
 
 import { PropsWithChildren } from "react";
+
+
 export default function ContributeMain(
   { children }: PropsWithChildren,
 ) {
   return (
-    <section id="contribute" class={ContributeMainCSS}>
+    <ContributeMainCSS id="contribute">
       {children}
-    </section>
+    </ContributeMainCSS>
   );
 }
 export function ContributeTitle(
   { children }: PropsWithChildren,
 ) {
   return (
-    <h1 class={ContributeTitleCSS}>
+    <ContributeTitleCSS>
       {children}
-    </h1>
+    </ContributeTitleCSS>
   );
 }

@@ -1,5 +1,5 @@
-import { css } from "hono/css";
-const FirstIconCSS = css`
+import styled from "@nobody/styled-components-deno";
+const FirstIconCSS = styled.div`
   background-image: url("/static/neocmake.png");
   background-position: center center;
   background-size: contain;

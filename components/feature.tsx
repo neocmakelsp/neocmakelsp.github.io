@@ -11,9 +11,9 @@ export default function FeatureMain(
   { children }: PropsWithChildren,
 ) {
   return (
-    <section id="feature" class={FeatureMainCSS}>
+    <FeatureMainCSS id="feature">
       {children}
-    </section>
+    </FeatureMainCSS>
   );
 }
 
@@ -21,9 +21,9 @@ export function FeatureAreaTitle(
   { children }: PropsWithChildren,
 ) {
   return (
-    <h1 class={FeatureTitleCSS}>
+    <FeatureTitleCSS>
       {children}
-    </h1>
+    </FeatureTitleCSS>
   );
 }
 
@@ -31,18 +31,18 @@ export function FeatureDisplayGrid(
   { children }: PropsWithChildren,
 ) {
   return (
-    <div class={FeatureGridCSS}>
+    <FeatureGridCSS>
       {children}
-    </div>
+    </FeatureGridCSS>
   );
 }
 function CardTitle(
   { children }: PropsWithChildren,
 ) {
   return (
-    <h1 class={FeatureCardTitleCSS}>
+    <FeatureCardTitleCSS>
       {children}
-    </h1>
+    </FeatureCardTitleCSS>
   );
 }
 
@@ -54,20 +54,20 @@ export function FeatureCard(
   { title, children }: PropsWithChildren<FeatureCardProps>,
 ) {
   return (
-    <div class={FeatureCardCSS}>
+    <FeatureCardCSS>
       <CardTitle>
         {title}
       </CardTitle>
       {children}
-    </div>
+    </FeatureCardCSS>
   );
 }
 export function FeatureCardDescription(
   { children }: PropsWithChildren,
 ) {
   return (
-    <p class={FeatureDescriptionCSS}>
+    <FeatureDescriptionCSS>
       {children}
-    </p>
+    </FeatureDescriptionCSS>
   );
 }

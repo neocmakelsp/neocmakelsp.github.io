@@ -1,3 +1,9 @@
-# Github site for neocmakelsp
+# static website with deno and esbuild
 
-Working
+* Support hot reload
+
+## Start
+
+```
+deno task start
+```

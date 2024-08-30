@@ -9,9 +9,9 @@ export default function TopMainArea(
   { children }: PropsWithChildren,
 ) {
   return (
-    <section id="main" class={TopMainAreaCSS}>
+    <TopMainAreaCSS id="main">
       {children}
-    </section>
+    </TopMainAreaCSS>
   );
 }
 
@@ -19,9 +19,9 @@ export function TopText(
   { children }: PropsWithChildren,
 ) {
   return (
-    <div class={TopTextCSS}>
+    <TopTextCSS>
       {children}
-    </div>
+    </TopTextCSS>
   );
 }
 
@@ -29,9 +29,9 @@ export function TopMainAreaTitle(
   { children }: PropsWithChildren,
 ) {
   return (
-    <h1 class={TopMainTitleCSS}>
+    <TopMainTitleCSS>
       {children}
-    </h1>
+    </TopMainTitleCSS>
   );
 }
 
@@ -39,8 +39,8 @@ export function TopMainAreaSmallTitle(
   { children }: PropsWithChildren,
 ) {
   return (
-    <p class={TopMainSmallTitleCSS}>
+    <TopMainSmallTitleCSS>
       {children}
-    </p>
+    </TopMainSmallTitleCSS>
   );
 }

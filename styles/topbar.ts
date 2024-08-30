@@ -1,6 +1,5 @@
-import { css } from "hono/css";
-
-const TopBar = css`
+import styled from "@nobody/styled-components-deno";
+const TopBar = styled.nav`
   backdrop-filter: blur(5px);
   overflow: hidden;
   background-color: #333;

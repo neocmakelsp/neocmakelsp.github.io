@@ -1,6 +1,5 @@
-import { css } from "hono/css";
-
-const ContributeMainCSS = css`
+import styled from "@nobody/styled-components-deno";
+const ContributeMainCSS = styled.section`
   display: flex;
   flex-direction: column;
 
@@ -9,7 +8,7 @@ const ContributeMainCSS = css`
 
 `;
 
-const ContributeTitleCSS = css`
+const ContributeTitleCSS = styled.h1`
   text-align: center;
   font-size: 1em;
   font-weight: 500

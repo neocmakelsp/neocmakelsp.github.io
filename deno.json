@@ -1,26 +1,40 @@
 {
   "imports": {
+    "@nobody/styled-components-deno": "jsr:@nobody/styled-components-deno@^0.3.1",
     "@std/async": "jsr:@std/async@^1.0.3",
     "@std/cli": "jsr:@std/cli@^1.0.3",
     "@std/fs": "jsr:@std/fs@^1.0.1",
+    "@std/http": "jsr:@std/http@^1.0.3",
     "@std/path": "jsr:@std/path@^1.0.2",
-    "esbuild": "npm:esbuild@^0.23.0",
+    "esbuild": "npm:esbuild@^0.23.1",
     "esbuild_deno_loader": "jsr:@luca/esbuild-deno-loader@^0.10.3",
-    "hono": "jsr:@hono/hono@^4.5.5",
+    "hono": "jsr:@hono/hono@^4.5.8",
     "preact": "npm:preact@^10.23.2",
     "react": "npm:react@^18.3.1",
-    "styled-components": "npm:styled-components@^6.1.12",
     "~/components/": "./components/",
     "~/pages/": "./pages/",
     "~/styles/": "./styles/"
   },
   "tasks": {
-    "start": "deno run --allow-net --allow-read --allow-run --allow-env watch.ts",
-    "build:aws": "deno run --allow-env --allow-read --allow-write --allow-run build.ts --aws",
-    "build:ssg": "deno run --allow-env --allow-read --allow-write --allow-run build.ts --ssg"
+    "start": "deno run -A build.ts",
+    "release": "deno run -A build.ts --release"
+  },
+  "lint": {
+    "exclude": [
+      "dist",
+      "static"
+    ]
   },
   "compilerOptions": {
-    "jsx": "precompile",
-    "jsxImportSource": "hono/jsx"
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
+    "jsxFragmentFactory": "Fragment",
+    "lib": [
+      "deno.ns",
+      "dom",
+      "dom.iterable",
+      "dom.asynciterable",
+      "esnext"
+    ]
   }
 }

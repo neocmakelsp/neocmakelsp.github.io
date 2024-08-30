@@ -9,9 +9,9 @@ export default function InstallMain(
   { children }: PropsWithChildren,
 ) {
   return (
-    <section id="install" class={InstallMainCSS}>
+    <InstallMainCSS id="install">
       {children}
-    </section>
+    </InstallMainCSS>
   );
 }
 
@@ -19,9 +19,9 @@ export function InstallAreaTitle(
   { children }: PropsWithChildren,
 ) {
   return (
-    <h1 class={InstallTitleCSS}>
+    <InstallTitleCSS>
       {children}
-    </h1>
+    </InstallTitleCSS>
   );
 }
 
@@ -29,8 +29,8 @@ export function InstallBody(
   { children }: PropsWithChildren,
 ) {
   return (
-    <div class={InstallBodyCSS}>
+    <InstallBodyCSS>
       {children}
-    </div>
+    </InstallBodyCSS>
   );
 }

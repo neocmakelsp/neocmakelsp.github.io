@@ -1,6 +1,6 @@
-import { css } from "hono/css";
+import styled from "@nobody/styled-components-deno"
 
-const InlineLinkCSS = css`
+const InlineLinkCSS = styled.span`
   position: relative;
   display: inline-block;
   & .tooltiptext {
@@ -25,5 +25,6 @@ const InlineLinkCSS = css`
     visibility: visible;
   }
 `;
+
 
 export { InlineLinkCSS };

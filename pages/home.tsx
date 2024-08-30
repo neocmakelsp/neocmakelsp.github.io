@@ -50,9 +50,9 @@ export function Home() {
             developing cpp program.
           </TopMainAreaSmallTitle>
         </TopText>
-        <video autoplay={true} loop={true} muted={true} class={TopVideoCSS}>
+        <TopVideoCSS autoplay={true} loop={true} muted={true}>
           <source src="/static/neocmakelsp.mp4" type="video/mp4" />
-        </video>
+        </TopVideoCSS>
       </TopMainArea>
       <FeatureMain>
         <FeatureAreaTitle>Features</FeatureAreaTitle>

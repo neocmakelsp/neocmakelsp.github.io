@@ -6,10 +6,8 @@ export default function TopBar(
   { children }: PropsWithChildren,
 ) {
   return (
-    <nav
-      class={TopBarClass}
-    >
+    <TopBarClass>
       {children}
-    </nav>
+    </TopBarClass>
   );
 }
