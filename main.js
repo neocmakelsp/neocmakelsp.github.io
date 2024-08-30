@@ -555,6 +555,9 @@ var TopMainSmallTitleCSS = mod_default.p`
   margin-right: 70px;
   font-size: 2em;
   margin-top: 1px;
+  & span {
+    font-size: 32px;
+  }
 `;
 var topmainarea_default = TopMainAreaCSS;
 
@@ -708,6 +711,9 @@ var InstallBodyCSS = mod_default.div`
   margin-right: 20px;
   font-size: 30px;
   margin-bottom: 300px;
+  & span {
+    font-size: 32px;
+  }
 `;
 
 // components/install.tsx
