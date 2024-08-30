@@ -24,6 +24,12 @@
       "static"
     ]
   },
+  "fmt": {
+    "exclude": [
+      "dist",
+      "static"
+    ]
+  },
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "preact",
