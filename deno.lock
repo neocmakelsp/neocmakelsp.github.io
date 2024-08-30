@@ -2,7 +2,6 @@
   "version": "3",
   "packages": {
     "specifiers": {
-      "jsr:@hono/hono@^4.5.8": "jsr:@hono/hono@4.5.9",
       "jsr:@luca/esbuild-deno-loader@^0.10.3": "jsr:@luca/esbuild-deno-loader@0.10.3",
       "jsr:@nobody/styled-components-deno@^0.3.1": "jsr:@nobody/styled-components-deno@0.3.1",
       "jsr:@std/assert@^0.213.1": "jsr:@std/assert@0.213.1",
@@ -27,9 +26,6 @@
     "jsr": {
       "@hono/hono@4.5.8": {
         "integrity": "60f5b4c61edae2016022d6087b4fc381f378d337f046f56e00a3a3512c7e9c16"
-      },
-      "@hono/hono@4.5.9": {
-        "integrity": "47f561e67aedbd6d1e21e3a1ae26c1b80ffdb62a51c161d502e75bee17ca40af"
       },
       "@luca/esbuild-deno-loader@0.10.3": {
         "integrity": "32fc93f7e7f78060234fd5929a740668aab1c742b808c6048b57f9aaea514921",
@@ -258,7 +254,6 @@
   "remote": {},
   "workspace": {
     "dependencies": [
-      "jsr:@hono/hono@^4.5.8",
       "jsr:@luca/esbuild-deno-loader@^0.10.3",
       "jsr:@nobody/styled-components-deno@^0.3.1",
       "jsr:@std/async@^1.0.3",
