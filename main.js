@@ -878,16 +878,18 @@ var MenuButton = mod_default.button`
   cursor: pointer;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   visibility: hidden;
+  background-image: url("static/menu.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+
   & hover {
     background-color: #0056b3;
   }
   @media screen and (max-width:900px) {
     visibility: visible;
   }
-  & img {
-    width: 20px;
-    height: 20px;
-  }
+
 `;
 
 // ../../../.cache/deno/deno_esbuild/preact@10.23.2/node_modules/preact/hooks/dist/hooks.module.js
@@ -1022,7 +1024,7 @@ function Home() {
       /* @__PURE__ */ u2("a", { href: "/", children: "NeoCMakeLsp" }),
       /* @__PURE__ */ u2("a", { class: "right", href: "https://github.com/neocmakelsp/neocmakelsp", children: "Github" })
     ] }),
-    /* @__PURE__ */ u2(MenuButton, { onClick: () => toggleOpen(), children: /* @__PURE__ */ u2("img", { src: "/static/menu.svg" }) }),
+    /* @__PURE__ */ u2(MenuButton, { onClick: () => toggleOpen() }),
     /* @__PURE__ */ u2(SideBar, { isOpen, children: [
       /* @__PURE__ */ u2("a", { href: "/", children: "NeoCMakeLsp" }),
       /* @__PURE__ */ u2("a", { class: "bottom", href: "https://github.com/neocmakelsp/neocmakelsp", children: "Github" }),
