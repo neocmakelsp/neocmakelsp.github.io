@@ -37,9 +37,7 @@ export function Home() {
           Github
         </a>
       </TitleBar>
-      <MenuButton onClick={() => toggleOpen()}>
-        <img src="/static/menu.svg" />
-      </MenuButton>
+      <MenuButton onClick={() => toggleOpen()} />
       <SideBar isOpen={isOpen}>
         <a href="/">NeoCMakeLsp</a>
         <a class="bottom" href="https://github.com/neocmakelsp/neocmakelsp">

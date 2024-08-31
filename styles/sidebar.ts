@@ -63,16 +63,18 @@ const MenuButton = styled.button`
   cursor: pointer;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   visibility: hidden;
+  background-image: url("static/menu.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+
   & hover {
     background-color: #0056b3;
   }
   @media screen and (max-width:900px) {
     visibility: visible;
   }
-  & img {
-    width: 20px;
-    height: 20px;
-  }
+
 `;
 
 export { MenuButton, SideBar };
