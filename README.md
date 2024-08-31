@@ -4,4 +4,4 @@ Built with deno
 
 ## TODO
 
-* Add document support
+- Add document support
