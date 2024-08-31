@@ -17,6 +17,7 @@ import { DescriptionInlineLink } from "~/components/common.tsx";
 import InstallMain, {
   InstallAreaTitle,
   InstallBody,
+  InstallCodeBlockCopy,
 } from "~/components/install.tsx";
 import ContributeMain, { ContributeTitle } from "~/components/contribute.tsx";
 
@@ -155,6 +156,10 @@ export function Home() {
             </DescriptionInlineLink>, for neovim or emacs user, you should read
             our README.md.
           </p>
+          <p>To install the target, run follow command:</p>
+          <InstallCodeBlockCopy code="cargo install neocmakelsp" />
+          <p>To install vscode plugin on vscode, run:</p>
+          <InstallCodeBlockCopy code="ext install Decodetalkers.neocmakelsp-vscode" />
         </InstallBody>
       </InstallMain>
       <ContributeMain>

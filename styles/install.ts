@@ -37,4 +37,28 @@ const InstallBodyCSS = styled.div`
   }
 `;
 
-export { InstallBodyCSS, InstallMainCSS, InstallTitleCSS };
+const InstallCodeCopyCSS = styled.div`
+  position: relative;
+  color: #99c7ed;
+  font-size: 28px;
+  margin-right: 50px;
+  margin-left: 50px;
+  & pre {
+    padding: 10px;
+    background-color: #0c3e4d;
+    border-radius: 5px
+  }
+  & button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer;
+  }
+`;
+
+export { InstallBodyCSS, InstallCodeCopyCSS, InstallMainCSS, InstallTitleCSS };
