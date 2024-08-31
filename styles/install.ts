@@ -40,13 +40,17 @@ const InstallBodyCSS = styled.div`
 const InstallCodeCopyCSS = styled.div`
   position: relative;
   color: #99c7ed;
-  font-size: 28px;
+  font-size: 26px;
   margin-right: 50px;
   margin-left: 50px;
+  @media screen and (max-width:700px) {
+    font-size: 20px;
+  }
   & pre {
     padding: 10px;
     background-color: #0c3e4d;
-    border-radius: 5px
+    border-radius: 5px;
+    overflow-x: auto
   }
   & button {
     position: absolute;

@@ -31,7 +31,7 @@ const FeatureCardTitleCSS = styled.h1`
 
 const FeatureGridCSS = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(23em,1fr));
+  grid-template-columns: repeat(auto-fill,minmax(22em,1fr));
   width: 100%;
   margin: .5rem;
   justify-items: stretch;
