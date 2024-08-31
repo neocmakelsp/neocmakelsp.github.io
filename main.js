@@ -1033,12 +1033,16 @@ function Home() {
   };
   return /* @__PURE__ */ u2("div", { children: [
     /* @__PURE__ */ u2(TopBar2, { children: [
-      /* @__PURE__ */ u2("a", { href: "/", children: "NeoCMakeLsp" }),
+      /* @__PURE__ */ u2("a", { href: "#main", children: "Neocmakelsp" }),
+      /* @__PURE__ */ u2("a", { href: "#feature", children: "Features" }),
+      /* @__PURE__ */ u2("a", { href: "#install", children: "Install" }),
       /* @__PURE__ */ u2("a", { class: "right", href: "https://github.com/neocmakelsp/neocmakelsp", children: "Github" })
     ] }),
     /* @__PURE__ */ u2(MenuButton, { onClick: () => toggleOpen() }),
     /* @__PURE__ */ u2(SideBar, { isOpen, children: [
-      /* @__PURE__ */ u2("a", { href: "/", children: "NeoCMakeLsp" }),
+      /* @__PURE__ */ u2("a", { href: "#main", children: "Neocmakelsp" }),
+      /* @__PURE__ */ u2("a", { href: "#feature", children: "Features" }),
+      /* @__PURE__ */ u2("a", { href: "#install", children: "Install" }),
       /* @__PURE__ */ u2("a", { class: "bottom", href: "https://github.com/neocmakelsp/neocmakelsp", children: "Github" }),
       /* @__PURE__ */ u2("button", { class: "bottom", onClick: () => toggleOpen(), children: "X" })
     ] }),
