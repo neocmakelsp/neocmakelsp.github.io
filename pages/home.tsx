@@ -20,7 +20,15 @@ import InstallMain, {
 } from "~/components/install.tsx";
 import ContributeMain, { ContributeTitle } from "~/components/contribute.tsx";
 
+import { MenuButton, SideBar } from "~/styles/sidebar.ts";
+
+import { useState } from "preact/hooks";
+
 export function Home() {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleOpen = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <div>
       <TitleBar>
@@ -29,6 +37,16 @@ export function Home() {
           Github
         </a>
       </TitleBar>
+      <MenuButton onClick={() => toggleOpen()} >
+        <img src="/static/menu.svg"/> 
+      </MenuButton>
+      <SideBar isOpen={isOpen}>
+        <a href="/">NeoCMakeLsp</a>
+        <a class="bottom" href="https://github.com/neocmakelsp/neocmakelsp">
+          Github
+        </a>
+        <button class="bottom" onClick={() => toggleOpen()}>X</button>
+      </SideBar>
       <TopMainArea>
         <TopText>
           <TopMainAreaTitle>

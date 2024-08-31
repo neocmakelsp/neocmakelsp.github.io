@@ -1,4 +1,5 @@
 import styled from "@nobody/styled-components-deno";
+
 const TopBar = styled.nav`
   backdrop-filter: blur(5px);
   overflow: hidden;
@@ -8,6 +9,7 @@ const TopBar = styled.nav`
   width: 100%;
   top: 0px;
   z-index: 3;
+  visibility: visible;
   & a {
     float: left;
     color: #f2f2f2;
@@ -22,6 +24,10 @@ const TopBar = styled.nav`
   & a:hover {
     background-color: #ddd;
     color: black;
+  }
+
+  @media screen and (max-width:900px) {
+    visibility: hidden;
   }
 `;
 
