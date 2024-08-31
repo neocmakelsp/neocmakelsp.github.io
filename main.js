@@ -792,116 +792,28 @@ var InstallBodyCSS = mod_default.div`
     }
   }
 `;
-
-// components/install.tsx
-function InstallMain({ children }) {
-  return /* @__PURE__ */ u2(InstallMainCSS, { id: "install", children });
-}
-function InstallAreaTitle({ children }) {
-  return /* @__PURE__ */ u2(InstallTitleCSS, { children });
-}
-function InstallBody({ children }) {
-  return /* @__PURE__ */ u2(InstallBodyCSS, { children });
-}
-
-// styles/contribute.ts
-var ContributeMainCSS = mod_default.section`
-  display: flex;
-  flex-direction: column;
-
-  background-color: white;
-  width: 100%;
-
-`;
-var ContributeTitleCSS = mod_default.h1`
-  text-align: center;
-  font-size: 1em;
-  font-weight: 500
-`;
-
-// components/contribute.tsx
-function ContributeMain({ children }) {
-  return /* @__PURE__ */ u2(ContributeMainCSS, { id: "contribute", children });
-}
-function ContributeTitle({ children }) {
-  return /* @__PURE__ */ u2(ContributeTitleCSS, { children });
-}
-
-// styles/sidebar.ts
-var SideBar = mod_default.li`
-  width: 200px;
-  height: 100%;
-  background-color: #333;
-  position: fixed;
-  top: 0;
-  z-index: 3;
-  visibility: hidden;
-  list-style-type: none;
-  display: flex;
-  /* move flex-items in column */
-  flex-direction: column;
-
-  left: ${(props) => props.isOpen ? "0" : "-250px"} ;
-  transition: left 0.3s ease-in-out;
-
-  @media screen and (max-width:900px) {
-    visibility: visible
+var InstallCodeCopyCSS = mod_default.div`
+  position: relative;
+  color: #99c7ed;
+  font-size: 28px;
+  margin-right: 50px;
+  margin-left: 50px;
+  & pre {
+    padding: 10px;
+    background-color: #0c3e4d;
+    border-radius: 5px
   }
   & button {
-    background-color: transparent;
-    border-width: 0;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer;
   }
-
-  & button:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  & a {
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  & a.bottom {
-    margin-top: auto;
-  }
-  & a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-`;
-var MenuButton = mod_default.button`
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  background-color: white;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 24px;
-  cursor: pointer;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  visibility: hidden;
-  background-image: url("static/menu.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 20px 20px;
-
-  & hover {
-    background-color: #0056b3;
-  }
-  @media screen and (max-width:900px) {
-    visibility: visible;
-  }
-
 `;
 
 // ../../../.cache/deno/deno_esbuild/preact@10.23.2/node_modules/preact/hooks/dist/hooks.module.js
@@ -1025,6 +937,135 @@ function D(n2, t3) {
   return "function" == typeof t3 ? t3(n2) : t3;
 }
 
+// components/install.tsx
+function InstallMain({ children }) {
+  return /* @__PURE__ */ u2(InstallMainCSS, { id: "install", children });
+}
+function InstallAreaTitle({ children }) {
+  return /* @__PURE__ */ u2(InstallTitleCSS, { children });
+}
+function InstallBody({ children }) {
+  return /* @__PURE__ */ u2(InstallBodyCSS, { children });
+}
+function InstallCodeBlockCopy({ code }) {
+  const [copied, setCopied] = h2(false);
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2e3);
+  };
+  return /* @__PURE__ */ u2(InstallCodeCopyCSS, { children: [
+    /* @__PURE__ */ u2("pre", { children: /* @__PURE__ */ u2("code", { children: code }) }),
+    /* @__PURE__ */ u2(
+      "button",
+      {
+        onClick: copyToClipboard,
+        children: copied ? "Copied!" : "Copy"
+      }
+    )
+  ] });
+}
+
+// styles/contribute.ts
+var ContributeMainCSS = mod_default.section`
+  display: flex;
+  flex-direction: column;
+
+  background-color: white;
+  width: 100%;
+
+`;
+var ContributeTitleCSS = mod_default.h1`
+  text-align: center;
+  font-size: 1em;
+  font-weight: 500
+`;
+
+// components/contribute.tsx
+function ContributeMain({ children }) {
+  return /* @__PURE__ */ u2(ContributeMainCSS, { id: "contribute", children });
+}
+function ContributeTitle({ children }) {
+  return /* @__PURE__ */ u2(ContributeTitleCSS, { children });
+}
+
+// styles/sidebar.ts
+var SideBar = mod_default.li`
+  width: 200px;
+  height: 100%;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  z-index: 3;
+  visibility: hidden;
+  list-style-type: none;
+  display: flex;
+  /* move flex-items in column */
+  flex-direction: column;
+
+  left: ${(props) => props.isOpen ? "0" : "-250px"} ;
+  transition: left 0.3s ease-in-out;
+
+  @media screen and (max-width:900px) {
+    visibility: visible
+  }
+  & button {
+    background-color: transparent;
+    border-width: 0;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  & button:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  & a {
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  & a.bottom {
+    margin-top: auto;
+  }
+  & a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+`;
+var MenuButton = mod_default.button`
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: white;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  visibility: hidden;
+  background-image: url("static/menu.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+
+  & hover {
+    background-color: #0056b3;
+  }
+  @media screen and (max-width:900px) {
+    visibility: visible;
+  }
+
+`;
+
 // pages/home.tsx
 function Home() {
   const [isOpen, setIsOpen] = h2(false);
@@ -1122,7 +1163,11 @@ function Home() {
             }
           ),
           ", for neovim or emacs user, you should read our README.md."
-        ] })
+        ] }),
+        /* @__PURE__ */ u2("p", { children: "To install the target, run follow command:" }),
+        /* @__PURE__ */ u2(InstallCodeBlockCopy, { code: "cargo install neocmakelsp" }),
+        /* @__PURE__ */ u2("p", { children: "To install vscode plugin on vscode, run:" }),
+        /* @__PURE__ */ u2(InstallCodeBlockCopy, { code: "ext install Decodetalkers.neocmakelsp-vscode" })
       ] })
     ] }),
     /* @__PURE__ */ u2(ContributeMain, { children: /* @__PURE__ */ u2(ContributeTitle, { children: "You can help and make contributions for us on the Github." }) })
