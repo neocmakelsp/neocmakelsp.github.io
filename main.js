@@ -674,7 +674,7 @@ var FeatureCardTitleCSS = mod_default.h1`
 `;
 var FeatureGridCSS = mod_default.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(23em,1fr));
+  grid-template-columns: repeat(auto-fill,minmax(22em,1fr));
   width: 100%;
   margin: .5rem;
   justify-items: stretch;
@@ -795,13 +795,17 @@ var InstallBodyCSS = mod_default.div`
 var InstallCodeCopyCSS = mod_default.div`
   position: relative;
   color: #99c7ed;
-  font-size: 28px;
+  font-size: 26px;
   margin-right: 50px;
   margin-left: 50px;
+  @media screen and (max-width:700px) {
+    font-size: 20px;
+  }
   & pre {
     padding: 10px;
     background-color: #0c3e4d;
-    border-radius: 5px
+    border-radius: 5px;
+    overflow-x: auto
   }
   & button {
     position: absolute;
