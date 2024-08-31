@@ -32,14 +32,18 @@ export function Home() {
   return (
     <div>
       <TitleBar>
-        <a href="/">NeoCMakeLsp</a>
+        <a href="#main">Neocmakelsp</a>
+        <a href="#feature">Features</a>
+        <a href="#install">Install</a>
         <a class="right" href="https://github.com/neocmakelsp/neocmakelsp">
           Github
         </a>
       </TitleBar>
       <MenuButton onClick={() => toggleOpen()} />
       <SideBar isOpen={isOpen}>
-        <a href="/">NeoCMakeLsp</a>
+        <a href="#main">Neocmakelsp</a>
+        <a href="#feature">Features</a>
+        <a href="#install">Install</a>
         <a class="bottom" href="https://github.com/neocmakelsp/neocmakelsp">
           Github
         </a>
