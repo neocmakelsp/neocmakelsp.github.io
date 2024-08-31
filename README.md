@@ -1,9 +1,7 @@
-# static website with deno and esbuild
+# The website for neocmakelsp
 
-- Support hot reload
+Built with deno
 
-## Start
+## TODO
 
-```
-deno task start
-```
+* Add document support
