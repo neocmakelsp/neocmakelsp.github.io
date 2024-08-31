@@ -37,8 +37,8 @@ export function Home() {
           Github
         </a>
       </TitleBar>
-      <MenuButton onClick={() => toggleOpen()} >
-        <img src="/static/menu.svg"/> 
+      <MenuButton onClick={() => toggleOpen()}>
+        <img src="/static/menu.svg" />
       </MenuButton>
       <SideBar isOpen={isOpen}>
         <a href="/">NeoCMakeLsp</a>
