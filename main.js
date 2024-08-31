@@ -616,12 +616,18 @@ var TopMainTitleCSS = mod_default.h1`
   font-weight: 500
 `;
 var TopMainSmallTitleCSS = mod_default.p`
-  margin-left: 70px;
-  margin-right: 70px;
-  font-size: 2em;
+  margin-left: 60px;
+  margin-right: 60px;
+  font-size: 32px;
   margin-top: 1px;
   & span {
     font-size: 32px;
+  }
+  @media screen and (max-width:700px) {
+    font-size: 22px;
+    & span {
+      font-size: 22px;
+    }
   }
 `;
 var topmainarea_default = TopMainAreaCSS;
@@ -774,10 +780,16 @@ var InstallTitleCSS = mod_default.h1`
 var InstallBodyCSS = mod_default.div`
   margin-left: 20px;
   margin-right: 20px;
-  font-size: 30px;
+  font-size: 32px;
   margin-bottom: 300px;
   & span {
     font-size: 32px;
+  }
+  @media screen and (max-width:700px) {
+    font-size: 22px;
+    & span {
+      font-size: 22px;
+    }
   }
 `;
 
