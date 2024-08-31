@@ -24,10 +24,16 @@ const InstallTitleCSS = styled.h1`
 const InstallBodyCSS = styled.div`
   margin-left: 20px;
   margin-right: 20px;
-  font-size: 30px;
+  font-size: 32px;
   margin-bottom: 300px;
   & span {
     font-size: 32px;
+  }
+  @media screen and (max-width:700px) {
+    font-size: 22px;
+    & span {
+      font-size: 22px;
+    }
   }
 `;
 

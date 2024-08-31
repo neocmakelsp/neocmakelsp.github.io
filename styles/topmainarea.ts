@@ -47,12 +47,18 @@ const TopMainTitleCSS = styled.h1`
 `;
 
 const TopMainSmallTitleCSS = styled.p`
-  margin-left: 70px;
-  margin-right: 70px;
-  font-size: 2em;
+  margin-left: 60px;
+  margin-right: 60px;
+  font-size: 32px;
   margin-top: 1px;
   & span {
     font-size: 32px;
+  }
+  @media screen and (max-width:700px) {
+    font-size: 22px;
+    & span {
+      font-size: 22px;
+    }
   }
 `;
 
