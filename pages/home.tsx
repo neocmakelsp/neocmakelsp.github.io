@@ -44,7 +44,7 @@ export function Home() {
     setIsOpen(!isOpen);
   };
   return (
-    <main>
+    <>
       <MenuButton onClick={() => toggleOpen()} />
       <SideBar isOpen={isOpen}>
         <a href="#main">Neocmakelsp</a>
@@ -172,6 +172,6 @@ export function Home() {
           You can help and make contributions for us on the Github.
         </ContributeTitle>
       </ContributeMain>
-    </main>
+    </>
   );
 }
