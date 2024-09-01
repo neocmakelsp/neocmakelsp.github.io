@@ -25,21 +25,26 @@ import { MenuButton, SideBar } from "~/styles/sidebar.ts";
 
 import { useState } from "preact/hooks";
 
+export function Header() {
+  return (
+    <TitleBar>
+      <a href="#main">Neocmakelsp</a>
+      <a href="#feature">Features</a>
+      <a href="#install">Install</a>
+      <a class="right" href="https://github.com/neocmakelsp/neocmakelsp">
+        Github
+      </a>
+    </TitleBar>
+  );
+}
+
 export function Home() {
   const [isOpen, setIsOpen] = useState(false);
   const toggleOpen = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <div>
-      <TitleBar>
-        <a href="#main">Neocmakelsp</a>
-        <a href="#feature">Features</a>
-        <a href="#install">Install</a>
-        <a class="right" href="https://github.com/neocmakelsp/neocmakelsp">
-          Github
-        </a>
-      </TitleBar>
+    <main>
       <MenuButton onClick={() => toggleOpen()} />
       <SideBar isOpen={isOpen}>
         <a href="#main">Neocmakelsp</a>
@@ -167,6 +172,6 @@ export function Home() {
           You can help and make contributions for us on the Github.
         </ContributeTitle>
       </ContributeMain>
-    </div>
+    </main>
   );
 }
