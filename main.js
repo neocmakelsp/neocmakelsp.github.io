@@ -1084,7 +1084,7 @@ function Home() {
   const toggleOpen = () => {
     setIsOpen(!isOpen);
   };
-  return /* @__PURE__ */ u2("main", { children: [
+  return /* @__PURE__ */ u2(k, { children: [
     /* @__PURE__ */ u2(MenuButton, { onClick: () => toggleOpen() }),
     /* @__PURE__ */ u2(SideBar, { isOpen, children: [
       /* @__PURE__ */ u2("a", { href: "#main", children: "Neocmakelsp" }),
