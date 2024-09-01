@@ -1071,18 +1071,20 @@ var MenuButton = mod_default.button`
 `;
 
 // pages/home.tsx
+function Header() {
+  return /* @__PURE__ */ u2(TopBar2, { children: [
+    /* @__PURE__ */ u2("a", { href: "#main", children: "Neocmakelsp" }),
+    /* @__PURE__ */ u2("a", { href: "#feature", children: "Features" }),
+    /* @__PURE__ */ u2("a", { href: "#install", children: "Install" }),
+    /* @__PURE__ */ u2("a", { class: "right", href: "https://github.com/neocmakelsp/neocmakelsp", children: "Github" })
+  ] });
+}
 function Home() {
   const [isOpen, setIsOpen] = h2(false);
   const toggleOpen = () => {
     setIsOpen(!isOpen);
   };
-  return /* @__PURE__ */ u2("div", { children: [
-    /* @__PURE__ */ u2(TopBar2, { children: [
-      /* @__PURE__ */ u2("a", { href: "#main", children: "Neocmakelsp" }),
-      /* @__PURE__ */ u2("a", { href: "#feature", children: "Features" }),
-      /* @__PURE__ */ u2("a", { href: "#install", children: "Install" }),
-      /* @__PURE__ */ u2("a", { class: "right", href: "https://github.com/neocmakelsp/neocmakelsp", children: "Github" })
-    ] }),
+  return /* @__PURE__ */ u2("main", { children: [
     /* @__PURE__ */ u2(MenuButton, { onClick: () => toggleOpen() }),
     /* @__PURE__ */ u2(SideBar, { isOpen, children: [
       /* @__PURE__ */ u2("a", { href: "#main", children: "Neocmakelsp" }),
@@ -1181,8 +1183,9 @@ function Home() {
 // src/main.tsx
 var mount = document.getElementById("mount");
 if (mount) {
-  B(/* @__PURE__ */ u2(App, {}), mount);
+  B(/* @__PURE__ */ u2(Home, {}), mount);
 }
-function App() {
-  return /* @__PURE__ */ u2(Home, {});
+var header = document.getElementById("header");
+if (header) {
+  B(/* @__PURE__ */ u2(Header, {}), header);
 }
