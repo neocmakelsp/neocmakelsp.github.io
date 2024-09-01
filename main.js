@@ -994,9 +994,10 @@ function ContributeTitle({ children }) {
 
 // styles/sidebar.ts
 var SideBar = mod_default.li`
+  backdrop-filter: blur(10px);
   width: 200px;
   height: 100%;
-  background-color: #333;
+  background-color: #333330aa;
   position: fixed;
   top: 0;
   z-index: 3;
@@ -1044,7 +1045,7 @@ var SideBar = mod_default.li`
 var MenuButton = mod_default.button`
   position: fixed;
   top: 20px;
-  left: 20px;
+  left: ${(props) => props.isOpen ? "210px" : "20px"} ;
   background-color: white;
   color: white;
   border: none;
@@ -1059,10 +1060,12 @@ var MenuButton = mod_default.button`
   background-position: center;
   background-repeat: no-repeat;
   background-size: 20px 20px;
+  transition: left 0.3s ease-in-out;
 
   & hover {
     background-color: #0056b3;
   }
+
   @media screen and (max-width:900px) {
     visibility: visible;
   }
@@ -1083,14 +1086,15 @@ function Home() {
   const toggleOpen = () => {
     setIsOpen(!isOpen);
   };
+  const backString = "<<";
   return /* @__PURE__ */ u2(k, { children: [
-    /* @__PURE__ */ u2(MenuButton, { onClick: () => toggleOpen() }),
+    /* @__PURE__ */ u2(MenuButton, { isOpen, onClick: () => toggleOpen() }),
     /* @__PURE__ */ u2(SideBar, { isOpen, children: [
       /* @__PURE__ */ u2("a", { href: "#main", children: "Neocmakelsp" }),
       /* @__PURE__ */ u2("a", { href: "#feature", children: "Features" }),
       /* @__PURE__ */ u2("a", { href: "#install", children: "Install" }),
       /* @__PURE__ */ u2("a", { class: "bottom", href: "https://github.com/neocmakelsp/neocmakelsp", children: "Github" }),
-      /* @__PURE__ */ u2("button", { class: "bottom", onClick: () => toggleOpen(), children: "X" })
+      /* @__PURE__ */ u2("button", { class: "bottom", onClick: () => toggleOpen(), children: backString })
     ] }),
     /* @__PURE__ */ u2(TopMainArea, { children: [
       /* @__PURE__ */ u2(TopText, { children: [
