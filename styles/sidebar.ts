@@ -1,9 +1,10 @@
 import styled from "@nobody/styled-components-deno";
 
 const SideBar = styled.li<{ isOpen?: boolean }>`
+  backdrop-filter: blur(10px);
   width: 200px;
   height: 100%;
-  background-color: #333;
+  background-color: #333330aa;
   position: fixed;
   top: 0;
   z-index: 3;
@@ -49,10 +50,10 @@ const SideBar = styled.li<{ isOpen?: boolean }>`
   }
 `;
 
-const MenuButton = styled.button`
+const MenuButton = styled.button<{ isOpen?: boolean }>`
   position: fixed;
   top: 20px;
-  left: 20px;
+  left: ${(props) => props.isOpen ? "210px" : "20px"} ;
   background-color: white;
   color: white;
   border: none;
@@ -67,10 +68,12 @@ const MenuButton = styled.button`
   background-position: center;
   background-repeat: no-repeat;
   background-size: 20px 20px;
+  transition: left 0.3s ease-in-out;
 
   & hover {
     background-color: #0056b3;
   }
+
   @media screen and (max-width:900px) {
     visibility: visible;
   }

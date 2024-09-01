@@ -43,9 +43,10 @@ export function Home() {
   const toggleOpen = () => {
     setIsOpen(!isOpen);
   };
+  const backString = "<<";
   return (
     <>
-      <MenuButton onClick={() => toggleOpen()} />
+      <MenuButton isOpen={isOpen} onClick={() => toggleOpen()} />
       <SideBar isOpen={isOpen}>
         <a href="#main">Neocmakelsp</a>
         <a href="#feature">Features</a>
@@ -53,7 +54,9 @@ export function Home() {
         <a class="bottom" href="https://github.com/neocmakelsp/neocmakelsp">
           Github
         </a>
-        <button class="bottom" onClick={() => toggleOpen()}>X</button>
+        <button class="bottom" onClick={() => toggleOpen()}>
+          {backString}
+        </button>
       </SideBar>
       <TopMainArea>
         <TopText>
