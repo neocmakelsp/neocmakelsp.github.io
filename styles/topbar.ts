@@ -1,10 +1,9 @@
 import styled from "@nobody/styled-components-deno";
 
 const TopBar = styled.nav`
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   overflow: hidden;
-  background-color: #333;
-  opacity: 0.8;
+  background-color: #33333067;
   position: fixed;
   width: 100%;
   top: 0px;
