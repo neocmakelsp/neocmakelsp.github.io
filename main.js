@@ -254,7 +254,7 @@ n = p.slice, l = { __e: function(n2, l3, u4, t3) {
   return n2.__v.__b - l3.__v.__b;
 }, P.__r = 0, e = 0, c = F(false), s = F(true), a = 0;
 
-// https://jsr.io/@nobody/styled-components-deno/0.5.1/domElements.ts
+// https://jsr.io/@nobody/styled-components-deno/0.5.2/domElements.ts
 var elements = [
   "a",
   "abbr",
@@ -405,7 +405,7 @@ function u2(e3, t3, n2, o3, i4, u4) {
   return l.vnode && l.vnode(l3), l3;
 }
 
-// https://jsr.io/@nobody/styled-components-deno/0.5.1/styled.tsx
+// https://jsr.io/@nobody/styled-components-deno/0.5.2/styled.tsx
 var UniqueUid = class {
   uid = 0;
   constructor(uid) {
@@ -440,13 +440,12 @@ function createElementObject(tag, defaultStyleObject) {
   defaultStyle = defaultStyle.replaceAll(",", ";");
   defaultStyle = defaultStyle.replaceAll('"', "");
   const Element = (props) => {
-    const { style, children, ...restProps } = props;
-    const newstyle = style || defaultStyle;
+    const { children, ...restProps } = props;
+    const newstyle = defaultStyle;
     const className = generateClassName();
     injectStylesObject(className, newstyle);
     const newProp = {
       className: props.className || className,
-      style,
       ...restProps
     };
     return _(tag, newProp, children);
@@ -455,13 +454,12 @@ function createElementObject(tag, defaultStyleObject) {
 }
 function createElement(tag, defaultStyle) {
   const Element = (props) => {
-    const { style, children, ...restProps } = props;
-    const newstyle = style || defaultStyle;
+    const { children, ...restProps } = props;
+    const newstyle = defaultStyle;
     const className = generateClassName();
     injectStyles(className, newstyle);
     const newProp = {
       className: props.className || className,
-      style,
       ...restProps
     };
     return _(tag, newProp, children);
@@ -479,13 +477,11 @@ function createElementWithProps(tag, ostyle, ...args) {
         defaultStyle += stylestr;
       }
     });
-    const { style, children, ...restProps } = props;
-    const newstyle = style || defaultStyle;
+    const { children, ...restProps } = props;
     const className = generateClassName();
-    injectStyles(className, newstyle);
+    injectStyles(className, defaultStyle);
     const newProp = {
       className: props.className || className,
-      style,
       ...restProps
     };
     return _(tag, newProp, children);
@@ -497,9 +493,8 @@ function recreateElement(Component) {
     const defaultStyle = style.join("");
     const Element = (props) => {
       const { style: style2, children, ...restProps } = props;
-      const newstyle = style2 || defaultStyle;
       const className = generateClassName();
-      injectStyles(className, newstyle);
+      injectStyles(className, defaultStyle);
       const newProps = {
         className: props.className || className,
         style: style2,
@@ -530,7 +525,7 @@ domElements.forEach((domElement) => {
 });
 var styled = styledTmp;
 
-// https://jsr.io/@nobody/styled-components-deno/0.5.1/mod.ts
+// https://jsr.io/@nobody/styled-components-deno/0.5.2/mod.ts
 var mod_default = styled;
 
 // styles/topbar.ts
