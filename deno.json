@@ -1,6 +1,6 @@
 {
   "imports": {
-    "@nobody/styled-components-deno": "jsr:@nobody/styled-components-deno@^0.5.1",
+    "@nobody/styled-components-deno": "jsr:@nobody/styled-components-deno@^0.5.2",
     "@std/async": "jsr:@std/async@^1.0.3",
     "@std/cli": "jsr:@std/cli@^1.0.3",
     "@std/fs": "jsr:@std/fs@^1.0.1",
