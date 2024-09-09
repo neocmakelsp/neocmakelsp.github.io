@@ -3,21 +3,21 @@
   "packages": {
     "specifiers": {
       "jsr:@luca/esbuild-deno-loader@^0.10.3": "jsr:@luca/esbuild-deno-loader@0.10.3",
-      "jsr:@nobody/styled-components-deno@^0.5.2": "jsr:@nobody/styled-components-deno@0.5.2",
+      "jsr:@nobody/styled-components-deno@^0.8.0": "jsr:@nobody/styled-components-deno@0.8.0",
       "jsr:@std/assert@^0.213.1": "jsr:@std/assert@0.213.1",
-      "jsr:@std/async@^1.0.3": "jsr:@std/async@1.0.3",
-      "jsr:@std/cli@^1.0.3": "jsr:@std/cli@1.0.3",
+      "jsr:@std/async@^1.0.5": "jsr:@std/async@1.0.5",
+      "jsr:@std/cli@^1.0.5": "jsr:@std/cli@1.0.5",
       "jsr:@std/encoding@0.213": "jsr:@std/encoding@0.213.1",
-      "jsr:@std/encoding@^1.0.2": "jsr:@std/encoding@1.0.2",
-      "jsr:@std/fmt@^1.0.0": "jsr:@std/fmt@1.0.0",
-      "jsr:@std/fs@^1.0.1": "jsr:@std/fs@1.0.1",
-      "jsr:@std/http@^1.0.3": "jsr:@std/http@1.0.3",
+      "jsr:@std/encoding@^1.0.4": "jsr:@std/encoding@1.0.4",
+      "jsr:@std/fmt@^1.0.2": "jsr:@std/fmt@1.0.2",
+      "jsr:@std/fs@^1.0.3": "jsr:@std/fs@1.0.3",
+      "jsr:@std/http@^1.0.5": "jsr:@std/http@1.0.5",
       "jsr:@std/jsonc@0.213": "jsr:@std/jsonc@0.213.1",
-      "jsr:@std/media-types@^1.0.2": "jsr:@std/media-types@1.0.2",
-      "jsr:@std/net@^1.0.0": "jsr:@std/net@1.0.0",
+      "jsr:@std/media-types@^1.0.3": "jsr:@std/media-types@1.0.3",
+      "jsr:@std/net@^1.0.2": "jsr:@std/net@1.0.2",
       "jsr:@std/path@0.213": "jsr:@std/path@0.213.1",
-      "jsr:@std/path@^1.0.2": "jsr:@std/path@1.0.2",
-      "jsr:@std/streams@^1.0.2": "jsr:@std/streams@1.0.2",
+      "jsr:@std/path@^1.0.4": "jsr:@std/path@1.0.4",
+      "jsr:@std/streams@^1.0.4": "jsr:@std/streams@1.0.4",
       "npm:esbuild@^0.23.1": "npm:esbuild@0.23.1",
       "npm:preact": "npm:preact@10.23.2",
       "npm:preact@^10.23.2": "npm:preact@10.23.2",
@@ -35,8 +35,8 @@
           "jsr:@std/path@0.213"
         ]
       },
-      "@nobody/styled-components-deno@0.5.2": {
-        "integrity": "29cf3fc1dc015c142d5a24a49db0fae500e3cc24ea4a64c9b4a6b535f4c2df65",
+      "@nobody/styled-components-deno@0.8.0": {
+        "integrity": "01d9b842087a5556a9effa9383ce13ea0daab3870f023c52492b76313d0395d5",
         "dependencies": [
           "npm:preact@^10.23.2",
           "npm:react@^18.3.1"
@@ -45,37 +45,37 @@
       "@std/assert@0.213.1": {
         "integrity": "24c28178b30c8e0782c18e8e94ea72b16282207569cdd10ffb9d1d26f2edebfe"
       },
-      "@std/async@1.0.3": {
-        "integrity": "6ed64678db43451683c6c176a21426a2ccd21ba0269ebb2c36133ede3f165792"
+      "@std/async@1.0.5": {
+        "integrity": "31d68214bfbb31bd4c6022401d484e3964147c76c9220098baa703a39b6c2da6"
       },
-      "@std/cli@1.0.3": {
-        "integrity": "9a0488b5d2e58d29dce106a941eecec7181fae996bf0d2225563f1ca7e4b100c"
+      "@std/cli@1.0.5": {
+        "integrity": "c93cce26ffd26f617c15a12874e1bfeabc90b1eee86017c9639093734c2bf587"
       },
       "@std/encoding@0.213.1": {
         "integrity": "fcbb6928713dde941a18ca5db88ca1544d0755ec8fb20fe61e2dc8144b390c62"
       },
-      "@std/encoding@1.0.2": {
-        "integrity": "7ed640c777e3275550e2cd937c440acdbebfdcd2d13ef67052f0536bf43e707f"
+      "@std/encoding@1.0.4": {
+        "integrity": "2266cd516b32369e3dc5695717c96bf88343a1f761d6e6187a02a2bbe2af86ae"
       },
-      "@std/fmt@1.0.0": {
-        "integrity": "8a95c9fdbb61559418ccbc0f536080cf43341655e1444f9d375a66886ceaaa3d"
+      "@std/fmt@1.0.2": {
+        "integrity": "87e9dfcdd3ca7c066e0c3c657c1f987c82888eb8103a3a3baa62684ffeb0f7a7"
       },
-      "@std/fs@1.0.1": {
-        "integrity": "d6914ca2c21abe591f733b31dbe6331e446815e513e2451b3b9e472daddfefcb",
+      "@std/fs@1.0.3": {
+        "integrity": "3cb839b1360b0a42d8b367c3093bfe4071798e6694fa44cf1963e04a8edba4fe",
         "dependencies": [
-          "jsr:@std/path@^1.0.2"
+          "jsr:@std/path@^1.0.4"
         ]
       },
-      "@std/http@1.0.3": {
-        "integrity": "bff3770c4df4711567de1711fe988d28db9535be0c9b0f1d2de8d0fb97e8b44c",
+      "@std/http@1.0.5": {
+        "integrity": "afa1cf4f0c19e224534df3288a84de4fdfffe8a26308dfe3794166e4fafe0f3d",
         "dependencies": [
-          "jsr:@std/cli@^1.0.3",
-          "jsr:@std/encoding@^1.0.2",
-          "jsr:@std/fmt@^1.0.0",
-          "jsr:@std/media-types@^1.0.2",
-          "jsr:@std/net@^1.0.0",
-          "jsr:@std/path@^1.0.2",
-          "jsr:@std/streams@^1.0.2"
+          "jsr:@std/cli@^1.0.5",
+          "jsr:@std/encoding@^1.0.4",
+          "jsr:@std/fmt@^1.0.2",
+          "jsr:@std/media-types@^1.0.3",
+          "jsr:@std/net@^1.0.2",
+          "jsr:@std/path@^1.0.4",
+          "jsr:@std/streams@^1.0.4"
         ]
       },
       "@std/jsonc@0.213.1": {
@@ -84,11 +84,11 @@
           "jsr:@std/assert@^0.213.1"
         ]
       },
-      "@std/media-types@1.0.2": {
-        "integrity": "abb78dc8f7d88141cba8c4d60fc1e8b421e5c7b0d7c84f2f708bc666cad46784"
+      "@std/media-types@1.0.3": {
+        "integrity": "b12d30a7852f7578f4d210622df713bbfd1cbdd9b4ec2eaf5c1845ab70bab159"
       },
-      "@std/net@1.0.0": {
-        "integrity": "31de7a45f074edee8296d77fde85fef53fed9baa6f3122a38d796af08ecb3fc9"
+      "@std/net@1.0.2": {
+        "integrity": "520c18ddb7f67d3830a1adfef03a155d496fe9683a9cb63bb823b5afb86484dc"
       },
       "@std/path@0.213.1": {
         "integrity": "f187bf278a172752e02fcbacf6bd78a335ed320d080a7ed3a5a59c3e88abc673",
@@ -96,11 +96,11 @@
           "jsr:@std/assert@^0.213.1"
         ]
       },
-      "@std/path@1.0.2": {
-        "integrity": "a452174603f8c620bd278a380c596437a9eef50c891c64b85812f735245d9ec7"
+      "@std/path@1.0.4": {
+        "integrity": "48dd5d8389bcfcd619338a01bdf862cb7799933390146a54ae59356a0acc7105"
       },
-      "@std/streams@1.0.2": {
-        "integrity": "187c3c875675221f5355807a735e51b0f8769caade2cbca6d7f4fa710ea4ace4"
+      "@std/streams@1.0.4": {
+        "integrity": "a1a5b01c74ca1d2dcaacfe1d4bbb91392e765946d82a3471bd95539adc6da83a"
       }
     },
     "npm": {
@@ -255,12 +255,12 @@
   "workspace": {
     "dependencies": [
       "jsr:@luca/esbuild-deno-loader@^0.10.3",
-      "jsr:@nobody/styled-components-deno@^0.5.2",
-      "jsr:@std/async@^1.0.3",
-      "jsr:@std/cli@^1.0.3",
-      "jsr:@std/fs@^1.0.1",
-      "jsr:@std/http@^1.0.3",
-      "jsr:@std/path@^1.0.2",
+      "jsr:@nobody/styled-components-deno@^0.8.0",
+      "jsr:@std/async@^1.0.5",
+      "jsr:@std/cli@^1.0.5",
+      "jsr:@std/fs@^1.0.3",
+      "jsr:@std/http@^1.0.5",
+      "jsr:@std/path@^1.0.4",
       "npm:esbuild@^0.23.1",
       "npm:preact@^10.23.2",
       "npm:react@^18.3.1"
