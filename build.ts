@@ -69,7 +69,7 @@ const docroutine = new Route("doc")
   .append_webpage(
     new WebPageUnit(
       "./src/doc.tsx",
-      [{ type: "main", id: "mount" }],
+      [{ type: "header", id: "header" }, { type: "main", id: "mount" }],
       docscripts,
     )
       .with_title("neocmakelsp document").with_linkInfos([
