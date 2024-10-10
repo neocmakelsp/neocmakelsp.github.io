@@ -1,12 +1,9 @@
-import * as esbuild from "esbuild";
-import { denoPlugins } from "esbuild_deno_loader";
-import { copySync, ensureDir, existsSync } from "@std/fs";
-import { resolve } from "@std/path";
-
 import { serveDir } from "@std/http";
 import { delay } from "@std/async";
 
 import { parseArgs } from "@std/cli";
+
+import { GenWebsite, Route, WebPageUnit } from "@nobody/tananoni";
 
 interface BuildMode {
   debug?: boolean;
@@ -17,29 +14,14 @@ const input_args = parseArgs(Deno.args) as BuildMode;
 
 const release_mode = input_args.release;
 
-let sync_asset = "static/debug";
+let route_path = "debug";
 
 if (release_mode) {
-  sync_asset = "static/release";
+  route_path = "release";
 }
 
-let distDir = "dist/debug";
-
-if (release_mode) {
-  distDir = "dist/release";
-}
-
-const base_asserts = `${Deno.cwd()}/static/asserts`;
-const css_asserts = `${Deno.cwd()}/static/styles`;
-
-ensureDir(distDir);
-
-const fsRoot = `${Deno.cwd()}/dist/debug`;
-
-const options = { overwrite: true };
-copySync(sync_asset, distDir, options);
-copySync(base_asserts, `${distDir}/static`, options);
-copySync(css_asserts, `${distDir}/styles`, options);
+const base_asserts = { path: "static/asserts", alias: "static" };
+const css_asserts = { path: "static/styles" };
 
 /**
  * In-memory store of open WebSockets for
@@ -71,41 +53,39 @@ function refreshMiddleware(req: Request): Response | null {
   return null;
 }
 
-async function esbuild_generate() {
-  const esBuildOptions: esbuild.BuildOptions = {
-    entryPoints: [
-      "./src/main.tsx",
-    ],
-    jsxImportSource: "npm:preact",
-    jsx: "automatic",
-    outdir: distDir,
-    bundle: true,
-    format: "esm",
-    logLevel: "verbose",
-    plugins: [],
-  };
+const scripts = ["main.js"];
 
-  // Build Deno Plugin Options
-  let importMapURL: string | undefined = resolve("./import_map.json");
-
-  if (!existsSync(importMapURL)) {
-    importMapURL = undefined;
-  }
-  const configUrl = resolve("./deno.json");
-
-  esBuildOptions.plugins = [
-    ...denoPlugins(
-      {
-        importMapURL: importMapURL,
-        configPath: configUrl,
-      },
-    ),
-  ];
-
-  await esbuild.build({ ...esBuildOptions });
+if (!release_mode) {
+  scripts.push("./refresh/client.js");
 }
 
-await esbuild_generate();
+let route = new Route(route_path)
+  .append_assert(base_asserts)
+  .append_assert(css_asserts)
+  .append_webpage(
+    new WebPageUnit(
+      "./src/main.tsx",
+      [
+        { type: "main", id: "mount" },
+        { type: "header", id: "header" },
+      ],
+      scripts,
+    )
+      .with_title("neocmakelsp")
+      .with_linkInfos([
+        { type: "stylesheet", href: "styles/global.css" },
+        { type: "icon", href: "static/favicon.ico" },
+      ]),
+  );
+if (!release_mode) {
+  route = route.append_assert({ path: "./static/debug/refresh" });
+}
+
+const webgen = new GenWebsite()
+  .withLogLevel("info")
+  .withImportSource("npm:preact");
+
+await webgen.generate_website(route);
 
 async function watch() {
   let during_wait = false;
@@ -138,7 +118,7 @@ async function watch() {
       continue;
     }
 
-    await esbuild_generate();
+    await webgen.generate_website(route);
     sockets.forEach((socket) => {
       socket.send("refresh");
     });
@@ -151,6 +131,7 @@ if (release_mode) {
   Deno.exit(0);
 }
 
+const fsRoot = `${Deno.cwd()}/dist/debug`;
 Deno.serve({ hostname: "localhost", port: 8000 }, async (req) => {
   const res = refreshMiddleware(req);
 
