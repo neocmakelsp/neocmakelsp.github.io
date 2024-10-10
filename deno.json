@@ -1,7 +1,7 @@
 {
   "imports": {
     "@nobody/styled-components-deno": "jsr:@nobody/styled-components-deno@^0.8.0",
-    "@nobody/tananoni": "jsr:@nobody/tananoni@^0.3.0",
+    "@nobody/tananoni": "jsr:@nobody/tananoni@^0.3.4",
     "@std/async": "jsr:@std/async@^1.0.5",
     "@std/cli": "jsr:@std/cli@^1.0.5",
     "@std/fs": "jsr:@std/fs@^1.0.3",

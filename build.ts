@@ -3,7 +3,7 @@ import { delay } from "@std/async";
 
 import { parseArgs } from "@std/cli";
 
-import { GenWebsite, Route, WebPageUnit } from "@nobody/tananoni";
+import { GenWebsite, Route, type Script, WebPageUnit } from "@nobody/tananoni";
 
 interface BuildMode {
   debug?: boolean;
@@ -53,10 +53,10 @@ function refreshMiddleware(req: Request): Response | null {
   return null;
 }
 
-const scripts = ["main.js"];
+const scripts: Script[] = [{ src: "main.js" }];
 
 if (!release_mode) {
-  scripts.push("./refresh/client.js");
+  scripts.push({ src: "./refresh/client.js" });
 }
 
 let route = new Route(route_path)
