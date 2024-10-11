@@ -62,7 +62,7 @@ const MarkdownAreaCSS = styled.div`
     background-color: #454441;
     color: white;
   }
-`
+`;
 
 const documentKeys: string[] = [];
 
@@ -163,7 +163,6 @@ function Doc() {
     </>
   );
 }
-
 
 const mount = document.getElementById("mount");
 if (mount) {

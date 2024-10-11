@@ -22,4 +22,5 @@ If you are using neovim, and using mason, just install neocmakelsp from mason.
 
 ## From other places
 
-Now neocmakelsp is packaged in nix, freebsd and msys2, you can directly install neocmakelsp if you are using them.
+Now neocmakelsp is packaged in nix, freebsd and msys2, you can directly install
+neocmakelsp if you are using them.
