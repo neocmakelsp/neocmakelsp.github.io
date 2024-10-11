@@ -31,6 +31,7 @@ export function Header() {
       <a href="#main">Neocmakelsp</a>
       <a href="#feature">Features</a>
       <a href="#install">Install</a>
+      <a href="/doc">Document</a>
       <a class="right" href="https://github.com/neocmakelsp/neocmakelsp">
         Github
       </a>
@@ -51,6 +52,7 @@ export function Home() {
         <SideBarA href="#main">Neocmakelsp</SideBarA>
         <SideBarA href="#feature">Features</SideBarA>
         <SideBarA href="#install">Install</SideBarA>
+        <SideBarA href="/doc">Document</SideBarA>
         <SideBarA
           isBottom={true}
           href="https://github.com/neocmakelsp/neocmakelsp"

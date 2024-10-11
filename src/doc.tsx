@@ -8,14 +8,31 @@ import { result as InstallResult } from "./doc/installdoc.ts";
 import { result as UsageResult } from "./doc/usagedoc.ts";
 import React from "react";
 const MarkdownArea = styled.div<{ isOpen: boolean }>`
-  height: 100vh;
   overflow-y: scroll;
   overflow-x: hidden;
   overflow-wrap: break-word;
-  padding-left: ${({ isOpen }) => isOpen ? "280px" : "80px"};
-  padding-right: 2%;
-  padding-top: 60px;
+  padding-left: ${({ isOpen }) => isOpen ? "300px" : "60px"};
+  padding-right: 5%;
+  padding-top: 80px;
+  padding-bottom: 80px;
   transition: padding-left 0.3s ease-in-out;
+`;
+
+const GoPreNextNav = styled.nav`
+  display: block;
+`;
+
+const GoPreNextA = styled.button<{ direction?: "left" | "right" }>`
+  border: 0px;
+  cursor: pointer;
+  padding: 14px 20px;
+  text-decoration: none;
+  font-size: 20px;
+  float: ${({ direction }) => direction == "right" ? "right" : "left"};
+  &:hover {
+    background-color: #ddd;
+    color: black;
+  }
 `;
 
 const LeftA = styled.a<{ selected?: boolean }>`
@@ -31,15 +48,33 @@ const LeftA = styled.a<{ selected?: boolean }>`
   }
 `;
 
+const MarkdownAreaCSS = styled.div`
+  & pre {
+    padding: 10px;
+    background-color: #454441;
+    border-radius: 5px;
+    overflow-x: auto
+  }
+  & code {
+    background-color: #c9c9c7;
+  }
+  & pre code {
+    background-color: #454441;
+    color: white;
+  }
+`
+
+const documentKeys: string[] = [];
+
 const documentIndex = new Map<string, string>();
 
 documentIndex.set("install", InstallResult);
+documentKeys.push("install");
 documentIndex.set("usage", UsageResult);
-
-const mount = document.getElementById("mount");
+documentKeys.push("usage");
 
 const StringToDomComponent = ({ htmlString }: { htmlString: string }) => {
-  return <div dangerouslySetInnerHTML={{ __html: htmlString }} />;
+  return <MarkdownAreaCSS dangerouslySetInnerHTML={{ __html: htmlString }} />;
 };
 function Header() {
   return (
@@ -60,13 +95,45 @@ function Doc() {
   };
 
   const sidebarList: React.FC[] = [];
-  documentIndex.keys().forEach((key) => {
+  documentKeys.forEach((key) => {
     sidebarList.push(
       <LeftA selected={key == selected} onClick={() => setSelected(key)}>
         {key}
       </LeftA>,
     );
   });
+
+  const next = (): string | undefined => {
+    const index = documentKeys.findIndex((cp) => cp == selected);
+    if (index < 0 || index >= documentKeys.length - 1) {
+      return undefined;
+    }
+    return `> ${documentKeys[index + 1]}`;
+  };
+
+  const goNext = () => {
+    const index = documentKeys.findIndex((cp) => cp == selected);
+    if (index < 0 || index >= documentKeys.length - 1) {
+      return;
+    }
+    setSelected(documentKeys[index + 1]);
+  };
+
+  const pre = (): string | undefined => {
+    const index = documentKeys.findIndex((cp) => cp == selected);
+    if (index <= 0) {
+      return undefined;
+    }
+    return `< ${documentKeys[index - 1]}`;
+  };
+
+  const goPre = () => {
+    const index = documentKeys.findIndex((cp) => cp == selected);
+    if (index <= 0) {
+      return;
+    }
+    setSelected(documentKeys[index - 1]);
+  };
 
   return (
     <>
@@ -82,11 +149,23 @@ function Doc() {
 
       <MarkdownArea isOpen={isOpen}>
         <StringToDomComponent htmlString={documentIndex.get(selected) || ""} />
+        <GoPreNextNav>
+          {pre() && (
+            <GoPreNextA direction={"left"} onClick={goPre}>{pre()}</GoPreNextA>
+          )}
+          {next() && (
+            <GoPreNextA direction={"right"} onClick={goNext}>
+              {next()}
+            </GoPreNextA>
+          )}
+        </GoPreNextNav>
       </MarkdownArea>
     </>
   );
 }
 
+
+const mount = document.getElementById("mount");
 if (mount) {
   render(<Doc />, mount);
 }

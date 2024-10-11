@@ -139,7 +139,7 @@ async function watch() {
         pa.includes("./dist") || pa.includes("./build.ts") ||
         (pa.endsWith(".git") || pa.includes(".git/")) ||
         (!pa.endsWith("ts") && !pa.endsWith("tsx") && !pa.endsWith("css") &&
-          !pa.endsWith("js") && !pa.endsWith("jsx"))
+          !pa.endsWith("js") && !pa.endsWith("jsx") && !pa.endsWith("md"))
       ) {
         continue;
       }
