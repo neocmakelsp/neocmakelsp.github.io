@@ -59,7 +59,35 @@ if (!release_mode) {
   scripts.push({ src: "./refresh/client.js" });
 }
 
-let route = new Route(route_path)
+const docscripts: Script[] = [{ src: "doc.js", type: "module" }];
+if (!release_mode) {
+  docscripts.push({ src: "./refresh/client.js" });
+}
+
+const docroutine = new Route("doc")
+  .append_assert(base_asserts)
+  .append_assert(css_asserts)
+  .append_webpage(
+    new WebPageUnit(
+      "./src/doc.tsx",
+      [{ type: "header", id: "header" }, { type: "main", id: "mount" }],
+      docscripts,
+    )
+      .with_title("neocmakelsp document").with_linkInfos([
+        { type: "stylesheet", href: "styles/global.css" },
+        { type: "icon", href: "favicon.ico" },
+      ]),
+  )
+  .append_assert({ path: "./markdowns" })
+  .append_assert({ path: "./static/asserts/favicon.ico" })
+  .then((route) => {
+    if (!release_mode) {
+      route = route.append_assert({ path: "./static/debug/refresh" });
+    }
+    return route;
+  });
+
+const homeroute = new Route(route_path)
   .append_assert(base_asserts)
   .append_assert(css_asserts)
   .append_webpage(
@@ -76,16 +104,20 @@ let route = new Route(route_path)
         { type: "stylesheet", href: "styles/global.css" },
         { type: "icon", href: "static/favicon.ico" },
       ]),
-  );
-if (!release_mode) {
-  route = route.append_assert({ path: "./static/debug/refresh" });
-}
+  )
+  .append_route(docroutine)
+  .then((route) => {
+    if (!release_mode) {
+      route = route.append_assert({ path: "./static/debug/refresh" });
+    }
+    return route;
+  });
 
 const webgen = new GenWebsite()
   .withLogLevel("info")
   .withImportSource("npm:preact");
 
-await webgen.generate_website(route);
+await webgen.generate_website(homeroute);
 
 async function watch() {
   let during_wait = false;
@@ -107,7 +139,7 @@ async function watch() {
         pa.includes("./dist") || pa.includes("./build.ts") ||
         (pa.endsWith(".git") || pa.includes(".git/")) ||
         (!pa.endsWith("ts") && !pa.endsWith("tsx") && !pa.endsWith("css") &&
-          !pa.endsWith("js") && !pa.endsWith("jsx"))
+          !pa.endsWith("js") && !pa.endsWith("jsx") && !pa.endsWith("md"))
       ) {
         continue;
       }
@@ -118,7 +150,7 @@ async function watch() {
       continue;
     }
 
-    await webgen.generate_website(route);
+    await webgen.generate_website(homeroute);
     sockets.forEach((socket) => {
       socket.send("refresh");
     });

@@ -1,9 +1,14 @@
 import styled from "@nobody/styled-components-deno";
 
-const TopBar = styled.nav`
+const TopBar = styled.nav<{ isdark?: boolean; autohide?: boolean }>`
   backdrop-filter: blur(10px);
   overflow: hidden;
-  background-color: #33333067;
+  background-color: ${({ isdark }) => {
+  if (isdark) {
+    return "#111111";
+  }
+  return "#33333067";
+}};
   position: fixed;
   width: 100%;
   top: 0px;
@@ -26,7 +31,12 @@ const TopBar = styled.nav`
   }
 
   @media screen and (max-width:900px) {
-    visibility: hidden;
+    visibility: ${({ autohide }) => {
+  if (autohide) {
+    return "hidden";
+  }
+  return "visible";
+}};
   }
 `;
 

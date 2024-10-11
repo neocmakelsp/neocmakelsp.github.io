@@ -1,20 +1,22 @@
 import styled from "@nobody/styled-components-deno";
 
-const SideBar = styled.li<{ isOpen?: boolean }>`
+const SideBar = styled.li<
+  { isOpen?: boolean; autohide?: boolean; zIndex?: number; top?: string }
+>`
   backdrop-filter: blur(10px);
-  width: 200px;
+  width: 180px;
   height: 100%;
   background-color: #333330aa;
   position: fixed;
-  top: 0;
-  z-index: 3;
-  visibility: hidden;
+  top: ${({ top }) => top ? top : "0"};
+  z-index: ${({ zIndex }) => zIndex ? zIndex : 3};
+  visibility: ${({ autohide }) => autohide ? "hidden" : "visible"};
   list-style-type: none;
   display: flex;
   /* move flex-items in column */
   flex-direction: column;
 
-  left: ${(props) => props.isOpen ? "0" : "-250px"} ;
+  left: ${({ isOpen }) => isOpen ? "0" : "-200px"} ;
   transition: left 0.3s ease-in-out;
 
   @media screen and (max-width:900px) {
@@ -34,25 +36,26 @@ const SideBar = styled.li<{ isOpen?: boolean }>`
     background-color: #ddd;
     color: black;
   }
-  & a {
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  & a.bottom {
-    margin-top: auto;
-  }
-  & a:hover {
+`;
+
+const SideBarA = styled.a<{ isBottom?: boolean }>`
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  margin-top: ${({ isBottom }) => isBottom ? "auto" : "0"};
+  &:hover {
     background-color: #ddd;
     color: black;
   }
 `;
 
-const MenuButton = styled.button<{ isOpen?: boolean }>`
+const MenuButton = styled.button<
+  { isOpen?: boolean; alwaysShown?: boolean; top?: number }
+>`
   position: fixed;
-  top: 20px;
+  top: ${({ top }) => top ? top : 20}px;
   left: ${(props) => props.isOpen ? "210px" : "20px"} ;
   background-color: white;
   color: white;
@@ -63,7 +66,7 @@ const MenuButton = styled.button<{ isOpen?: boolean }>`
   font-size: 24px;
   cursor: pointer;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  visibility: hidden;
+  visibility: ${({ alwaysShown }) => alwaysShown ? "visible" : "hidden"};
   background-image: url("static/menu.svg");
   background-position: center;
   background-repeat: no-repeat;
@@ -80,4 +83,4 @@ const MenuButton = styled.button<{ isOpen?: boolean }>`
 
 `;
 
-export { MenuButton, SideBar };
+export { MenuButton, SideBar, SideBarA };
