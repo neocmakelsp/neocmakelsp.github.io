@@ -560,7 +560,12 @@ var mod_default = styled;
 var TopBar = mod_default.nav`
   backdrop-filter: blur(10px);
   overflow: hidden;
-  background-color: #33333067;
+  background-color: ${({ isdark }) => {
+  if (isdark) {
+    return "#111111";
+  }
+  return "#33333067";
+}};
   position: fixed;
   width: 100%;
   top: 0px;
@@ -583,14 +588,19 @@ var TopBar = mod_default.nav`
   }
 
   @media screen and (max-width:900px) {
-    visibility: hidden;
+    visibility: ${({ autohide }) => {
+  if (autohide) {
+    return "hidden";
+  }
+  return "visible";
+}};
   }
 `;
 var topbar_default = TopBar;
 
 // components/titlebar.tsx
-function TopBar2({ children }) {
-  return /* @__PURE__ */ u2(topbar_default, { children });
+function MainTopBar({ children }) {
+  return /* @__PURE__ */ u2(topbar_default, { autohide: true, children });
 }
 
 // styles/topmainarea.ts
@@ -1018,19 +1028,19 @@ function ContributeTitle({ children }) {
 // styles/sidebar.ts
 var SideBar = mod_default.li`
   backdrop-filter: blur(10px);
-  width: 200px;
+  width: 180px;
   height: 100%;
   background-color: #333330aa;
   position: fixed;
-  top: 0;
-  z-index: 3;
-  visibility: hidden;
+  top: ${({ top }) => top ? top : "0"};
+  z-index: ${({ zIndex }) => zIndex ? zIndex : 3};
+  visibility: ${({ autohide }) => autohide ? "hidden" : "visible"};
   list-style-type: none;
   display: flex;
   /* move flex-items in column */
   flex-direction: column;
 
-  left: ${(props) => props.isOpen ? "0" : "-250px"} ;
+  left: ${({ isOpen }) => isOpen ? "0" : "-200px"} ;
   transition: left 0.3s ease-in-out;
 
   @media screen and (max-width:900px) {
@@ -1050,24 +1060,22 @@ var SideBar = mod_default.li`
     background-color: #ddd;
     color: black;
   }
-  & a {
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  & a.bottom {
-    margin-top: auto;
-  }
-  & a:hover {
+`;
+var SideBarA = mod_default.a`
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  margin-top: ${({ isBottom }) => isBottom ? "auto" : "0"};
+  &:hover {
     background-color: #ddd;
     color: black;
   }
 `;
 var MenuButton = mod_default.button`
   position: fixed;
-  top: 20px;
+  top: ${({ top }) => top ? top : 20}px;
   left: ${(props) => props.isOpen ? "210px" : "20px"} ;
   background-color: white;
   color: white;
@@ -1078,7 +1086,7 @@ var MenuButton = mod_default.button`
   font-size: 24px;
   cursor: pointer;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  visibility: hidden;
+  visibility: ${({ alwaysShown }) => alwaysShown ? "visible" : "hidden"};
   background-image: url("static/menu.svg");
   background-position: center;
   background-repeat: no-repeat;
@@ -1097,10 +1105,11 @@ var MenuButton = mod_default.button`
 
 // pages/home.tsx
 function Header() {
-  return /* @__PURE__ */ u2(TopBar2, { children: [
+  return /* @__PURE__ */ u2(MainTopBar, { children: [
     /* @__PURE__ */ u2("a", { href: "#main", children: "Neocmakelsp" }),
     /* @__PURE__ */ u2("a", { href: "#feature", children: "Features" }),
     /* @__PURE__ */ u2("a", { href: "#install", children: "Install" }),
+    /* @__PURE__ */ u2("a", { href: "/doc", children: "Document" }),
     /* @__PURE__ */ u2("a", { class: "right", href: "https://github.com/neocmakelsp/neocmakelsp", children: "Github" })
   ] });
 }
@@ -1112,11 +1121,19 @@ function Home() {
   const backString = "<<";
   return /* @__PURE__ */ u2(k, { children: [
     /* @__PURE__ */ u2(MenuButton, { isOpen, onClick: () => toggleOpen() }),
-    /* @__PURE__ */ u2(SideBar, { isOpen, children: [
-      /* @__PURE__ */ u2("a", { href: "#main", children: "Neocmakelsp" }),
-      /* @__PURE__ */ u2("a", { href: "#feature", children: "Features" }),
-      /* @__PURE__ */ u2("a", { href: "#install", children: "Install" }),
-      /* @__PURE__ */ u2("a", { class: "bottom", href: "https://github.com/neocmakelsp/neocmakelsp", children: "Github" }),
+    /* @__PURE__ */ u2(SideBar, { isOpen, autohide: true, children: [
+      /* @__PURE__ */ u2(SideBarA, { href: "#main", children: "Neocmakelsp" }),
+      /* @__PURE__ */ u2(SideBarA, { href: "#feature", children: "Features" }),
+      /* @__PURE__ */ u2(SideBarA, { href: "#install", children: "Install" }),
+      /* @__PURE__ */ u2(SideBarA, { href: "/doc", children: "Document" }),
+      /* @__PURE__ */ u2(
+        SideBarA,
+        {
+          isBottom: true,
+          href: "https://github.com/neocmakelsp/neocmakelsp",
+          children: "Github"
+        }
+      ),
       /* @__PURE__ */ u2("button", { class: "bottom", onClick: () => toggleOpen(), children: backString })
     ] }),
     /* @__PURE__ */ u2(TopMainArea, { children: [
