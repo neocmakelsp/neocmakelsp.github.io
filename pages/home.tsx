@@ -1,4 +1,4 @@
-import TitleBar from "~/components/titlebar.tsx";
+import { MainTopBar as TitleBar } from "~/components/titlebar.tsx";
 
 import TopMainArea, {
   TopMainAreaSmallTitle,
@@ -21,7 +21,7 @@ import InstallMain, {
 } from "~/components/install.tsx";
 import ContributeMain, { ContributeTitle } from "~/components/contribute.tsx";
 
-import { MenuButton, SideBar } from "~/styles/sidebar.ts";
+import { MenuButton, SideBar, SideBarA } from "~/styles/sidebar.ts";
 
 import { useState } from "preact/hooks";
 
@@ -47,13 +47,16 @@ export function Home() {
   return (
     <>
       <MenuButton isOpen={isOpen} onClick={() => toggleOpen()} />
-      <SideBar isOpen={isOpen}>
-        <a href="#main">Neocmakelsp</a>
-        <a href="#feature">Features</a>
-        <a href="#install">Install</a>
-        <a class="bottom" href="https://github.com/neocmakelsp/neocmakelsp">
+      <SideBar isOpen={isOpen} autohide={true}>
+        <SideBarA href="#main">Neocmakelsp</SideBarA>
+        <SideBarA href="#feature">Features</SideBarA>
+        <SideBarA href="#install">Install</SideBarA>
+        <SideBarA
+          isBottom={true}
+          href="https://github.com/neocmakelsp/neocmakelsp"
+        >
           Github
-        </a>
+        </SideBarA>
         <button class="bottom" onClick={() => toggleOpen()}>
           {backString}
         </button>

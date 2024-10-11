@@ -2,11 +2,21 @@ import { PropsWithChildren } from "react";
 
 import TopBarClass from "~/styles/topbar.ts";
 
-export default function TopBar(
+export function MainTopBar(
   { children }: PropsWithChildren,
 ) {
   return (
-    <TopBarClass>
+    <TopBarClass autohide={true}>
+      {children}
+    </TopBarClass>
+  );
+}
+
+export function DocTopBar(
+  { children }: PropsWithChildren,
+) {
+  return (
+    <TopBarClass isdark={true}>
       {children}
     </TopBarClass>
   );

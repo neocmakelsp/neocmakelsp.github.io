@@ -65,6 +65,7 @@ if (!release_mode) {
 }
 
 const docroutine = new Route("doc")
+  .append_assert(base_asserts)
   .append_assert(css_asserts)
   .append_webpage(
     new WebPageUnit(
