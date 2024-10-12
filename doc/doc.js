@@ -6222,8 +6222,8 @@ var MarkdownArea = mod_default.div`
   overflow-y: scroll;
   overflow-x: hidden;
   overflow-wrap: break-word;
-  padding-left: ${({ isOpen }) => isOpen ? "170px" : "40px"};
-  padding-right: 5%;
+  padding-left: ${({ isOpen }) => isOpen ? "170px" : "50px"};
+  padding-right: 40px;
   padding-top: 80px;
   padding-bottom: 80px;
   transition: padding-left 0.3s ease-in-out;
