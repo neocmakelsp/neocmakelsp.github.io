@@ -59,7 +59,7 @@ if (!release_mode) {
   scripts.push({ src: "./refresh/client.js" });
 }
 
-const docscripts: Script[] = [{ src: "doc.js", type: "module" }];
+const docscripts: Script[] = [];
 if (!release_mode) {
   docscripts.push({ src: "./refresh/client.js" });
 }
@@ -69,14 +69,38 @@ const docroutine = new Route("doc")
   .append_assert(css_asserts)
   .append_webpage(
     new WebPageUnit(
-      "./src/doc.tsx",
+      "./src/doc/introduction.tsx",
       [{ type: "header", id: "header" }, { type: "main", id: "mount" }],
-      docscripts,
+      [{ type: "module", src: "introduction.js" }, ...docscripts],
     )
-      .with_title("neocmakelsp document").with_linkInfos([
+      .with_title("neocmakelsp introduction").with_linkInfos([
         { type: "stylesheet", href: "styles/global.css" },
         { type: "icon", href: "favicon.ico" },
       ]),
+  )
+  .append_webpage(
+    new WebPageUnit(
+      "./src/doc/installdoc.tsx",
+      [{ type: "header", id: "header" }, { type: "main", id: "mount" }],
+      [{ type: "module", src: "installdoc.js" }, ...docscripts],
+    )
+      .with_title("How to Install").with_linkInfos([
+        { type: "stylesheet", href: "styles/global.css" },
+        { type: "icon", href: "favicon.ico" },
+      ])
+      .with_htmlName("install.html"),
+  )
+  .append_webpage(
+    new WebPageUnit(
+      "./src/doc/usagedoc.tsx",
+      [{ type: "header", id: "header" }, { type: "main", id: "mount" }],
+      [{ type: "module", src: "usagedoc.js" }, ...docscripts],
+    )
+      .with_title("How to use").with_linkInfos([
+        { type: "stylesheet", href: "styles/global.css" },
+        { type: "icon", href: "favicon.ico" },
+      ])
+      .with_htmlName("usage.html"),
   )
   .append_assert({ path: "./markdowns" })
   .append_assert({ path: "./static/asserts/favicon.ico" })

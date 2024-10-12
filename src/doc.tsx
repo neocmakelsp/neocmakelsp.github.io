@@ -1,17 +1,13 @@
-import { render } from "preact";
-
 import { DocTopBar } from "~/components/titlebar.tsx";
 import styled from "@nobody/styled-components-deno";
 import { MenuButton, SideBar } from "~/styles/sidebar.ts";
 import { useState } from "preact/hooks";
-import { result as InstallResult } from "./doc/installdoc.ts";
-import { result as UsageResult } from "./doc/usagedoc.ts";
 import React from "react";
 const MarkdownArea = styled.div<{ isOpen: boolean }>`
   overflow-y: scroll;
   overflow-x: hidden;
   overflow-wrap: break-word;
-  padding-left: ${({ isOpen }) => isOpen ? "170px" : "50px"};
+  padding-left: ${({ isOpen }) => isOpen ? "200px" : "50px"};
   padding-right: 40px;
   padding-top: 80px;
   padding-bottom: 80px;
@@ -66,17 +62,14 @@ const MarkdownAreaCSS = styled.div`
 
 const documentKeys: string[] = [];
 
-const documentIndex = new Map<string, string>();
-
-documentIndex.set("install", InstallResult);
+documentKeys.push("introduction");
 documentKeys.push("install");
-documentIndex.set("usage", UsageResult);
 documentKeys.push("usage");
 
 const StringToDomComponent = ({ htmlString }: { htmlString: string }) => {
   return <MarkdownAreaCSS dangerouslySetInnerHTML={{ __html: htmlString }} />;
 };
-function Header() {
+export function Header() {
   return (
     <DocTopBar>
       <a href="../">Neocmakelsp</a>
@@ -87,17 +80,28 @@ function Header() {
   );
 }
 
-function Doc() {
+type IndexInfo = {
+  title: string;
+  document: string;
+};
+
+export function Doc({ title, document }: IndexInfo) {
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState("install");
+  const selected = title;
   const toggleOpen = () => {
     setIsOpen(!isOpen);
   };
 
+  const getHtmlName = (key: string) => {
+    if (key == "introduction") {
+      return "index.html";
+    }
+    return `${key}.html`;
+  };
   const sidebarList: React.FC[] = [];
   documentKeys.forEach((key) => {
     sidebarList.push(
-      <LeftA selected={key == selected} onClick={() => setSelected(key)}>
+      <LeftA selected={key == selected} href={getHtmlName(key)}>
         {key}
       </LeftA>,
     );
@@ -116,7 +120,8 @@ function Doc() {
     if (index < 0 || index >= documentKeys.length - 1) {
       return;
     }
-    setSelected(documentKeys[index + 1]);
+    const nextFileName = documentKeys[index + 1];
+    globalThis.location.assign(getHtmlName(nextFileName));
   };
 
   const pre = (): string | undefined => {
@@ -132,7 +137,8 @@ function Doc() {
     if (index <= 0) {
       return;
     }
-    setSelected(documentKeys[index - 1]);
+    const preFileName = documentKeys[index - 1];
+    globalThis.location.assign(getHtmlName(preFileName));
   };
 
   return (
@@ -141,15 +147,15 @@ function Doc() {
         isOpen={isOpen}
         alwaysShown={true}
         top={50}
-        left={150}
+        left={170}
         onClick={() => toggleOpen()}
       />
-      <SideBar isOpen={isOpen} zIndex={2} top={45} width={130}>
+      <SideBar isOpen={isOpen} zIndex={2} top={45} width={150}>
         {sidebarList}
       </SideBar>
 
       <MarkdownArea isOpen={isOpen}>
-        <StringToDomComponent htmlString={documentIndex.get(selected) || ""} />
+        <StringToDomComponent htmlString={document} />
         <GoPreNextNav>
           {pre() && (
             <GoPreNextA direction={"left"} onClick={goPre}>{pre()}</GoPreNextA>
@@ -164,16 +170,3 @@ function Doc() {
     </>
   );
 }
-
-const mount = document.getElementById("mount");
-if (mount) {
-  render(<Doc />, mount);
-}
-
-const header = document.getElementById("header");
-
-if (header) {
-  render(<Header />, header);
-}
-
-export { StringToDomComponent };
