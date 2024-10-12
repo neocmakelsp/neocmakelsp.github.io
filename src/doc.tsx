@@ -86,9 +86,12 @@ type IndexInfo = {
 };
 
 export function Doc({ title, document }: IndexInfo) {
-  const [isOpen, setIsOpen] = useState(false);
+  const openWindow = globalThis.localStorage.getItem("windowOpen") == "true";
+  const [isOpen, setIsOpen] = useState(openWindow);
   const selected = title;
   const toggleOpen = () => {
+    const openValue = !isOpen ? "true" : "false";
+    globalThis.localStorage.setItem("windowOpen", openValue);
     setIsOpen(!isOpen);
   };
 
