@@ -1028,11 +1028,11 @@ function ContributeTitle({ children }) {
 // styles/sidebar.ts
 var SideBar = mod_default.li`
   backdrop-filter: blur(10px);
-  width: 180px;
+  width: ${({ width }) => width ? width : 180}px;
   height: 100%;
   background-color: #333330aa;
   position: fixed;
-  top: ${({ top }) => top ? top : "0"};
+  top: ${({ top }) => top ? top : 0}px;
   z-index: ${({ zIndex }) => zIndex ? zIndex : 3};
   visibility: ${({ autohide }) => autohide ? "hidden" : "visible"};
   list-style-type: none;
@@ -1076,7 +1076,7 @@ var SideBarA = mod_default.a`
 var MenuButton = mod_default.button`
   position: fixed;
   top: ${({ top }) => top ? top : 20}px;
-  left: ${(props) => props.isOpen ? "210px" : "20px"} ;
+  left: ${({ isOpen, left }) => isOpen ? left ? left : 210 : 20}px ;
   background-color: white;
   color: white;
   border: none;

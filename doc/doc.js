@@ -612,11 +612,11 @@ function DocTopBar({ children }) {
 // styles/sidebar.ts
 var SideBar = mod_default.li`
   backdrop-filter: blur(10px);
-  width: 180px;
+  width: ${({ width }) => width ? width : 180}px;
   height: 100%;
   background-color: #333330aa;
   position: fixed;
-  top: ${({ top }) => top ? top : "0"};
+  top: ${({ top }) => top ? top : 0}px;
   z-index: ${({ zIndex }) => zIndex ? zIndex : 3};
   visibility: ${({ autohide }) => autohide ? "hidden" : "visible"};
   list-style-type: none;
@@ -660,7 +660,7 @@ var SideBarA = mod_default.a`
 var MenuButton = mod_default.button`
   position: fixed;
   top: ${({ top }) => top ? top : 20}px;
-  left: ${(props) => props.isOpen ? "210px" : "20px"} ;
+  left: ${({ isOpen, left }) => isOpen ? left ? left : 210 : 20}px ;
   background-color: white;
   color: white;
   border: none;
@@ -6222,7 +6222,7 @@ var MarkdownArea = mod_default.div`
   overflow-y: scroll;
   overflow-x: hidden;
   overflow-wrap: break-word;
-  padding-left: ${({ isOpen }) => isOpen ? "300px" : "60px"};
+  padding-left: ${({ isOpen }) => isOpen ? "170px" : "40px"};
   padding-right: 5%;
   padding-top: 80px;
   padding-bottom: 80px;
@@ -6248,7 +6248,7 @@ var LeftA = mod_default.a`
   text-align: center;
   padding: 14px 20px;
   text-decoration: none;
-  font-size: 28px;
+  font-size: 24px;
   cursor: pointer;
   &:hover {
     background-color: #ddd;
@@ -6332,10 +6332,11 @@ function Doc() {
         isOpen,
         alwaysShown: true,
         top: 50,
+        left: 150,
         onClick: () => toggleOpen()
       }
     ),
-    /* @__PURE__ */ u2(SideBar, { isOpen, zIndex: 2, top: "40px", children: sidebarList }),
+    /* @__PURE__ */ u2(SideBar, { isOpen, zIndex: 2, top: 45, width: 130, children: sidebarList }),
     /* @__PURE__ */ u2(MarkdownArea, { isOpen, children: [
       /* @__PURE__ */ u2(StringToDomComponent, { htmlString: documentIndex.get(selected) || "" }),
       /* @__PURE__ */ u2(GoPreNextNav, { children: [
