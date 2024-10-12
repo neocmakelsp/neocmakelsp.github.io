@@ -1,7 +1,7 @@
 import markdownit from "markdown-it";
 
 const md = markdownit();
-import { Doc, Header } from "../doc.tsx";
+import { Doc, Header } from "~/pages/doc.tsx";
 import { render } from "preact";
 
 const text = await fetch("./markdowns/Install.md");

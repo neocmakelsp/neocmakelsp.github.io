@@ -1,6 +1,6 @@
 import markdownit from "markdown-it";
 
-import { Doc, Header } from "../doc.tsx";
+import { Doc, Header } from "~/pages/doc.tsx";
 
 import { render } from "preact";
 const md = markdownit();

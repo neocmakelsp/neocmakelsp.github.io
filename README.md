@@ -1,7 +1,13 @@
 # The website for neocmakelsp
 
-Built with deno
+This website use esbuild to generate website.
 
-## TODO
+## Project File Structure
 
-- Add document support
+* `build.ts` contains the routes of the website.
+* `src` is the entrance of the pages.
+* `pages` is the main components of the pages
+* `components` contains the common components
+* `styles` contains the css
+* `markdowns` contains the documents
+* `statics` contains the asserts like images and mp4
