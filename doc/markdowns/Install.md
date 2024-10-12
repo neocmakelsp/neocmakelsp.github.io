@@ -7,7 +7,7 @@
 Just run
 
 ```bash
-cargo Install neocmakelsp
+cargo install neocmakelsp
 ```
 
 ## From aur
