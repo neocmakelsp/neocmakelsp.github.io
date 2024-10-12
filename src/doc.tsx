@@ -11,7 +11,7 @@ const MarkdownArea = styled.div<{ isOpen: boolean }>`
   overflow-y: scroll;
   overflow-x: hidden;
   overflow-wrap: break-word;
-  padding-left: ${({ isOpen }) => isOpen ? "300px" : "60px"};
+  padding-left: ${({ isOpen }) => isOpen ? "170px" : "40px"};
   padding-right: 5%;
   padding-top: 80px;
   padding-bottom: 80px;
@@ -40,7 +40,7 @@ const LeftA = styled.a<{ selected?: boolean }>`
   text-align: center;
   padding: 14px 20px;
   text-decoration: none;
-  font-size: 28px;
+  font-size: 24px;
   cursor: pointer;
   &:hover {
     background-color: #ddd;
@@ -141,9 +141,10 @@ function Doc() {
         isOpen={isOpen}
         alwaysShown={true}
         top={50}
+        left={150}
         onClick={() => toggleOpen()}
       />
-      <SideBar isOpen={isOpen} zIndex={2} top={"40px"}>
+      <SideBar isOpen={isOpen} zIndex={2} top={45} width={130}>
         {sidebarList}
       </SideBar>
 
