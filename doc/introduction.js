@@ -6205,7 +6205,7 @@ function D(n2, t3) {
   return "function" == typeof t3 ? t3(n2) : t3;
 }
 
-// src/doc.tsx
+// pages/doc.tsx
 var MarkdownArea = mod_default.div`
   overflow-y: scroll;
   overflow-x: hidden;
