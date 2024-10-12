@@ -34,7 +34,7 @@ const GoPreNextA = styled.button<{ direction?: "left" | "right" }>`
 const LeftA = styled.a<{ selected?: boolean }>`
   color: ${({ selected }) => selected ? "#0703fc" : "#f2f2f2"};
   text-align: center;
-  padding: 14px 20px;
+  padding: 14px 14px;
   text-decoration: none;
   font-size: 24px;
   cursor: pointer;
