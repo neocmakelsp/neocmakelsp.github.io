@@ -254,7 +254,7 @@ n = p.slice, l = { __e: function(n2, l3, u4, t3) {
   return n2.__v.__b - l3.__v.__b;
 }, P.__r = 0, e = 0, c = F(false), s = F(true), a = 0;
 
-// https://jsr.io/@nobody/styled-components-deno/0.8.0/domElements.ts
+// https://jsr.io/@nobody/styled-components-deno/0.8.2/domElements.ts
 var elements = [
   "a",
   "abbr",
@@ -405,7 +405,7 @@ function u2(e3, t3, n2, o3, i4, u4) {
   return l.vnode && l.vnode(l3), l3;
 }
 
-// https://jsr.io/@nobody/styled-components-deno/0.8.0/styled.tsx
+// https://jsr.io/@nobody/styled-components-deno/0.8.2/styled.tsx
 function toSnakeCase(obj) {
   const newObj = {};
   for (const key in obj) {
@@ -553,7 +553,7 @@ domElements.forEach((domElement) => {
 });
 var styled = styledTmp;
 
-// https://jsr.io/@nobody/styled-components-deno/0.8.0/mod.ts
+// https://jsr.io/@nobody/styled-components-deno/0.8.2/mod.ts
 var mod_default = styled;
 
 // styles/topbar.ts
