@@ -21380,10 +21380,17 @@ function max(a3, b2) {
 function min(a3, b2) {
   return a3 < b2 ? a3 : b2;
 }
-function get_diff({ start, text: text3 }) {
+function get_diff({ start, length, text: text3 }) {
   const realstart = max(start - 100, 0);
-  const realend = min(start + 100, text3.length);
-  return text3.slice(realstart, realend);
+  const realend = min(start + length + 90, text3.length);
+  const text_pre = text3.slice(0, realstart);
+  const text_center = text3.slice(start, start + length);
+  const text_after = text3.slice(start + length, realend);
+  return /* @__PURE__ */ u2("p", { children: [
+    text_pre,
+    /* @__PURE__ */ u2("mark", { children: text_center }),
+    text_after
+  ] });
 }
 var Trie = class {
   root;
@@ -21492,7 +21499,7 @@ function SearchGlobalView() {
     /* @__PURE__ */ u2(SearchInput, { onInput: onTextChange, autofocus: true }),
     searchRs.length != 0 && /* @__PURE__ */ u2(SearchUl, { children: searchRs.map((item) => /* @__PURE__ */ u2("li", { onClick: () => gotoPage(item.mdname), children: [
       /* @__PURE__ */ u2("h4", { children: item.mdname }),
-      /* @__PURE__ */ u2("p", { children: get_diff(item) })
+      get_diff(item)
     ] })) })
   ] });
 }
