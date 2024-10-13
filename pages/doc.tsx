@@ -4,7 +4,10 @@ import { MenuButton, SideBar } from "~/styles/sidebar.ts";
 import { useEffect, useState } from "preact/hooks";
 import React from "react";
 
+import { SearchGlobalView } from "~/pages/doc/select.tsx";
+
 import hljs from "highlightjs";
+
 const MarkdownArea = styled.div<{ isOpen: boolean }>`
   overflow-y: scroll;
   overflow-x: hidden;
@@ -138,6 +141,7 @@ export function Doc({ title, document }: IndexInfo) {
     highlightCode("lua");
     highlightCode("emacs-lisp");
   }, []);
+  const [isSearch, setIsSearch] = useState(false);
   const [isOpen, setIsOpen] = useState(openWindow);
   const selected = title;
   const toggleOpen = () => {
@@ -159,6 +163,15 @@ export function Doc({ title, document }: IndexInfo) {
         {key}
       </LeftA>,
     );
+  });
+
+  globalThis.addEventListener("keydown", (event) => {
+    if (event.key === "/") {
+      event.preventDefault();
+      setIsSearch(true);
+    } else if (event.key === "Escape") {
+      setIsSearch(false);
+    }
   });
 
   const next = (): string | undefined => {
@@ -197,6 +210,8 @@ export function Doc({ title, document }: IndexInfo) {
 
   return (
     <>
+      {isSearch &&
+        <SearchGlobalView />}
       <MenuButton
         isOpen={isOpen}
         alwaysShown={true}

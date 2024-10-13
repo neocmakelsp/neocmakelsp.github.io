@@ -12,7 +12,8 @@
     "react": "npm:react@^18.3.1",
     "~/components/": "./components/",
     "~/pages/": "./pages/",
-    "~/styles/": "./styles/"
+    "~/styles/": "./styles/",
+    "~/src/": "./src/"
   },
   "tasks": {
     "start": "deno run -A build.ts",
