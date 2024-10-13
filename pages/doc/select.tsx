@@ -2,6 +2,7 @@ import styled from "@nobody/styled-components-deno";
 
 import { useState } from "preact/hooks";
 import type { JSX } from "preact";
+import React from "react";
 
 type DocInfo = {
   name: string;
@@ -49,10 +50,19 @@ function max(a: number, b: number): number {
 function min(a: number, b: number): number {
   return a < b ? a : b;
 }
-function get_diff({ start, text }: SearchResult): string {
+function get_diff({ start, length, text }: SearchResult): React.RC {
   const realstart = max(start - 100, 0);
-  const realend = min(start + 100, text.length);
-  return text.slice(realstart, realend);
+  const realend = min(start + length + 90, text.length);
+  const text_pre = text.slice(0, realstart);
+  const text_center = text.slice(start, start + length);
+  const text_after = text.slice(start + length, realend);
+  return (
+    <p>
+      {text_pre}
+      <mark>{text_center}</mark>
+      {text_after}
+    </p>
+  );
 }
 
 // 前缀树类定义
@@ -177,7 +187,7 @@ export function SearchGlobalView() {
             {searchRs.map((item) => (
               <li onClick={() => gotoPage(item.mdname)}>
                 <h4>{item.mdname}</h4>
-                <p>{get_diff(item)}</p>
+                {get_diff(item)}
               </li>
             ))}
           </SearchUl>
