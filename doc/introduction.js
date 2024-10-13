@@ -21383,7 +21383,7 @@ function min(a3, b2) {
 function get_diff({ start, length, text: text3 }) {
   const realstart = max(start - 100, 0);
   const realend = min(start + length + 90, text3.length);
-  const text_pre = text3.slice(0, realstart);
+  const text_pre = text3.slice(realstart, start);
   const text_center = text3.slice(start, start + length);
   const text_after = text3.slice(start + length, realend);
   return /* @__PURE__ */ u2("p", { children: [
