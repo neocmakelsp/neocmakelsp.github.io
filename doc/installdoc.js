@@ -21453,7 +21453,6 @@ function highlightCode(lang) {
     return;
   }
   for (const dom of doms.values()) {
-    console.log(import_highlightjs.default);
     const result2 = import_highlightjs.default.highlightAuto(dom.innerHTML).value;
     dom.innerHTML = result2;
   }
