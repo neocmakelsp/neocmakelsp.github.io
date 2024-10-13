@@ -125,7 +125,6 @@ function highlightCode(lang: SupportedLange) {
     return;
   }
   for (const dom of doms.values()) {
-    console.log(hljs);
     const result = hljs.highlightAuto(dom.innerHTML).value;
     dom.innerHTML = result;
   }
