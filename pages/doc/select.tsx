@@ -139,6 +139,8 @@ const SearchUl = styled.ul`
   backdrop-filter: blur(10px);
   width: 60%;
   overflow:scroll;
+  overflow-x: hidden;
+  scrollbar-width: thin;
   & li {
     cursor: pointer;
     margin-right: 20px;
