@@ -53,7 +53,7 @@ function min(a: number, b: number): number {
 function get_diff({ start, length, text }: SearchResult): React.RC {
   const realstart = max(start - 100, 0);
   const realend = min(start + length + 90, text.length);
-  const text_pre = text.slice(0, realstart);
+  const text_pre = text.slice(realstart, start);
   const text_center = text.slice(start, start + length);
   const text_after = text.slice(start + length, realend);
   return (
