@@ -1,8 +1,10 @@
 import { DocTopBar } from "~/components/titlebar.tsx";
 import styled from "@nobody/styled-components-deno";
 import { MenuButton, SideBar } from "~/styles/sidebar.ts";
-import { useState } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import React from "react";
+
+import hljs from "highlightjs";
 const MarkdownArea = styled.div<{ isOpen: boolean }>`
   overflow-y: scroll;
   overflow-x: hidden;
@@ -54,6 +56,36 @@ const MarkdownAreaCSS = styled.div`
   & code {
     background-color: #c9c9c7;
   }
+  & code span.hljs-keyword {
+    color: #c45054;
+  }
+  & code span.hljs-built_in {
+    color: #1f7dbe;
+  }
+  & code span.hljs-params {
+    color: yellow;
+  }
+  & code span.hljs-literal {
+    color: #fb9e63;
+  }
+  & code span.hljs-string {
+    color: #15796f;
+  }
+  & code span.hljs-comment {
+    color: #565f82;
+  }
+  & code span.hljs-section {
+    color: #298ecf;
+  }
+  & code span.hljs-attr {
+    color: #6dd9ca;
+  }
+  & code span.hljs-name {
+    color: #298ecf;
+  }
+  & code span.hljs-symbol {
+    color: #c45054;
+  }
   & pre code {
     background-color: #454441;
     color: white;
@@ -85,8 +117,28 @@ type IndexInfo = {
   document: string;
 };
 
+type SupportedLange = "lua" | "toml" | "emacs-lisp";
+
+function highlightCode(lang: SupportedLange) {
+  const doms = document.querySelectorAll(`code[class="language-${lang}"]`);
+  if (doms.length == 0) {
+    return;
+  }
+  for (const dom of doms.values()) {
+    console.log(hljs);
+    const result = hljs.highlightAuto(dom.innerHTML).value;
+    dom.innerHTML = result;
+  }
+}
+
 export function Doc({ title, document }: IndexInfo) {
   const openWindow = globalThis.localStorage.getItem("windowOpen") == "true";
+
+  useEffect(() => {
+    highlightCode("toml");
+    highlightCode("lua");
+    highlightCode("emacs-lisp");
+  }, []);
   const [isOpen, setIsOpen] = useState(openWindow);
   const selected = title;
   const toggleOpen = () => {

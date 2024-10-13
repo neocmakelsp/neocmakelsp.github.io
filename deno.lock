@@ -22,6 +22,7 @@
     "jsr:@std/streams@^1.0.7": "1.0.7",
     "npm:esbuild@0.24": "0.24.0",
     "npm:esbuild@~0.23.1": "0.23.1",
+    "npm:highlightjs@^9.16.2": "9.16.2",
     "npm:markdown-it@^14.1.0": "14.1.0",
     "npm:preact@*": "10.23.2",
     "npm:preact@^10.23.2": "10.23.2",
@@ -358,6 +359,9 @@
         "@esbuild/win32-x64@0.24.0"
       ]
     },
+    "highlightjs@9.16.2": {
+      "integrity": "sha512-FK1vmMj8BbEipEy8DLIvp71t5UsC7n2D6En/UfM/91PCwmOpj6f2iu0Y0coRC62KSRHHC+dquM2xMULV/X7NFg=="
+    },
     "js-tokens@4.0.0": {
       "integrity": "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="
     },
@@ -411,6 +415,7 @@
       "jsr:@std/cli@^1.0.6",
       "jsr:@std/http@^1.0.8",
       "npm:esbuild@~0.23.1",
+      "npm:highlightjs@^9.16.2",
       "npm:markdown-it@^14.1.0",
       "npm:preact@^10.23.2",
       "npm:react@^18.3.1"
