@@ -21219,6 +21219,35 @@ var MenuButton = mod_default.button`
   }
 
 `;
+var SearchButton = mod_default.button`
+  position: fixed;
+  bottom: ${({ bottom }) => bottom ? bottom : 20}px;
+  left: ${({ isOpen, left }) => isOpen ? left ? left : 210 : 20}px ;
+  background-color: white;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  visibility: ${({ alwaysShown }) => alwaysShown ? "visible" : "hidden"};
+  background-image: url("static/search_icon.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  transition: left 0.3s ease-in-out;
+
+  & hover {
+    background-color: #0056b3;
+  }
+
+  @media screen and (max-width:900px) {
+    visibility: visible;
+  }
+
+`;
 
 // ../../../.cache/deno/deno_esbuild/preact@10.23.2/node_modules/preact/hooks/dist/hooks.module.js
 var t2;
@@ -21434,13 +21463,15 @@ var Trie = class {
 var SearchGlobalCenter = mod_default.div`
   position: fixed;
   background-color: transparent;
+  visibility: ${({ visible }) => visible ? "visible" : "hidden"};
   width: 100%;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(${({ visible }) => visible ? 20 : 0}px);
   height: 100vh;
   display: flex;
   z-Index: 8;
   align-items: center;
   flex-direction: column;
+  transition: backdrop-filter 0.3s ease-in-out;
 `;
 var SearchInput = mod_default.input`
   backdrop-filter: blur(2px);
@@ -21462,8 +21493,10 @@ var SearchUl = mod_default.ul`
   overflow-x: hidden;
   scrollbar-width: thin;
   & li {
+    list-style-type: none;
     cursor: pointer;
     margin-right: 20px;
+    margin-bottom: 20px;
   }
   & li:hover {
     background-color: #ffffaaaa;
@@ -21479,7 +21512,7 @@ function gotoPage(key) {
   const page = getHtmlName(key);
   globalThis.location.assign(page);
 }
-function SearchGlobalView() {
+function SearchGlobalView({ visible }) {
   const [searchRs, setSearchRs] = h2([]);
   const onTextChange = (input) => {
     const value = input.currentTarget.value;
@@ -21497,10 +21530,10 @@ function SearchGlobalView() {
     }
     setSearchRs(res);
   };
-  return /* @__PURE__ */ u2(SearchGlobalCenter, { children: [
-    /* @__PURE__ */ u2(SearchInput, { onInput: onTextChange, autofocus: true }),
+  return /* @__PURE__ */ u2(SearchGlobalCenter, { visible, children: [
+    /* @__PURE__ */ u2(SearchInput, { id: "searchInput", onInput: onTextChange, autofocus: true }),
     searchRs.length != 0 && /* @__PURE__ */ u2(SearchUl, { children: searchRs.map((item) => /* @__PURE__ */ u2("li", { onClick: () => gotoPage(item.mdname), children: [
-      /* @__PURE__ */ u2("h4", { children: item.mdname }),
+      /* @__PURE__ */ u2("h3", { children: item.mdname }),
       get_diff(item)
     ] })) })
   ] });
@@ -21613,7 +21646,7 @@ function highlightCode(lang) {
     dom.innerHTML = result2;
   }
 }
-function Doc({ title, document: document2 }) {
+function Doc({ title, documentContext }) {
   const openWindow = globalThis.localStorage.getItem("windowOpen") == "true";
   y2(() => {
     highlightCode("toml");
@@ -21644,6 +21677,7 @@ function Doc({ title, document: document2 }) {
     if (event.key === "/") {
       event.preventDefault();
       setIsSearch(true);
+      document.getElementById("searchInput")?.focus();
     } else if (event.key === "Escape") {
       setIsSearch(false);
     }
@@ -21679,7 +21713,7 @@ function Doc({ title, document: document2 }) {
     globalThis.location.assign(getHtmlName2(preFileName));
   };
   return /* @__PURE__ */ u2(k, { children: [
-    isSearch && /* @__PURE__ */ u2(SearchGlobalView, {}),
+    /* @__PURE__ */ u2(SearchGlobalView, { visible: isSearch }),
     /* @__PURE__ */ u2(
       MenuButton,
       {
@@ -21690,9 +21724,19 @@ function Doc({ title, document: document2 }) {
         onClick: () => toggleOpen()
       }
     ),
+    /* @__PURE__ */ u2(
+      SearchButton,
+      {
+        isOpen,
+        alwaysShown: true,
+        bottom: 50,
+        left: 170,
+        onClick: () => setIsSearch(true)
+      }
+    ),
     /* @__PURE__ */ u2(SideBar, { isOpen, zIndex: 2, top: 45, width: 150, children: sidebarList }),
     /* @__PURE__ */ u2(MarkdownArea, { isOpen, children: [
-      /* @__PURE__ */ u2(StringToDomComponent, { htmlString: document2 }),
+      /* @__PURE__ */ u2(StringToDomComponent, { htmlString: documentContext }),
       /* @__PURE__ */ u2(GoPreNextNav, { children: [
         pre() && /* @__PURE__ */ u2(GoPreNextA, { direction: "left", onClick: goPre, children: pre() }),
         next() && /* @__PURE__ */ u2(GoPreNextA, { direction: "right", onClick: goNext, children: next() })
@@ -21708,7 +21752,7 @@ var markdown = await text2.text();
 var result = md.render(markdown);
 var mount = document.getElementById("mount");
 if (mount) {
-  B(/* @__PURE__ */ u2(Doc, { document: result, title: "introduction" }), mount);
+  B(/* @__PURE__ */ u2(Doc, { documentContext: result, title: "introduction" }), mount);
 }
 var header = document.getElementById("header");
 if (header) {
