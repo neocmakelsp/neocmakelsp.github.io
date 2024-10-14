@@ -1,4 +1,4 @@
-// ../../../.cache/deno/deno_esbuild/preact@10.23.2/node_modules/preact/dist/preact.module.js
+// ../../../.cache/deno/deno_esbuild/registry.npmjs.org/preact@10.23.2/node_modules/preact/dist/preact.module.js
 var n;
 var l;
 var u;
@@ -393,7 +393,7 @@ var elements = [
 ];
 var domElements = new Set(elements);
 
-// ../../../.cache/deno/deno_esbuild/preact@10.23.2/node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js
+// ../../../.cache/deno/deno_esbuild/registry.npmjs.org/preact@10.23.2/node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js
 var f2 = 0;
 var i2 = Array.isArray;
 function u2(e3, t3, n2, o3, i4, u4) {
@@ -852,7 +852,7 @@ var InstallCodeCopyCSS = mod_default.div`
   }
 `;
 
-// ../../../.cache/deno/deno_esbuild/preact@10.23.2/node_modules/preact/hooks/dist/hooks.module.js
+// ../../../.cache/deno/deno_esbuild/registry.npmjs.org/preact@10.23.2/node_modules/preact/hooks/dist/hooks.module.js
 var t2;
 var r2;
 var u3;
