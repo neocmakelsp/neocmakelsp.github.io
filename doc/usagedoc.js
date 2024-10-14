@@ -21982,7 +21982,6 @@ var SearchInputArea = mod_default.div`
 `;
 var SearchInput = mod_default.input`
   backdrop-filter: blur(2px);
-  margin-top: 15px;
   border: auto;
   border-radius: 30px;
   width: 100%;
@@ -22004,7 +22003,8 @@ var SearchClearBtn = mod_default.button`
   cursor: pointer;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   @media screen and (min-width:700px) {
-    height: 30px;
+    height: 50px;
+    top: 15px;
   }
 `;
 var SearchUl = mod_default.ul`
