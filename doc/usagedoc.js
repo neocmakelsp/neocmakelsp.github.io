@@ -21979,21 +21979,21 @@ var SearchInputArea = mod_default.div`
   display: flex;
   flex-direction:row;
   align-items: center;
-  gap: 5px;
+  gap: 5%;
 `;
 var SearchInput = mod_default.input`
   backdrop-filter: blur(2px);
   border: auto;
   border-radius: 30px;
-  width: 90%;
+  width: 85%;
   height: 50px;
   font-size: 20px;
   padding-left: 20px;
 `;
 var SearchClearBtn = mod_default.button`
   backdrop-filter: blur(2px);
-  height: 50px;
-  width: 50px;
+  height: 100%;
+  aspect-ratio : 1 / 1;
   border-radius: 50%;
   background-color: #ffffffaa;
   cursor: pointer;
