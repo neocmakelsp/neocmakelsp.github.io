@@ -124,6 +124,7 @@ const SearchGlobalCenter = styled.div<{ visible: boolean }>`
   flex-direction: column;
   transition: backdrop-filter 0.3s ease-in-out;
 `;
+
 const SearchInputArea = styled.div`
   backdrop-filter: blur(2px);
   margin-top: 15px;
@@ -133,25 +134,30 @@ const SearchInputArea = styled.div`
   display: flex;
   flex-direction:row;
   align-items: center;
-  gap: 5%;
 `;
 
 const SearchInput = styled.input`
   backdrop-filter: blur(2px);
+  margin-top: 15px;
   border: auto;
   border-radius: 30px;
-  width: 85%;
+  width: 100%;
   height: 50px;
   font-size: 20px;
   padding-left: 20px;
 `;
 
-const SearchClearBtn = styled.button`
-  backdrop-filter: blur(2px);
-  height: 100%;
+const SearchClearBtn = styled.button<{ visible: boolean }>`
+  z-Index: 9;
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  backdrop-filter: blur(${({ visible }) => visible ? 2 : 0}px);
+  visibility: ${({ visible }) => visible ? "visible" : "hidden"};
+  height: 50px;
   aspect-ratio : 1 / 1;
   border-radius: 50%;
-  background-color: #ffffffaa;
+  background-color: #ddddddaa;
   cursor: pointer;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 `;
@@ -207,28 +213,31 @@ export function SearchGlobalView() {
     setSearchRs(res);
   };
   return (
-    <SearchGlobalCenter visible={isSearch.value}>
-      <SearchInputArea>
-        <SearchInput id="searchInput" onInput={onTextChange} autofocus />
-        <SearchClearBtn
-          onClick={() => {
-            setIsSearch(false);
-          }}
-        >
-          x
-        </SearchClearBtn>
-      </SearchInputArea>
-      {searchRs.length != 0 &&
-        (
-          <SearchUl>
-            {searchRs.map((item) => (
-              <li onClick={() => gotoPage(item.mdname)}>
-                <h3>{item.mdname}</h3>
-                {get_diff(item)}
-              </li>
-            ))}
-          </SearchUl>
-        )}
-    </SearchGlobalCenter>
+    <>
+      <SearchClearBtn
+        visible={isSearch.value}
+        onClick={() => {
+          setIsSearch(false);
+        }}
+      >
+        x
+      </SearchClearBtn>
+      <SearchGlobalCenter visible={isSearch.value}>
+        <SearchInputArea>
+          <SearchInput id="searchInput" onInput={onTextChange} autofocus />
+        </SearchInputArea>
+        {searchRs.length != 0 &&
+          (
+            <SearchUl>
+              {searchRs.map((item) => (
+                <li onClick={() => gotoPage(item.mdname)}>
+                  <h3>{item.mdname}</h3>
+                  {get_diff(item)}
+                </li>
+              ))}
+            </SearchUl>
+          )}
+      </SearchGlobalCenter>
+    </>
   );
 }
