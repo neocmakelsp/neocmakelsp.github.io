@@ -89,4 +89,36 @@ const MenuButton = styled.button<
 
 `;
 
-export { MenuButton, SideBar, SideBarA };
+const SearchButton = styled.button<
+  { isOpen?: boolean; alwaysShown?: boolean; bottom?: number; left?: number }
+>`
+  position: fixed;
+  bottom: ${({ bottom }) => bottom ? bottom : 20}px;
+  left: ${({ isOpen, left }) => isOpen ? left ? left : 210 : 20}px ;
+  background-color: white;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  visibility: ${({ alwaysShown }) => alwaysShown ? "visible" : "hidden"};
+  background-image: url("static/search_icon.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  transition: left 0.3s ease-in-out;
+
+  & hover {
+    background-color: #0056b3;
+  }
+
+  @media screen and (max-width:900px) {
+    visibility: visible;
+  }
+
+`;
+
+export { MenuButton, SearchButton, SideBar, SideBarA };

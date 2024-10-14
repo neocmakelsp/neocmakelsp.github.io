@@ -10,7 +10,7 @@ const markdown = await text.text();
 const result = md.render(markdown);
 const mount = document.getElementById("mount");
 if (mount) {
-  render(<Doc document={result} title="install" />, mount);
+  render(<Doc documentContext={result} title="install" />, mount);
 }
 
 const header = document.getElementById("header");

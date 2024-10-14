@@ -12,7 +12,7 @@ const result = md.render(markdown);
 
 const mount = document.getElementById("mount");
 if (mount) {
-  render(<Doc document={result} title="introduction" />, mount);
+  render(<Doc documentContext={result} title="introduction" />, mount);
 }
 
 const header = document.getElementById("header");

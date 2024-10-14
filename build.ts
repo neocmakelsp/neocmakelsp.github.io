@@ -26,12 +26,13 @@ if (release_mode) {
 }
 
 const base_asserts = { path: "static/asserts", alias: "static" };
+const base_doc_asserts = { path: "static/asserts_doc", alias: "static" };
 const css_asserts = { path: "static/styles" };
 
 const scripts: Script[] = [{ src: "main.js" }];
 
 const docroutine = new Route("doc")
-  .append_assert(base_asserts)
+  .append_assert(base_doc_asserts)
   .append_assert(css_asserts)
   .append_webpage(
     new WebPageUnit(

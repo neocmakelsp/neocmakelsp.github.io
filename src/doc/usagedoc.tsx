@@ -11,7 +11,7 @@ const result = md.render(markdown);
 const mount = document.getElementById("mount");
 
 if (mount) {
-  render(<Doc document={result} title="usage" />, mount);
+  render(<Doc documentContext={result} title="usage" />, mount);
 }
 
 const header = document.getElementById("header");

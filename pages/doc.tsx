@@ -1,6 +1,6 @@
 import { DocTopBar } from "~/components/titlebar.tsx";
 import styled from "@nobody/styled-components-deno";
-import { MenuButton, SideBar } from "~/styles/sidebar.ts";
+import { MenuButton, SearchButton, SideBar } from "~/styles/sidebar.ts";
 import { useEffect, useState } from "preact/hooks";
 import React from "react";
 
@@ -117,7 +117,7 @@ export function Header() {
 
 type IndexInfo = {
   title: string;
-  document: string;
+  documentContext: string;
 };
 
 type SupportedLange = "lua" | "toml" | "emacs-lisp";
@@ -133,7 +133,7 @@ function highlightCode(lang: SupportedLange) {
   }
 }
 
-export function Doc({ title, document }: IndexInfo) {
+export function Doc({ title, documentContext }: IndexInfo) {
   const openWindow = globalThis.localStorage.getItem("windowOpen") == "true";
 
   useEffect(() => {
@@ -169,6 +169,7 @@ export function Doc({ title, document }: IndexInfo) {
     if (event.key === "/") {
       event.preventDefault();
       setIsSearch(true);
+      document.getElementById("searchInput")?.focus();
     } else if (event.key === "Escape") {
       setIsSearch(false);
     }
@@ -210,8 +211,7 @@ export function Doc({ title, document }: IndexInfo) {
 
   return (
     <>
-      {isSearch &&
-        <SearchGlobalView />}
+      <SearchGlobalView visible={isSearch} />
       <MenuButton
         isOpen={isOpen}
         alwaysShown={true}
@@ -219,12 +219,19 @@ export function Doc({ title, document }: IndexInfo) {
         left={170}
         onClick={() => toggleOpen()}
       />
+      <SearchButton
+        isOpen={isOpen}
+        alwaysShown={true}
+        bottom={50}
+        left={170}
+        onClick={() => setIsSearch(true)}
+      />
       <SideBar isOpen={isOpen} zIndex={2} top={45} width={150}>
         {sidebarList}
       </SideBar>
 
       <MarkdownArea isOpen={isOpen}>
-        <StringToDomComponent htmlString={document} />
+        <StringToDomComponent htmlString={documentContext} />
         <GoPreNextNav>
           {pre() && (
             <GoPreNextA direction={"left"} onClick={goPre}>{pre()}</GoPreNextA>

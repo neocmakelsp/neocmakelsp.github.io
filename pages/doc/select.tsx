@@ -109,16 +109,18 @@ class Trie {
   }
 }
 
-const SearchGlobalCenter = styled.div`
+const SearchGlobalCenter = styled.div<{ visible: boolean }>`
   position: fixed;
   background-color: transparent;
+  visibility: ${({ visible }) => visible ? "visible" : "hidden"};
   width: 100%;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(${({ visible }) => visible ? 20 : 0}px);
   height: 100vh;
   display: flex;
   z-Index: 8;
   align-items: center;
   flex-direction: column;
+  transition: backdrop-filter 0.3s ease-in-out;
 `;
 
 const SearchInput = styled.input`
@@ -142,8 +144,10 @@ const SearchUl = styled.ul`
   overflow-x: hidden;
   scrollbar-width: thin;
   & li {
+    list-style-type: none;
     cursor: pointer;
     margin-right: 20px;
+    margin-bottom: 20px;
   }
   & li:hover {
     background-color: #ffffaaaa;
@@ -162,7 +166,7 @@ function gotoPage(key: string) {
   globalThis.location.assign(page);
 }
 
-export function SearchGlobalView() {
+export function SearchGlobalView({ visible }: { visible: boolean }) {
   const [searchRs, setSearchRs] = useState<SearchResult[]>([]);
   const onTextChange = (input: JSX.TargetedEvent<HTMLInputElement>) => {
     const value = input.currentTarget.value;
@@ -181,14 +185,14 @@ export function SearchGlobalView() {
     setSearchRs(res);
   };
   return (
-    <SearchGlobalCenter>
-      <SearchInput onInput={onTextChange} autofocus />
+    <SearchGlobalCenter visible={visible}>
+      <SearchInput id="searchInput" onInput={onTextChange} autofocus />
       {searchRs.length != 0 &&
         (
           <SearchUl>
             {searchRs.map((item) => (
               <li onClick={() => gotoPage(item.mdname)}>
-                <h4>{item.mdname}</h4>
+                <h3>{item.mdname}</h3>
                 {get_diff(item)}
               </li>
             ))}
