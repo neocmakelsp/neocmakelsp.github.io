@@ -4,6 +4,8 @@ import { useState } from "preact/hooks";
 import type { JSX } from "preact";
 import React from "react";
 
+import { isSearch, setIsSearch } from "~/pages/doc.tsx";
+
 type DocInfo = {
   name: string;
   mddocument: string;
@@ -122,16 +124,36 @@ const SearchGlobalCenter = styled.div<{ visible: boolean }>`
   flex-direction: column;
   transition: backdrop-filter 0.3s ease-in-out;
 `;
-
-const SearchInput = styled.input`
+const SearchInputArea = styled.div`
   backdrop-filter: blur(2px);
   margin-top: 15px;
   border: auto;
-  border-radius: 30px;
   width: 60%;
+  height: 50px;
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  gap: 5px;
+`;
+
+const SearchInput = styled.input`
+  backdrop-filter: blur(2px);
+  border: auto;
+  border-radius: 30px;
+  width: 90%;
   height: 50px;
   font-size: 20px;
   padding-left: 20px;
+`;
+
+const SearchClearBtn = styled.button`
+  backdrop-filter: blur(2px);
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: #ffffffaa;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 `;
 
 const SearchUl = styled.ul`
@@ -166,7 +188,7 @@ function gotoPage(key: string) {
   globalThis.location.assign(page);
 }
 
-export function SearchGlobalView({ visible }: { visible: boolean }) {
+export function SearchGlobalView() {
   const [searchRs, setSearchRs] = useState<SearchResult[]>([]);
   const onTextChange = (input: JSX.TargetedEvent<HTMLInputElement>) => {
     const value = input.currentTarget.value;
@@ -185,8 +207,17 @@ export function SearchGlobalView({ visible }: { visible: boolean }) {
     setSearchRs(res);
   };
   return (
-    <SearchGlobalCenter visible={visible}>
-      <SearchInput id="searchInput" onInput={onTextChange} autofocus />
+    <SearchGlobalCenter visible={isSearch.value}>
+      <SearchInputArea>
+        <SearchInput id="searchInput" onInput={onTextChange} autofocus />
+        <SearchClearBtn
+          onClick={() => {
+            setIsSearch(false);
+          }}
+        >
+          x
+        </SearchClearBtn>
+      </SearchInputArea>
       {searchRs.length != 0 &&
         (
           <SearchUl>

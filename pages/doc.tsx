@@ -4,6 +4,8 @@ import { MenuButton, SearchButton, SideBar } from "~/styles/sidebar.ts";
 import { useEffect, useState } from "preact/hooks";
 import React from "react";
 
+import { signal } from "preact/signals";
+
 import { SearchGlobalView } from "~/pages/doc/select.tsx";
 
 import hljs from "highlightjs";
@@ -133,6 +135,12 @@ function highlightCode(lang: SupportedLange) {
   }
 }
 
+export const isSearch = signal(false);
+
+export function setIsSearch(newIsSearch: boolean) {
+  isSearch.value = newIsSearch;
+}
+
 export function Doc({ title, documentContext }: IndexInfo) {
   const openWindow = globalThis.localStorage.getItem("windowOpen") == "true";
 
@@ -141,7 +149,6 @@ export function Doc({ title, documentContext }: IndexInfo) {
     highlightCode("lua");
     highlightCode("emacs-lisp");
   }, []);
-  const [isSearch, setIsSearch] = useState(false);
   const [isOpen, setIsOpen] = useState(openWindow);
   const selected = title;
   const toggleOpen = () => {
@@ -211,7 +218,7 @@ export function Doc({ title, documentContext }: IndexInfo) {
 
   return (
     <>
-      <SearchGlobalView visible={isSearch} />
+      <SearchGlobalView />
       <MenuButton
         isOpen={isOpen}
         alwaysShown={true}
