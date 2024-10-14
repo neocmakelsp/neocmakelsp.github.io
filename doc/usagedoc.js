@@ -21979,23 +21979,28 @@ var SearchInputArea = mod_default.div`
   display: flex;
   flex-direction:row;
   align-items: center;
-  gap: 5%;
 `;
 var SearchInput = mod_default.input`
   backdrop-filter: blur(2px);
+  margin-top: 15px;
   border: auto;
   border-radius: 30px;
-  width: 85%;
+  width: 100%;
   height: 50px;
   font-size: 20px;
   padding-left: 20px;
 `;
 var SearchClearBtn = mod_default.button`
-  backdrop-filter: blur(2px);
-  height: 100%;
+  z-Index: 9;
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  backdrop-filter: blur(${({ visible }) => visible ? 2 : 0}px);
+  visibility: ${({ visible }) => visible ? "visible" : "hidden"};
+  height: 50px;
   aspect-ratio : 1 / 1;
   border-radius: 50%;
-  background-color: #ffffffaa;
+  background-color: #ddddddaa;
   cursor: pointer;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 `;
@@ -22046,23 +22051,24 @@ function SearchGlobalView() {
     }
     setSearchRs(res);
   };
-  return /* @__PURE__ */ u2(SearchGlobalCenter, { visible: isSearch.value, children: [
-    /* @__PURE__ */ u2(SearchInputArea, { children: [
-      /* @__PURE__ */ u2(SearchInput, { id: "searchInput", onInput: onTextChange, autofocus: true }),
-      /* @__PURE__ */ u2(
-        SearchClearBtn,
-        {
-          onClick: () => {
-            setIsSearch(false);
-          },
-          children: "x"
-        }
-      )
-    ] }),
-    searchRs.length != 0 && /* @__PURE__ */ u2(SearchUl, { children: searchRs.map((item) => /* @__PURE__ */ u2("li", { onClick: () => gotoPage(item.mdname), children: [
-      /* @__PURE__ */ u2("h3", { children: item.mdname }),
-      get_diff(item)
-    ] })) })
+  return /* @__PURE__ */ u2(k, { children: [
+    /* @__PURE__ */ u2(
+      SearchClearBtn,
+      {
+        visible: isSearch.value,
+        onClick: () => {
+          setIsSearch(false);
+        },
+        children: "x"
+      }
+    ),
+    /* @__PURE__ */ u2(SearchGlobalCenter, { visible: isSearch.value, children: [
+      /* @__PURE__ */ u2(SearchInputArea, { children: /* @__PURE__ */ u2(SearchInput, { id: "searchInput", onInput: onTextChange, autofocus: true }) }),
+      searchRs.length != 0 && /* @__PURE__ */ u2(SearchUl, { children: searchRs.map((item) => /* @__PURE__ */ u2("li", { onClick: () => gotoPage(item.mdname), children: [
+        /* @__PURE__ */ u2("h3", { children: item.mdname }),
+        get_diff(item)
+      ] })) })
+    ] })
   ] });
 }
 
