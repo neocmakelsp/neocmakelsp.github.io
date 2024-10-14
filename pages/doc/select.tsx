@@ -150,16 +150,19 @@ const SearchInput = styled.input`
 const SearchClearBtn = styled.button<{ visible: boolean }>`
   z-Index: 9;
   position: fixed;
-  top: 20px;
-  right: 30px;
+  top: 30px;
+  right: 10px;
   backdrop-filter: blur(${({ visible }) => visible ? 2 : 0}px);
   visibility: ${({ visible }) => visible ? "visible" : "hidden"};
-  height: 50px;
+  height: 25px;
   aspect-ratio : 1 / 1;
   border-radius: 50%;
   background-color: #ddddddaa;
   cursor: pointer;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  @media screen and (min-width:700px) {
+    height: 30px;
+  }
 `;
 
 const SearchUl = styled.ul`
