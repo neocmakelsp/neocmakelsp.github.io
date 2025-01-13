@@ -28,9 +28,7 @@
     "npm:markdown-it@^14.1.0": "14.1.0",
     "npm:preact@*": "10.25.4",
     "npm:preact@^10.23.2": "10.25.4",
-    "npm:preact@^11.0.0-experimental.1": "11.0.0-experimental.1",
-    "npm:react@^18.3.1": "18.3.1",
-    "npm:react@^19.1.0-canary-fc8a898d-20241226": "19.1.0-canary-fc8a898d-20241226"
+    "npm:react@^18.3.1": "18.3.1"
   },
   "jsr": {
     "@luca/esbuild-deno-loader@0.11.1": {
@@ -45,7 +43,7 @@
       "integrity": "9a3795374844bdcf0d09453fd9b6725cc047222440b0ac20376b254c04bb0b5e",
       "dependencies": [
         "npm:preact@^10.23.2",
-        "npm:react@^18.3.1"
+        "npm:react"
       ]
     },
     "@nobody/tananoni@0.4.4": {
@@ -201,7 +199,7 @@
       "integrity": "sha512-wzx6YEXw2a+vKdE+p+XlIGsmH2bDjJzzevirtshT9ixoNIV2WJg83kG+QErPHs/ZkeR+MsqgRIFB6x22fDVRlg==",
       "dependencies": [
         "@preact/signals-core",
-        "preact@10.25.4"
+        "preact"
       ]
     },
     "argparse@2.0.1": {
@@ -275,9 +273,6 @@
     "preact@10.25.4": {
       "integrity": "sha512-jLdZDb+Q+odkHJ+MpW/9U5cODzqnB+fy2EiHSZES7ldV5LK7yjlVzTp7R8Xy6W6y75kfK8iWYtFVH7lvjwrCMA=="
     },
-    "preact@11.0.0-experimental.1": {
-      "integrity": "sha512-a5AyuvVRDFkzF/sQNTEk7fhHSssq8fxUML9meWt5gDiS29F0KTnvlaMDWudQ7vuM7NZZPdw8Y2/1KeLUIqN4vw=="
-    },
     "punycode.js@2.3.1": {
       "integrity": "sha512-uxFIHU0YlHYhDQtV4R9J6a52SLx28BCjT+4ieh7IGbgwVJWO+km431c4yRlREUAsAmt/uMjQUyQHNEPf0M39CA=="
     },
@@ -286,9 +281,6 @@
       "dependencies": [
         "loose-envify"
       ]
-    },
-    "react@19.1.0-canary-fc8a898d-20241226": {
-      "integrity": "sha512-bnh9qNxhsR0xu1jgScynMxZF+EHmN4kwChtDknjo7iDyC/GcRJckzyEeLlwAG70l8ph3zVtPU6OdlEcuChR+Kg=="
     },
     "uc.micro@2.1.0": {
       "integrity": "sha512-ARDJmphmdvUk6Glw7y9DQ2bFkKBHwQHLi2lsaH6PPmz/Ka9sFOBsBluozhDltWmnv9u/cF6Rt87znRTPV+yp/A=="
@@ -305,8 +297,8 @@
       "npm:esbuild@~0.24.2",
       "npm:highlightjs@^9.16.2",
       "npm:markdown-it@^14.1.0",
-      "npm:preact@^11.0.0-experimental.1",
-      "npm:react@^19.1.0-canary-fc8a898d-20241226"
+      "npm:preact@^10.23.2",
+      "npm:react@^18.3.1"
     ]
   }
 }
