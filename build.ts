@@ -125,7 +125,7 @@ const webgen = new GenWebsite()
   .withLogLevel("info")
   .withImportSource("npm:preact");
 
-await webgen.generate_website(homeroute);
+await webgen.generateWebsite(homeroute);
 
 if (release_mode) {
   Deno.exit(0);
@@ -143,7 +143,7 @@ Deno.serve({ hostname: "localhost", port: 8000 }, async (req) => {
 });
 
 async function fsWatch() {
-  await webgen.generate_website(homeroute);
+  await webgen.generateWebsite(homeroute);
 }
 
 await watchChanges({

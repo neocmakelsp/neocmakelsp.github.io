@@ -4,7 +4,7 @@
     "jsr:@luca/esbuild-deno-loader@0.11": "0.11.1",
     "jsr:@luca/esbuild-deno-loader@~0.11.1": "0.11.1",
     "jsr:@nobody/styled-components-deno@~0.8.2": "0.8.2",
-    "jsr:@nobody/tananoni@~0.4.1": "0.4.1",
+    "jsr:@nobody/tananoni@~0.4.2": "0.4.2",
     "jsr:@std/assert@^1.0.9": "1.0.10",
     "jsr:@std/async@^1.0.9": "1.0.9",
     "jsr:@std/bytes@^1.0.2": "1.0.4",
@@ -48,8 +48,8 @@
         "npm:react@^18.3.1"
       ]
     },
-    "@nobody/tananoni@0.4.1": {
-      "integrity": "6874c120b874209e5fcd31a6432231336f6434ecdaf7a922f152bd0cd9f7af12",
+    "@nobody/tananoni@0.4.2": {
+      "integrity": "994bc02cacce87a843378c1591114c2637a13ac90afae241aa3ee2d7c7c4d70e",
       "dependencies": [
         "jsr:@luca/esbuild-deno-loader@~0.11.1",
         "jsr:@std/assert",
@@ -298,7 +298,7 @@
     "dependencies": [
       "jsr:@luca/esbuild-deno-loader@~0.11.1",
       "jsr:@nobody/styled-components-deno@~0.8.2",
-      "jsr:@nobody/tananoni@~0.4.1",
+      "jsr:@nobody/tananoni@~0.4.2",
       "jsr:@std/cli@^1.0.10",
       "jsr:@std/http@^1.0.12",
       "npm:@preact/signals@2",
