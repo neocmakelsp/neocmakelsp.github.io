@@ -1,7 +1,7 @@
 {
   "imports": {
     "@nobody/styled-components-deno": "jsr:@nobody/styled-components-deno@^0.8.2",
-    "@nobody/tananoni": "jsr:@nobody/tananoni@^0.3.14",
+    "@nobody/tananoni": "jsr:@nobody/tananoni@^0.4.1",
     "preact/signals": "npm:@preact/signals@^2.0.0",
     "@std/cli": "jsr:@std/cli@^1.0.10",
     "@std/http": "jsr:@std/http@^1.0.12",
@@ -10,7 +10,7 @@
     "highlightjs": "npm:highlightjs@^9.16.2",
     "markdown-it": "npm:markdown-it@^14.1.0",
     "preact": "npm:preact@^11.0.0-experimental.1",
-    "react": "npm:react@^19.0.0",
+    "react": "npm:react@^19.1.0-canary-fc8a898d-20241226",
     "~/components/": "./components/",
     "~/pages/": "./pages/",
     "~/src/": "./src/",

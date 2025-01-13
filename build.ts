@@ -32,70 +32,72 @@ const css_asserts = { path: "static/styles" };
 const scripts: Script[] = [{ src: "main.js" }];
 
 const docroutine = new Route("doc")
-  .append_assert(base_doc_asserts)
-  .append_assert(css_asserts)
-  .append_webpage(
+  .appendAssert(base_doc_asserts)
+  .appendAssert(css_asserts)
+  .appendWebpage(
     new WebPageUnit(
       "./src/doc/introduction.tsx",
       [{ type: "header", id: "header" }, { type: "main", id: "mount" }],
       [{ type: "module", src: "introduction.js" }],
     )
-      .with_title("neocmakelsp introduction").with_linkInfos([
+      .withTitle("neocmakelsp introduction")
+      .withLinkInfos([
         { type: "stylesheet", href: "styles/global.css" },
         { type: "icon", href: "favicon.ico" },
       ])
       .then((webpage) => {
         if (!release_mode) {
-          webpage.with_hotReload();
+          webpage.withHotReload();
         }
         return webpage;
       }),
   )
-  .append_webpage(
+  .appendWebpage(
     new WebPageUnit(
       "./src/doc/installdoc.tsx",
       [{ type: "header", id: "header" }, { type: "main", id: "mount" }],
       [{ type: "module", src: "installdoc.js" }],
     )
-      .with_title("How to Install")
-      .with_linkInfos([
+      .withTitle("How to Install")
+      .withLinkInfos([
         { type: "stylesheet", href: "styles/global.css" },
         { type: "icon", href: "favicon.ico" },
       ])
-      .with_htmlName("install.html")
+      .withHtmlName("install.html")
       .then((webpage) => {
         if (!release_mode) {
-          webpage.with_hotReload();
+          webpage.withHotReload();
         }
         return webpage;
       }),
   )
-  .append_webpage(
+  .appendWebpage(
     new WebPageUnit(
       "./src/doc/usagedoc.tsx",
       [{ type: "header", id: "header" }, { type: "main", id: "mount" }],
       [{ type: "module", src: "usagedoc.js" }],
     )
-      .with_title("How to use").with_linkInfos([
+      .withTitle("How to use")
+      .withLinkInfos([
         { type: "stylesheet", href: "styles/global.css" },
         { type: "icon", href: "favicon.ico" },
       ])
-      .with_htmlName("usage.html")
+      .withHtmlName("usage.html")
       .then((webpage) => {
         if (!release_mode) {
-          webpage.with_hotReload();
+          webpage.withHotReload();
         }
         return webpage;
       }),
   )
-  .with_hotReload(!release_mode)
-  .append_assert({ path: "./markdowns" })
-  .append_assert({ path: "./static/asserts/favicon.ico" });
+  .withHotReload(!release_mode)
+  .appendAssert({ path: "./markdowns" })
+  .appendAssert({ path: "./static/asserts/favicon.ico" });
 
 const homeroute = new Route(route_path)
-  .append_assert(base_asserts)
-  .append_assert(css_asserts)
-  .append_webpage(
+  .appendAssert(base_asserts)
+  .appendAssert(css_asserts)
+  .appendWebpage(
     new WebPageUnit(
       "./src/main.tsx",
       [
@@ -104,20 +106,20 @@ const homeroute = new Route(route_path)
       ],
       scripts,
     )
-      .with_title("neocmakelsp")
-      .with_linkInfos([
+      .withTitle("neocmakelsp")
+      .withLinkInfos([
         { type: "stylesheet", href: "styles/global.css" },
         { type: "icon", href: "static/favicon.ico" },
       ])
       .then((webpage) => {
         if (!release_mode) {
-          webpage.with_hotReload();
+          webpage.withHotReload();
         }
         return webpage;
       }),
   )
-  .append_route(docroutine)
-  .with_hotReload(!release_mode);
+  .appendRoute(docroutine)
+  .withHotReload(!release_mode);
 
 const webgen = new GenWebsite()
   .withLogLevel("info")
