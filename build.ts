@@ -34,7 +34,7 @@ const scripts: Script[] = [{ src: "main.js" }];
 const docroutine = new Route("doc")
   .appendAssert(base_doc_asserts)
   .appendAssert(css_asserts)
-  .appendWebpage(
+  .appendWebPage(
     new WebPageUnit(
       "./src/doc/introduction.tsx",
       [{ type: "header", id: "header" }, { type: "main", id: "mount" }],
@@ -52,7 +52,7 @@ const docroutine = new Route("doc")
         return webpage;
       }),
   )
-  .appendWebpage(
+  .appendWebPage(
     new WebPageUnit(
       "./src/doc/installdoc.tsx",
       [{ type: "header", id: "header" }, { type: "main", id: "mount" }],
@@ -71,7 +71,7 @@ const docroutine = new Route("doc")
         return webpage;
       }),
   )
-  .appendWebpage(
+  .appendWebPage(
     new WebPageUnit(
       "./src/doc/usagedoc.tsx",
       [{ type: "header", id: "header" }, { type: "main", id: "mount" }],
@@ -97,7 +97,7 @@ const docroutine = new Route("doc")
 const homeroute = new Route(route_path)
   .appendAssert(base_asserts)
   .appendAssert(css_asserts)
-  .appendWebpage(
+  .appendWebPage(
     new WebPageUnit(
       "./src/main.tsx",
       [
