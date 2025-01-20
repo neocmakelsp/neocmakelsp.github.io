@@ -20776,11 +20776,6 @@ function D(u5, t4, i5) {
   var r4, o4, e4, f5;
   t4 == document && (t4 = document.documentElement), l.__ && l.__(u5, t4), o4 = (r4 = "function" == typeof i5) ? null : i5 && i5.__k || t4.__k, e4 = [], f5 = [], j(t4, u5 = (!r4 && i5 || t4).__k = g(k, null, [u5]), o4 || p, p, t4.namespaceURI, !r4 && i5 ? [i5] : o4 ? null : t4.firstChild ? n.call(t4.childNodes) : null, e4, !r4 && i5 ? i5 : o4 ? o4.__e : t4.firstChild, r4, f5), z(e4, u5, f5);
 }
-function G(l5, u5, t4) {
-  var i5, r4, o4, e4, f5 = w({}, l5.props);
-  for (o4 in l5.type && l5.type.defaultProps && (e4 = l5.type.defaultProps), u5) "key" == o4 ? i5 = u5[o4] : "ref" == o4 ? r4 = u5[o4] : f5[o4] = void 0 === u5[o4] && void 0 !== e4 ? e4[o4] : u5[o4];
-  return arguments.length > 2 && (f5.children = arguments.length > 3 ? n.call(arguments, 2) : t4), m(l5.type, f5, i5 || l5.key, r4 || l5.ref, null);
-}
 n = v.slice, l = { __e: function(n3, l5, u5, t4) {
   for (var i5, r4, o4; l5 = l5.__; ) if ((i5 = l5.__c) && !i5.__) try {
     if ((r4 = i5.constructor) && null != r4.getDerivedStateFromError && (i5.setState(r4.getDerivedStateFromError(n3)), o4 = i5.__d), null != i5.componentDidCatch && (i5.componentDidCatch(n3, t4 || {}), o4 = i5.__d), o4) return i5.__E = i5;
@@ -20799,7 +20794,7 @@ n = v.slice, l = { __e: function(n3, l5, u5, t4) {
   return n3.__v.__b - l5.__v.__b;
 }, P.__r = 0, f = /(PointerCapture)$|Capture$/i, c = 0, s = O(false), a = O(true), h = 0;
 
-// https://jsr.io/@nobody/styled-components-deno/0.9.0/domElements.ts
+// https://jsr.io/@nobody/styled-components-deno/0.9.2/domElements.ts
 var elements = [
   "a",
   "abbr",
@@ -20938,7 +20933,7 @@ var elements = [
 ];
 var domElements = new Set(elements);
 
-// https://jsr.io/@nobody/styled-components-deno/0.9.0/styled.ts
+// https://jsr.io/@nobody/styled-components-deno/0.9.2/styled.ts
 function toSnakeCase(obj) {
   const newObj = {};
   for (const key in obj) {
@@ -20984,7 +20979,7 @@ function createElementObject(tag, defaultStyleObject) {
   defaultStyle = defaultStyle.replaceAll(",", ";");
   defaultStyle = defaultStyle.replaceAll('"', "");
   const className = generateClassName();
-  const Element = (props) => {
+  const Element = Object.assign((props) => {
     const { children, ...restProps } = props;
     const newstyle = defaultStyle;
     injectStylesObject(className, newstyle);
@@ -20992,13 +20987,14 @@ function createElementObject(tag, defaultStyleObject) {
       className: props.className || className,
       ...restProps
     };
+    Element.className = className;
     return g(tag, newProp, children);
-  };
+  }, { className: void 0 });
   return Element;
 }
 function createElement(tag, ostyle, ...args) {
   const className = generateClassName();
-  const Element = (props) => {
+  const Element = Object.assign((props) => {
     const { children, ...restProps } = props;
     let defaultStyle = "";
     const arglen = args.length;
@@ -21015,8 +21011,9 @@ function createElement(tag, ostyle, ...args) {
       className: props.className || className,
       ...restProps
     };
+    Element.className = className;
     return g(tag, newProp, children);
-  };
+  }, { className: void 0 });
   return Element;
 }
 function isSupportElementArray(arr) {
@@ -21054,7 +21051,7 @@ function createElementWithProps(tag, ostyle, ...args) {
   }, { mappedId: /* @__PURE__ */ new Map() });
   return ElementTmp;
 }
-function recreateElement(Component) {
+function recreateElement(component) {
   return (style, ...args) => {
     let defaultStyle = "";
     const arglen = args.length;
@@ -21065,17 +21062,21 @@ function recreateElement(Component) {
         defaultStyle += stylestr;
       }
     });
-    const Element = (props) => {
+    const Element = Object.assign((props) => {
       const { children, ...restProps } = props;
-      const newclassName = generateClassName();
+      let newclassName = generateClassName();
       injectStyles(newclassName, defaultStyle);
-      const component = g(Component, {});
+      if (component.className) {
+        newclassName = `${component.className} ${newclassName}`;
+      }
+      const className = props.className || newclassName;
+      Element.className = className;
       const newProps = {
-        className: props.className || newclassName,
+        className,
         ...restProps
       };
-      return G(component, newProps, children);
-    };
+      return g(component, newProps, children);
+    }, { className: void 0 });
     return Element;
   };
 }
@@ -21094,7 +21095,7 @@ domElements.forEach((domElement) => {
 });
 var styled = styledTmp;
 
-// https://jsr.io/@nobody/styled-components-deno/0.9.0/mod.ts
+// https://jsr.io/@nobody/styled-components-deno/0.9.2/mod.ts
 var mod_default = styled;
 
 // styles/topbar.ts
