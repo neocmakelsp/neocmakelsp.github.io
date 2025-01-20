@@ -1,8 +1,8 @@
 {
   "imports": {
-    "@nobody/styled-components-deno": "jsr:@nobody/styled-components-deno@^0.8.2",
+    "@nobody/styled-components-deno": "jsr:@nobody/styled-components-deno@^0.9.0",
     "@nobody/tananoni": "jsr:@nobody/tananoni@^0.4.8",
-    "preact/signals": "npm:@preact/signals@^2.0.0",
+    "preact/signals": "npm:@preact/signals@^2.0.1",
     "@std/cli": "jsr:@std/cli@^1.0.10",
     "@std/http": "jsr:@std/http@^1.0.12",
     "esbuild": "npm:esbuild@^0.24.2",
@@ -10,7 +10,7 @@
     "highlightjs": "npm:highlightjs@^9.16.2",
     "markdown-it": "npm:markdown-it@^14.1.0",
     "preact": "npm:preact@^10.23.2",
-    "react": "npm:react@^18.3.1",
+    "react": "npm:react@^19.0.0",
     "~/components/": "./components/",
     "~/pages/": "./pages/",
     "~/src/": "./src/",
