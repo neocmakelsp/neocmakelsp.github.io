@@ -15453,7 +15453,7 @@ Url.prototype.parse = function(url, slashesDenoteHost) {
         }
         if (!part.match(hostnamePartPattern)) {
           let newpart = "";
-          for (let j3 = 0, k3 = part.length; j3 < k3; j3++) {
+          for (let j3 = 0, k4 = part.length; j3 < k4; j3++) {
             if (part.charCodeAt(j3) > 127) {
               newpart += "x";
             } else {
@@ -19656,8 +19656,8 @@ var defaultOptions = {
   fuzzyIP: false
 };
 function isOptionsObj(obj) {
-  return Object.keys(obj || {}).reduce(function(acc, k3) {
-    return acc || defaultOptions.hasOwnProperty(k3);
+  return Object.keys(obj || {}).reduce(function(acc, k4) {
+    return acc || defaultOptions.hasOwnProperty(k4);
   }, false);
 }
 var defaultSchemas = {
@@ -20053,13 +20053,13 @@ var digitToBasic = function(digit, flag) {
   return digit + 22 + 75 * (digit < 26) - ((flag != 0) << 5);
 };
 var adapt = function(delta, numPoints, firstTime) {
-  let k3 = 0;
+  let k4 = 0;
   delta = firstTime ? floor(delta / damp) : delta >> 1;
   delta += floor(delta / numPoints);
-  for (; delta > baseMinusTMin * tMax >> 1; k3 += base) {
+  for (; delta > baseMinusTMin * tMax >> 1; k4 += base) {
     delta = floor(delta / baseMinusTMin);
   }
-  return floor(k3 + (baseMinusTMin + 1) * delta / (delta + skew));
+  return floor(k4 + (baseMinusTMin + 1) * delta / (delta + skew));
 };
 var decode2 = function(input) {
   const output = [];
@@ -20079,7 +20079,7 @@ var decode2 = function(input) {
   }
   for (let index = basic > 0 ? basic + 1 : 0; index < inputLength; ) {
     const oldi = i5;
-    for (let w4 = 1, k3 = base; ; k3 += base) {
+    for (let w4 = 1, k4 = base; ; k4 += base) {
       if (index >= inputLength) {
         error("invalid-input");
       }
@@ -20091,7 +20091,7 @@ var decode2 = function(input) {
         error("overflow");
       }
       i5 += digit * w4;
-      const t4 = k3 <= bias ? tMin : k3 >= bias + tMax ? tMax : k3 - bias;
+      const t4 = k4 <= bias ? tMin : k4 >= bias + tMax ? tMax : k4 - bias;
       if (digit < t4) {
         break;
       }
@@ -20148,8 +20148,8 @@ var encode2 = function(input) {
       }
       if (currentValue === n3) {
         let q2 = delta;
-        for (let k3 = base; ; k3 += base) {
-          const t4 = k3 <= bias ? tMin : k3 >= bias + tMax ? tMax : k3 - bias;
+        for (let k4 = base; ; k4 += base) {
+          const t4 = k4 <= bias ? tMin : k4 >= bias + tMax ? tMax : k4 - bias;
           if (q2 < t4) {
             break;
           }
@@ -20602,8 +20602,8 @@ function P() {
   P.__r = 0;
 }
 function $(n3, l5, u5, t4, i5, r4, o4, e4, f5, c4, s5) {
-  var a4, h5, y5, d5, w4, _4, g3 = t4 && t4.__k || v, m4 = l5.length;
-  for (f5 = I(u5, l5, g3, f5, m4), a4 = 0; a4 < m4; a4++) null != (y5 = u5.__k[a4]) && (h5 = -1 === y5.__i ? p : g3[y5.__i] || p, y5.__i = a4, _4 = j(n3, y5, h5, i5, r4, o4, e4, f5, c4, s5), d5 = y5.__e, y5.ref && h5.ref != y5.ref && (h5.ref && V(h5.ref, null, y5), s5.push(y5.ref, y5.__c || d5, y5)), null == w4 && null != d5 && (w4 = d5), 4 & y5.__u || h5.__k === y5.__k ? f5 = A(y5, f5, n3) : "function" == typeof y5.type && void 0 !== _4 ? f5 = _4 : d5 && (f5 = d5.nextSibling), y5.__u &= -7);
+  var a4, h5, y4, d4, w4, _4, g4 = t4 && t4.__k || v, m4 = l5.length;
+  for (f5 = I(u5, l5, g4, f5, m4), a4 = 0; a4 < m4; a4++) null != (y4 = u5.__k[a4]) && (h5 = -1 === y4.__i ? p : g4[y4.__i] || p, y4.__i = a4, _4 = j(n3, y4, h5, i5, r4, o4, e4, f5, c4, s5), d4 = y4.__e, y4.ref && h5.ref != y4.ref && (h5.ref && V(h5.ref, null, y4), s5.push(y4.ref, y4.__c || d4, y4)), null == w4 && null != d4 && (w4 = d4), 4 & y4.__u || h5.__k === y4.__k ? f5 = A(y4, f5, n3) : "function" == typeof y4.type && void 0 !== _4 ? f5 = _4 : d4 && (f5 = d4.nextSibling), y4.__u &= -7);
   return u5.__e = w4, f5;
 }
 function I(n3, l5, u5, t4, i5) {
@@ -20671,11 +20671,11 @@ function O(n3) {
   };
 }
 function j(n3, u5, t4, i5, r4, o4, e4, f5, c4, s5) {
-  var a4, h5, p5, v4, y5, g3, m4, b3, C3, S2, M2, P2, I2, A4, H, L2, T3, F2 = u5.type;
+  var a4, h5, p5, v4, y4, g4, m4, b3, C3, S2, M2, P2, I2, A4, H, L2, T3, F2 = u5.type;
   if (void 0 !== u5.constructor) return null;
   128 & t4.__u && (c4 = !!(32 & t4.__u), o4 = [f5 = u5.__e = t4.__e]), (a4 = l.__b) && a4(u5);
   n: if ("function" == typeof F2) try {
-    if (b3 = u5.props, C3 = "prototype" in F2 && F2.prototype.render, S2 = (a4 = F2.contextType) && i5[a4.__c], M2 = a4 ? S2 ? S2.props.value : a4.__ : i5, t4.__c ? m4 = (h5 = u5.__c = t4.__c).__ = h5.__E : (C3 ? u5.__c = h5 = new F2(b3, M2) : (u5.__c = h5 = new x(b3, M2), h5.constructor = F2, h5.render = B), S2 && S2.sub(h5), h5.props = b3, h5.state || (h5.state = {}), h5.context = M2, h5.__n = i5, p5 = h5.__d = true, h5.__h = [], h5._sb = []), C3 && null == h5.__s && (h5.__s = h5.state), C3 && null != F2.getDerivedStateFromProps && (h5.__s == h5.state && (h5.__s = w({}, h5.__s)), w(h5.__s, F2.getDerivedStateFromProps(b3, h5.__s))), v4 = h5.props, y5 = h5.state, h5.__v = u5, p5) C3 && null == F2.getDerivedStateFromProps && null != h5.componentWillMount && h5.componentWillMount(), C3 && null != h5.componentDidMount && h5.__h.push(h5.componentDidMount);
+    if (b3 = u5.props, C3 = "prototype" in F2 && F2.prototype.render, S2 = (a4 = F2.contextType) && i5[a4.__c], M2 = a4 ? S2 ? S2.props.value : a4.__ : i5, t4.__c ? m4 = (h5 = u5.__c = t4.__c).__ = h5.__E : (C3 ? u5.__c = h5 = new F2(b3, M2) : (u5.__c = h5 = new x(b3, M2), h5.constructor = F2, h5.render = B), S2 && S2.sub(h5), h5.props = b3, h5.state || (h5.state = {}), h5.context = M2, h5.__n = i5, p5 = h5.__d = true, h5.__h = [], h5._sb = []), C3 && null == h5.__s && (h5.__s = h5.state), C3 && null != F2.getDerivedStateFromProps && (h5.__s == h5.state && (h5.__s = w({}, h5.__s)), w(h5.__s, F2.getDerivedStateFromProps(b3, h5.__s))), v4 = h5.props, y4 = h5.state, h5.__v = u5, p5) C3 && null == F2.getDerivedStateFromProps && null != h5.componentWillMount && h5.componentWillMount(), C3 && null != h5.componentDidMount && h5.__h.push(h5.componentDidMount);
     else {
       if (C3 && null == F2.getDerivedStateFromProps && b3 !== v4 && null != h5.componentWillReceiveProps && h5.componentWillReceiveProps(b3, M2), !h5.__e && (null != h5.shouldComponentUpdate && false === h5.shouldComponentUpdate(b3, h5.__s, M2) || u5.__v == t4.__v)) {
         for (u5.__v != t4.__v && (h5.props = b3, h5.state = h5.__s, h5.__d = false), u5.__e = t4.__e, u5.__k = t4.__k, u5.__k.some(function(n4) {
@@ -20685,7 +20685,7 @@ function j(n3, u5, t4, i5, r4, o4, e4, f5, c4, s5) {
         break n;
       }
       null != h5.componentWillUpdate && h5.componentWillUpdate(b3, h5.__s, M2), C3 && null != h5.componentDidUpdate && h5.__h.push(function() {
-        h5.componentDidUpdate(v4, y5, g3);
+        h5.componentDidUpdate(v4, y4, g4);
       });
     }
     if (h5.context = M2, h5.props = b3, h5.__P = n3, h5.__e = false, I2 = l.__r, A4 = 0, C3) {
@@ -20694,7 +20694,7 @@ function j(n3, u5, t4, i5, r4, o4, e4, f5, c4, s5) {
     } else do {
       h5.__d = false, I2 && I2(u5), a4 = h5.render(h5.props, h5.state, h5.context), h5.state = h5.__s;
     } while (h5.__d && ++A4 < 25);
-    h5.state = h5.__s, null != h5.getChildContext && (i5 = w(w({}, i5), h5.getChildContext())), C3 && !p5 && null != h5.getSnapshotBeforeUpdate && (g3 = h5.getSnapshotBeforeUpdate(v4, y5)), f5 = $(n3, d(L2 = null != a4 && a4.type === k && null == a4.key ? a4.props.children : a4) ? L2 : [L2], u5, t4, i5, r4, o4, e4, f5, c4, s5), h5.base = u5.__e, u5.__u &= -161, h5.__h.length && e4.push(h5), m4 && (h5.__E = h5.__ = null);
+    h5.state = h5.__s, null != h5.getChildContext && (i5 = w(w({}, i5), h5.getChildContext())), C3 && !p5 && null != h5.getSnapshotBeforeUpdate && (g4 = h5.getSnapshotBeforeUpdate(v4, y4)), f5 = $(n3, d(L2 = null != a4 && a4.type === k && null == a4.key ? a4.props.children : a4) ? L2 : [L2], u5, t4, i5, r4, o4, e4, f5, c4, s5), h5.base = u5.__e, u5.__u &= -161, h5.__h.length && e4.push(h5), m4 && (h5.__E = h5.__ = null);
   } catch (n4) {
     if (u5.__v = null, c4 || null != o4) if (n4.then) {
       for (u5.__u |= c4 ? 160 : 128; f5 && 8 == f5.nodeType && f5.nextSibling; ) f5 = f5.nextSibling;
@@ -20719,7 +20719,7 @@ function z(n3, u5, t4) {
   });
 }
 function N(u5, t4, i5, r4, o4, e4, f5, c4, s5) {
-  var a4, h5, v4, y5, w4, g3, m4, b3 = i5.props, k3 = t4.props, x3 = t4.type;
+  var a4, h5, v4, y4, w4, g4, m4, b3 = i5.props, k4 = t4.props, x3 = t4.type;
   if ("svg" == x3 ? o4 = "http://www.w3.org/2000/svg" : "math" == x3 ? o4 = "http://www.w3.org/1998/Math/MathML" : o4 || (o4 = "http://www.w3.org/1999/xhtml"), null != e4) {
     for (a4 = 0; a4 < e4.length; a4++) if ((w4 = e4[a4]) && "setAttribute" in w4 == !!x3 && (x3 ? w4.localName == x3 : 3 == w4.nodeType)) {
       u5 = w4, e4[a4] = null;
@@ -20727,22 +20727,22 @@ function N(u5, t4, i5, r4, o4, e4, f5, c4, s5) {
     }
   }
   if (null == u5) {
-    if (null == x3) return document.createTextNode(k3);
-    u5 = document.createElementNS(o4, x3, k3.is && k3), c4 && (l.__m && l.__m(t4, e4), c4 = false), e4 = null;
+    if (null == x3) return document.createTextNode(k4);
+    u5 = document.createElementNS(o4, x3, k4.is && k4), c4 && (l.__m && l.__m(t4, e4), c4 = false), e4 = null;
   }
-  if (null === x3) b3 === k3 || c4 && u5.data === k3 || (u5.data = k3);
+  if (null === x3) b3 === k4 || c4 && u5.data === k4 || (u5.data = k4);
   else {
     if (e4 = e4 && n.call(u5.childNodes), b3 = i5.props || p, !c4 && null != e4) for (b3 = {}, a4 = 0; a4 < u5.attributes.length; a4++) b3[(w4 = u5.attributes[a4]).name] = w4.value;
     for (a4 in b3) if (w4 = b3[a4], "children" == a4) ;
     else if ("dangerouslySetInnerHTML" == a4) v4 = w4;
-    else if (!(a4 in k3)) {
-      if ("value" == a4 && "defaultValue" in k3 || "checked" == a4 && "defaultChecked" in k3) continue;
+    else if (!(a4 in k4)) {
+      if ("value" == a4 && "defaultValue" in k4 || "checked" == a4 && "defaultChecked" in k4) continue;
       F(u5, a4, null, w4, o4);
     }
-    for (a4 in k3) w4 = k3[a4], "children" == a4 ? y5 = w4 : "dangerouslySetInnerHTML" == a4 ? h5 = w4 : "value" == a4 ? g3 = w4 : "checked" == a4 ? m4 = w4 : c4 && "function" != typeof w4 || b3[a4] === w4 || F(u5, a4, w4, b3[a4], o4);
+    for (a4 in k4) w4 = k4[a4], "children" == a4 ? y4 = w4 : "dangerouslySetInnerHTML" == a4 ? h5 = w4 : "value" == a4 ? g4 = w4 : "checked" == a4 ? m4 = w4 : c4 && "function" != typeof w4 || b3[a4] === w4 || F(u5, a4, w4, b3[a4], o4);
     if (h5) c4 || v4 && (h5.__html === v4.__html || h5.__html === u5.innerHTML) || (u5.innerHTML = h5.__html), t4.__k = [];
-    else if (v4 && (u5.innerHTML = ""), $(u5, d(y5) ? y5 : [y5], t4, i5, r4, "foreignObject" == x3 ? "http://www.w3.org/1999/xhtml" : o4, e4, f5, e4 ? e4[0] : i5.__k && C(i5, 0), c4, s5), null != e4) for (a4 = e4.length; a4--; ) _(e4[a4]);
-    c4 || (a4 = "value", "progress" == x3 && null == g3 ? u5.removeAttribute("value") : void 0 !== g3 && (g3 !== u5[a4] || "progress" == x3 && !g3 || "option" == x3 && g3 !== b3[a4]) && F(u5, a4, g3, b3[a4], o4), a4 = "checked", void 0 !== m4 && m4 !== u5[a4] && F(u5, a4, m4, b3[a4], o4));
+    else if (v4 && (u5.innerHTML = ""), $(u5, d(y4) ? y4 : [y4], t4, i5, r4, "foreignObject" == x3 ? "http://www.w3.org/1999/xhtml" : o4, e4, f5, e4 ? e4[0] : i5.__k && C(i5, 0), c4, s5), null != e4) for (a4 = e4.length; a4--; ) _(e4[a4]);
+    c4 || (a4 = "value", "progress" == x3 && null == g4 ? u5.removeAttribute("value") : void 0 !== g4 && (g4 !== u5[a4] || "progress" == x3 && !g4 || "option" == x3 && g4 !== b3[a4]) && F(u5, a4, g4, b3[a4], o4), a4 = "checked", void 0 !== m4 && m4 !== u5[a4] && F(u5, a4, m4, b3[a4], o4));
   }
   return u5;
 }
@@ -20776,6 +20776,11 @@ function D(u5, t4, i5) {
   var r4, o4, e4, f5;
   t4 == document && (t4 = document.documentElement), l.__ && l.__(u5, t4), o4 = (r4 = "function" == typeof i5) ? null : i5 && i5.__k || t4.__k, e4 = [], f5 = [], j(t4, u5 = (!r4 && i5 || t4).__k = g(k, null, [u5]), o4 || p, p, t4.namespaceURI, !r4 && i5 ? [i5] : o4 ? null : t4.firstChild ? n.call(t4.childNodes) : null, e4, !r4 && i5 ? i5 : o4 ? o4.__e : t4.firstChild, r4, f5), z(e4, u5, f5);
 }
+function G(l5, u5, t4) {
+  var i5, r4, o4, e4, f5 = w({}, l5.props);
+  for (o4 in l5.type && l5.type.defaultProps && (e4 = l5.type.defaultProps), u5) "key" == o4 ? i5 = u5[o4] : "ref" == o4 ? r4 = u5[o4] : f5[o4] = void 0 === u5[o4] && void 0 !== e4 ? e4[o4] : u5[o4];
+  return arguments.length > 2 && (f5.children = arguments.length > 3 ? n.call(arguments, 2) : t4), m(l5.type, f5, i5 || l5.key, r4 || l5.ref, null);
+}
 n = v.slice, l = { __e: function(n3, l5, u5, t4) {
   for (var i5, r4, o4; l5 = l5.__; ) if ((i5 = l5.__c) && !i5.__) try {
     if ((r4 = i5.constructor) && null != r4.getDerivedStateFromError && (i5.setState(r4.getDerivedStateFromError(n3)), o4 = i5.__d), null != i5.componentDidCatch && (i5.componentDidCatch(n3, t4 || {}), o4 = i5.__d), o4) return i5.__E = i5;
@@ -20794,7 +20799,7 @@ n = v.slice, l = { __e: function(n3, l5, u5, t4) {
   return n3.__v.__b - l5.__v.__b;
 }, P.__r = 0, f = /(PointerCapture)$|Capture$/i, c = 0, s = O(false), a = O(true), h = 0;
 
-// https://jsr.io/@nobody/styled-components-deno/0.8.2/domElements.ts
+// https://jsr.io/@nobody/styled-components-deno/0.9.0/domElements.ts
 var elements = [
   "a",
   "abbr",
@@ -20933,19 +20938,7 @@ var elements = [
 ];
 var domElements = new Set(elements);
 
-// ../../../.cache/deno/deno_esbuild/registry.npmjs.org/preact@10.25.4/node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js
-var f2 = 0;
-var i2 = Array.isArray;
-function u2(e4, t4, n3, o4, i5, u5) {
-  t4 || (t4 = {});
-  var a4, c4, p5 = t4;
-  if ("ref" in p5) for (c4 in p5 = {}, t4) "ref" == c4 ? a4 = t4[c4] : p5[c4] = t4[c4];
-  var l5 = { type: e4, props: p5, key: n3, ref: a4, __k: null, __: null, __b: 0, __e: null, __c: null, constructor: void 0, __v: --f2, __i: -1, __u: 0, __source: i5, __self: u5 };
-  if ("function" == typeof e4 && (a4 = e4.defaultProps)) for (c4 in a4) void 0 === p5[c4] && (p5[c4] = a4[c4]);
-  return l.vnode && l.vnode(l5), l5;
-}
-
-// https://jsr.io/@nobody/styled-components-deno/0.8.2/styled.tsx
+// https://jsr.io/@nobody/styled-components-deno/0.9.0/styled.ts
 function toSnakeCase(obj) {
   const newObj = {};
   for (const key in obj) {
@@ -21062,18 +21055,26 @@ function createElementWithProps(tag, ostyle, ...args) {
   return ElementTmp;
 }
 function recreateElement(Component) {
-  return (style) => {
-    const defaultStyle = style.join("");
+  return (style, ...args) => {
+    let defaultStyle = "";
+    const arglen = args.length;
+    style.forEach((stylestr, i5) => {
+      if (i5 < arglen) {
+        defaultStyle += stylestr + args[i5];
+      } else {
+        defaultStyle += stylestr;
+      }
+    });
     const Element = (props) => {
-      const { style: style2, children, ...restProps } = props;
-      const className = generateClassName();
-      injectStyles(className, defaultStyle);
+      const { children, ...restProps } = props;
+      const newclassName = generateClassName();
+      injectStyles(newclassName, defaultStyle);
+      const component = g(Component, {});
       const newProps = {
-        className: props.className || className,
-        style: style2,
+        className: props.className || newclassName,
         ...restProps
       };
-      return /* @__PURE__ */ u2("div", { className, children: /* @__PURE__ */ u2(Component, { ...newProps, children }) });
+      return G(component, newProps, children);
     };
     return Element;
   };
@@ -21093,7 +21094,7 @@ domElements.forEach((domElement) => {
 });
 var styled = styledTmp;
 
-// https://jsr.io/@nobody/styled-components-deno/0.8.2/mod.ts
+// https://jsr.io/@nobody/styled-components-deno/0.9.0/mod.ts
 var mod_default = styled;
 
 // styles/topbar.ts
@@ -21137,6 +21138,18 @@ var TopBar = mod_default.nav`
   }
 `;
 var topbar_default = TopBar;
+
+// ../../../.cache/deno/deno_esbuild/registry.npmjs.org/preact@10.25.4/node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js
+var f2 = 0;
+var i2 = Array.isArray;
+function u2(e4, t4, n3, o4, i5, u5) {
+  t4 || (t4 = {});
+  var a4, c4, p5 = t4;
+  if ("ref" in p5) for (c4 in p5 = {}, t4) "ref" == c4 ? a4 = t4[c4] : p5[c4] = t4[c4];
+  var l5 = { type: e4, props: p5, key: n3, ref: a4, __k: null, __: null, __b: 0, __e: null, __c: null, constructor: void 0, __v: --f2, __i: -1, __u: 0, __source: i5, __self: u5 };
+  if ("function" == typeof e4 && (a4 = e4.defaultProps)) for (c4 in a4) void 0 === p5[c4] && (p5[c4] = a4[c4]);
+  return l.vnode && l.vnode(l5), l5;
+}
 
 // components/titlebar.tsx
 function DocTopBar({ children }) {
@@ -21721,18 +21734,23 @@ function E(i5) {
   return t4.d.bind(t4);
 }
 
-// ../../../.cache/deno/deno_esbuild/registry.npmjs.org/@preact/signals@2.0.0_preact@10.25.4/node_modules/@preact/signals/dist/signals.module.js
+// ../../../.cache/deno/deno_esbuild/registry.npmjs.org/@preact/signals@2.0.1_preact@10.25.4/node_modules/@preact/signals/dist/signals.module.js
 var s4;
+var h4;
 var l4;
-function d4(i5, r4) {
+var p4 = [];
+E(function() {
+  s4 = this.N;
+})();
+function _3(i5, r4) {
   l[i5] = r4.bind(null, l[i5] || function() {
   });
 }
-function h4(i5) {
+function m3(i5) {
   if (l4) l4();
   l4 = i5 && i5.S();
 }
-function p4(i5) {
+function g3(i5) {
   var n3 = this, f5 = i5.data, o4 = useSignal(f5);
   o4.value = f5;
   var u5 = T2(function() {
@@ -21744,32 +21762,28 @@ function p4(i5) {
     var f6 = w3(function() {
       var i7 = o4.value.value;
       return 0 === i7 ? 0 : true === i7 ? "" : i7 || "";
-    }), c4 = w3(function() {
-      var i7;
-      return t(f6.value) || 3 !== (null == (i7 = n3.base) ? void 0 : i7.nodeType);
-    });
-    n3.__$u.c = function() {
-      var i7;
-      if (!t(u5.peek()) && 3 === (null == (i7 = n3.base) ? void 0 : i7.nodeType)) n3.base.data = u5.peek();
-      else {
-        n3.__$f |= 1;
-        n3.setState({});
-      }
-    };
-    E(function() {
-      if (!m3) m3 = this.N;
+    }), u6 = w3(function() {
+      return !t(f6.value);
+    }), c5 = E(function() {
       this.N = A3;
-      if (c4.value && i6.base) i6.base.data = f6.value;
-    });
-    return f6;
-  }, []);
-  return u5.value;
+      if (u6.value) {
+        var n4 = f6.value;
+        if (i6.base && 3 === i6.base.nodeType) i6.base.data = n4;
+      }
+    }), v5 = n3.__$u.d;
+    n3.__$u.d = function() {
+      c5();
+      v5.call(this);
+    };
+    return [u6, f6];
+  }, []), c4 = u5[0], v4 = u5[1];
+  return c4.value ? v4.peek() : v4.value;
 }
-p4.displayName = "_st";
-Object.defineProperties(u4.prototype, { constructor: { configurable: true, value: void 0 }, type: { configurable: true, value: p4 }, props: { configurable: true, get: function() {
+g3.displayName = "_st";
+Object.defineProperties(u4.prototype, { constructor: { configurable: true, value: void 0 }, type: { configurable: true, value: g3 }, props: { configurable: true, get: function() {
   return { data: this };
 } }, __b: { configurable: true, value: 1 } });
-d4("__b", function(i5, n3) {
+_3("__b", function(i5, n3) {
   if ("string" == typeof n3.type) {
     var r4, t4 = n3.props;
     for (var f5 in t4) if ("children" !== f5) {
@@ -21783,8 +21797,8 @@ d4("__b", function(i5, n3) {
   }
   i5(n3);
 });
-d4("__r", function(i5, n3) {
-  h4();
+_3("__r", function(i5, n3) {
+  m3();
   var r4, t4 = n3.__c;
   if (t4) {
     t4.__$f &= -2;
@@ -21800,35 +21814,38 @@ d4("__r", function(i5, n3) {
       return n4;
     }();
   }
-  s4 = t4;
-  h4(r4);
+  h4 = t4;
+  m3(r4);
   i5(n3);
 });
-d4("__e", function(i5, n3, r4, t4) {
-  h4();
-  s4 = void 0;
+_3("__e", function(i5, n3, r4, t4) {
+  m3();
+  h4 = void 0;
   i5(n3, r4, t4);
 });
-d4("diffed", function(i5, n3) {
-  h4();
-  s4 = void 0;
+_3("diffed", function(i5, n3) {
+  m3();
+  h4 = void 0;
   var r4;
   if ("string" == typeof n3.type && (r4 = n3.__e)) {
     var t4 = n3.__np, f5 = n3.props;
     if (t4) {
       var o4 = r4.U;
-      if (o4) for (var u5 in o4) {
-        var e4 = o4[u5];
-        if (void 0 !== e4 && !(u5 in t4)) {
-          e4.d();
-          o4[u5] = void 0;
+      if (o4) for (var e4 in o4) {
+        var u5 = o4[e4];
+        if (void 0 !== u5 && !(e4 in t4)) {
+          u5.d();
+          o4[e4] = void 0;
         }
       }
-      else r4.U = o4 = {};
+      else {
+        o4 = {};
+        r4.U = o4;
+      }
       for (var a4 in t4) {
         var c4 = o4[a4], v4 = t4[a4];
         if (void 0 === c4) {
-          c4 = _3(r4, a4, v4, f5);
+          c4 = b2(r4, a4, v4, f5);
           o4[a4] = c4;
         } else c4.o(v4, f5);
       }
@@ -21836,13 +21853,12 @@ d4("diffed", function(i5, n3) {
   }
   i5(n3);
 });
-function _3(i5, n3, r4, t4) {
+function b2(i5, n3, r4, t4) {
   var f5 = n3 in i5 && void 0 === i5.ownerSVGElement, o4 = d3(r4);
   return { o: function(i6, n4) {
     o4.value = i6;
     t4 = n4;
   }, d: E(function() {
-    if (!m3) m3 = this.N;
     this.N = A3;
     var r5 = o4.value.value;
     if (t4[n3] !== r5) {
@@ -21853,7 +21869,7 @@ function _3(i5, n3, r4, t4) {
     }
   }) };
 }
-d4("unmount", function(i5, n3) {
+_3("unmount", function(i5, n3) {
   if ("string" == typeof n3.type) {
     var r4 = n3.__e;
     if (r4) {
@@ -21867,28 +21883,34 @@ d4("unmount", function(i5, n3) {
       }
     }
   } else {
-    var u5 = n3.__c;
-    if (u5) {
-      var e4 = u5.__$u;
-      if (e4) {
-        u5.__$u = void 0;
-        e4.d();
+    var e4 = n3.__c;
+    if (e4) {
+      var u5 = e4.__$u;
+      if (u5) {
+        e4.__$u = void 0;
+        u5.d();
       }
     }
   }
   i5(n3);
 });
-d4("__h", function(i5, n3, r4, t4) {
+_3("__h", function(i5, n3, r4, t4) {
   if (t4 < 3 || 9 === t4) n3.__$f |= 2;
   i5(n3, r4, t4);
 });
 x.prototype.shouldComponentUpdate = function(i5, n3) {
-  var r4 = this.__$u;
-  if (!(r4 && void 0 !== r4.s || 4 & this.__$f)) return true;
-  if (3 & this.__$f) return true;
-  for (var t4 in n3) return true;
-  for (var f5 in i5) if ("__source" !== f5 && i5[f5] !== this.props[f5]) return true;
-  for (var o4 in this.props) if (!(o4 in i5)) return true;
+  var r4 = this.__$u, t4 = r4 && void 0 !== r4.s;
+  for (var f5 in n3) return true;
+  if (this.__f || "boolean" == typeof this.u && true === this.u) {
+    var o4 = 2 & this.__$f;
+    if (!(t4 || o4 || 4 & this.__$f)) return true;
+    if (1 & this.__$f) return true;
+  } else {
+    if (!(t4 || 4 & this.__$f)) return true;
+    if (3 & this.__$f) return true;
+  }
+  for (var e4 in i5) if ("__source" !== e4 && i5[e4] !== this.props[e4]) return true;
+  for (var u5 in this.props) if (!(u5 in i5)) return true;
   return false;
 };
 function useSignal(i5) {
@@ -21896,9 +21918,7 @@ function useSignal(i5) {
     return d3(i5);
   }, []);
 }
-var m3;
-var b2 = [];
-var y4 = function(i5) {
+var k3 = function(i5) {
   queueMicrotask(function() {
     queueMicrotask(i5);
   });
@@ -21906,11 +21926,11 @@ var y4 = function(i5) {
 function x2() {
   r3(function() {
     var i5;
-    while (i5 = b2.shift()) m3.call(i5);
+    while (i5 = p4.shift()) s4.call(i5);
   });
 }
 function A3() {
-  if (1 === b2.push(this)) (l.requestAnimationFrame || y4)(x2);
+  if (1 === p4.push(this)) (l.requestAnimationFrame || k3)(x2);
 }
 
 // pages/doc/select.tsx

@@ -237,6 +237,11 @@ function D(u4, t3, i4) {
   var r3, o3, e3, f4;
   t3 == document && (t3 = document.documentElement), l.__ && l.__(u4, t3), o3 = (r3 = "function" == typeof i4) ? null : i4 && i4.__k || t3.__k, e3 = [], f4 = [], j(t3, u4 = (!r3 && i4 || t3).__k = g(k, null, [u4]), o3 || p, p, t3.namespaceURI, !r3 && i4 ? [i4] : o3 ? null : t3.firstChild ? n.call(t3.childNodes) : null, e3, !r3 && i4 ? i4 : o3 ? o3.__e : t3.firstChild, r3, f4), z(e3, u4, f4);
 }
+function G(l3, u4, t3) {
+  var i4, r3, o3, e3, f4 = w({}, l3.props);
+  for (o3 in l3.type && l3.type.defaultProps && (e3 = l3.type.defaultProps), u4) "key" == o3 ? i4 = u4[o3] : "ref" == o3 ? r3 = u4[o3] : f4[o3] = void 0 === u4[o3] && void 0 !== e3 ? e3[o3] : u4[o3];
+  return arguments.length > 2 && (f4.children = arguments.length > 3 ? n.call(arguments, 2) : t3), m(l3.type, f4, i4 || l3.key, r3 || l3.ref, null);
+}
 n = v.slice, l = { __e: function(n2, l3, u4, t3) {
   for (var i4, r3, o3; l3 = l3.__; ) if ((i4 = l3.__c) && !i4.__) try {
     if ((r3 = i4.constructor) && null != r3.getDerivedStateFromError && (i4.setState(r3.getDerivedStateFromError(n2)), o3 = i4.__d), null != i4.componentDidCatch && (i4.componentDidCatch(n2, t3 || {}), o3 = i4.__d), o3) return i4.__E = i4;
@@ -255,7 +260,7 @@ n = v.slice, l = { __e: function(n2, l3, u4, t3) {
   return n2.__v.__b - l3.__v.__b;
 }, P.__r = 0, f = /(PointerCapture)$|Capture$/i, c = 0, s = O(false), a = O(true), h = 0;
 
-// https://jsr.io/@nobody/styled-components-deno/0.8.2/domElements.ts
+// https://jsr.io/@nobody/styled-components-deno/0.9.0/domElements.ts
 var elements = [
   "a",
   "abbr",
@@ -394,19 +399,7 @@ var elements = [
 ];
 var domElements = new Set(elements);
 
-// ../../../.cache/deno/deno_esbuild/registry.npmjs.org/preact@10.25.4/node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js
-var f2 = 0;
-var i2 = Array.isArray;
-function u2(e3, t3, n2, o3, i4, u4) {
-  t3 || (t3 = {});
-  var a3, c3, p3 = t3;
-  if ("ref" in p3) for (c3 in p3 = {}, t3) "ref" == c3 ? a3 = t3[c3] : p3[c3] = t3[c3];
-  var l3 = { type: e3, props: p3, key: n2, ref: a3, __k: null, __: null, __b: 0, __e: null, __c: null, constructor: void 0, __v: --f2, __i: -1, __u: 0, __source: i4, __self: u4 };
-  if ("function" == typeof e3 && (a3 = e3.defaultProps)) for (c3 in a3) void 0 === p3[c3] && (p3[c3] = a3[c3]);
-  return l.vnode && l.vnode(l3), l3;
-}
-
-// https://jsr.io/@nobody/styled-components-deno/0.8.2/styled.tsx
+// https://jsr.io/@nobody/styled-components-deno/0.9.0/styled.ts
 function toSnakeCase(obj) {
   const newObj = {};
   for (const key in obj) {
@@ -523,18 +516,26 @@ function createElementWithProps(tag, ostyle, ...args) {
   return ElementTmp;
 }
 function recreateElement(Component) {
-  return (style) => {
-    const defaultStyle = style.join("");
+  return (style, ...args) => {
+    let defaultStyle = "";
+    const arglen = args.length;
+    style.forEach((stylestr, i4) => {
+      if (i4 < arglen) {
+        defaultStyle += stylestr + args[i4];
+      } else {
+        defaultStyle += stylestr;
+      }
+    });
     const Element = (props) => {
-      const { style: style2, children, ...restProps } = props;
-      const className = generateClassName();
-      injectStyles(className, defaultStyle);
+      const { children, ...restProps } = props;
+      const newclassName = generateClassName();
+      injectStyles(newclassName, defaultStyle);
+      const component = g(Component, {});
       const newProps = {
-        className: props.className || className,
-        style: style2,
+        className: props.className || newclassName,
         ...restProps
       };
-      return /* @__PURE__ */ u2("div", { className, children: /* @__PURE__ */ u2(Component, { ...newProps, children }) });
+      return G(component, newProps, children);
     };
     return Element;
   };
@@ -554,7 +555,7 @@ domElements.forEach((domElement) => {
 });
 var styled = styledTmp;
 
-// https://jsr.io/@nobody/styled-components-deno/0.8.2/mod.ts
+// https://jsr.io/@nobody/styled-components-deno/0.9.0/mod.ts
 var mod_default = styled;
 
 // styles/topbar.ts
@@ -598,6 +599,18 @@ var TopBar = mod_default.nav`
   }
 `;
 var topbar_default = TopBar;
+
+// ../../../.cache/deno/deno_esbuild/registry.npmjs.org/preact@10.25.4/node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js
+var f2 = 0;
+var i2 = Array.isArray;
+function u2(e3, t3, n2, o3, i4, u4) {
+  t3 || (t3 = {});
+  var a3, c3, p3 = t3;
+  if ("ref" in p3) for (c3 in p3 = {}, t3) "ref" == c3 ? a3 = t3[c3] : p3[c3] = t3[c3];
+  var l3 = { type: e3, props: p3, key: n2, ref: a3, __k: null, __: null, __b: 0, __e: null, __c: null, constructor: void 0, __v: --f2, __i: -1, __u: 0, __source: i4, __self: u4 };
+  if ("function" == typeof e3 && (a3 = e3.defaultProps)) for (c3 in a3) void 0 === p3[c3] && (p3[c3] = a3[c3]);
+  return l.vnode && l.vnode(l3), l3;
+}
 
 // components/titlebar.tsx
 function MainTopBar({ children }) {
