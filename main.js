@@ -1007,13 +1007,7 @@ function InstallCodeBlockCopy({ code }) {
   };
   return /* @__PURE__ */ u2(InstallCodeCopyCSS, { children: [
     /* @__PURE__ */ u2("pre", { children: /* @__PURE__ */ u2("code", { children: code }) }),
-    /* @__PURE__ */ u2(
-      "button",
-      {
-        onClick: copyToClipboard,
-        children: copied ? "Copied!" : "Copy"
-      }
-    )
+    /* @__PURE__ */ u2("button", { type: "button", onClick: copyToClipboard, children: copied ? "Copied!" : "Copy" })
   ] });
 }
 
@@ -1178,7 +1172,7 @@ function Home() {
           children: "Github"
         }
       ),
-      /* @__PURE__ */ u2("button", { class: "bottom", onClick: () => toggleOpen(), children: backString })
+      /* @__PURE__ */ u2("button", { type: "button", class: "bottom", onClick: () => toggleOpen(), children: backString })
     ] }),
     /* @__PURE__ */ u2(TopMainArea, { children: [
       /* @__PURE__ */ u2(TopText, { children: [
