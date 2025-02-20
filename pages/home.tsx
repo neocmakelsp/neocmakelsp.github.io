@@ -48,18 +48,18 @@ export function Home() {
   return (
     <>
       <MenuButton isOpen={isOpen} onClick={() => toggleOpen()} />
-      <SideBar isOpen={isOpen} autohide={true}>
+      <SideBar isOpen={isOpen} autohide>
         <SideBarA href="#main">Neocmakelsp</SideBarA>
         <SideBarA href="#feature">Features</SideBarA>
         <SideBarA href="#install">Install</SideBarA>
         <SideBarA href="/doc">Document</SideBarA>
         <SideBarA
-          isBottom={true}
+          isBottom
           href="https://github.com/neocmakelsp/neocmakelsp"
         >
           Github
         </SideBarA>
-        <button class="bottom" onClick={() => toggleOpen()}>
+        <button type="button" class="bottom" onClick={() => toggleOpen()}>
           {backString}
         </button>
       </SideBar>
@@ -84,7 +84,7 @@ export function Home() {
             developing cpp program.
           </TopMainAreaSmallTitle>
         </TopText>
-        <TopVideoCSS autoplay={true} loop={true} muted={true}>
+        <TopVideoCSS autoplay loop muted>
           <source src="/static/neocmakelsp.mp4" type="video/mp4" />
         </TopVideoCSS>
       </TopMainArea>

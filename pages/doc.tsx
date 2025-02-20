@@ -221,14 +221,14 @@ export function Doc({ title, documentContext }: IndexInfo) {
       <SearchGlobalView />
       <MenuButton
         isOpen={isOpen}
-        alwaysShown={true}
+        alwaysShown
         top={50}
         left={170}
         onClick={() => toggleOpen()}
       />
       <SearchButton
         isOpen={isOpen}
-        alwaysShown={true}
+        alwaysShown
         bottom={50}
         left={170}
         onClick={() => setIsSearch(true)}
@@ -241,10 +241,10 @@ export function Doc({ title, documentContext }: IndexInfo) {
         <StringToDomComponent htmlString={documentContext} />
         <GoPreNextNav>
           {pre() && (
-            <GoPreNextA direction={"left"} onClick={goPre}>{pre()}</GoPreNextA>
+            <GoPreNextA direction="left" onClick={goPre}>{pre()}</GoPreNextA>
           )}
           {next() && (
-            <GoPreNextA direction={"right"} onClick={goNext}>
+            <GoPreNextA direction="right" onClick={goNext}>
               {next()}
             </GoPreNextA>
           )}

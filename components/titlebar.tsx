@@ -6,7 +6,7 @@ export function MainTopBar(
   { children }: PropsWithChildren,
 ) {
   return (
-    <TopBarClass autohide={true}>
+    <TopBarClass autohide>
       {children}
     </TopBarClass>
   );
@@ -16,7 +16,7 @@ export function DocTopBar(
   { children }: PropsWithChildren,
 ) {
   return (
-    <TopBarClass isdark={true}>
+    <TopBarClass isdark>
       {children}
     </TopBarClass>
   );

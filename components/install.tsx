@@ -57,9 +57,7 @@ export function InstallCodeBlockCopy(
       <pre>
         <code>{code}</code>
       </pre>
-      <button
-        onClick={copyToClipboard}
-      >
+      <button type="button" onClick={copyToClipboard}>
         {copied ? "Copied!" : "Copy"}
       </button>
     </InstallCodeCopyCSS>
