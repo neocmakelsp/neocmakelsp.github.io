@@ -20796,7 +20796,7 @@ n = v.slice, l = { __e: function(n3, l5, t4, u5) {
   return n3.__v.__b - l5.__v.__b;
 }, $.__r = 0, f = /(PointerCapture)$|Capture$/i, c = 0, s = F(false), a = F(true), h = 0;
 
-// https://jsr.io/@nobody/styled-components-deno/0.10.1/domElements.ts
+// https://jsr.io/@nobody/styled-components-deno/0.10.2/domElements.ts
 var elements = [
   "a",
   "abbr",
@@ -20935,7 +20935,7 @@ var elements = [
 ];
 var domElements = new Set(elements);
 
-// https://jsr.io/@nobody/styled-components-deno/0.10.1/styled.ts
+// https://jsr.io/@nobody/styled-components-deno/0.10.2/styled.ts
 function toSnakeCase(obj) {
   const newObj = {};
   for (const key in obj) {
@@ -21053,7 +21053,6 @@ function createElementWithProps(tag, ostyle, ...args) {
     let className = ElementTmp.mappedId.get(props);
     if (!className) {
       className = generateClassName();
-      console.log("bbb");
       injectStyles(className, defaultStyle);
       ElementTmp.mappedId.set(props, className);
     }
@@ -21110,7 +21109,7 @@ domElements.forEach((domElement) => {
 });
 var styled = styledTmp;
 
-// https://jsr.io/@nobody/styled-components-deno/0.10.1/mod.ts
+// https://jsr.io/@nobody/styled-components-deno/0.10.2/mod.ts
 var mod_default = styled;
 
 // styles/topbar.ts
