@@ -45,12 +45,7 @@ const docroutine = new Route("doc")
         { type: "stylesheet", href: "styles/global.css" },
         { type: "icon", href: "favicon.ico" },
       ])
-      .then((webpage) => {
-        if (!release_mode) {
-          webpage.withHotReload();
-        }
-        return webpage;
-      }),
+      .withHotReload(!release_mode),
   )
   .appendWebPage(
     new WebPageUnit(
@@ -64,12 +59,7 @@ const docroutine = new Route("doc")
         { type: "icon", href: "favicon.ico" },
       ])
       .withHtmlName("install.html")
-      .then((webpage) => {
-        if (!release_mode) {
-          webpage.withHotReload();
-        }
-        return webpage;
-      }),
+      .withHotReload(!release_mode),
   )
   .appendWebPage(
     new WebPageUnit(
@@ -83,12 +73,7 @@ const docroutine = new Route("doc")
         { type: "icon", href: "favicon.ico" },
       ])
       .withHtmlName("usage.html")
-      .then((webpage) => {
-        if (!release_mode) {
-          webpage.withHotReload();
-        }
-        return webpage;
-      }),
+      .withHotReload(!release_mode),
   )
   .withHotReload(!release_mode)
   .appendAssert({ path: "./markdowns" })
@@ -111,12 +96,7 @@ const homeroute = new Route(route_path)
         { type: "stylesheet", href: "styles/global.css" },
         { type: "icon", href: "static/favicon.ico" },
       ])
-      .then((webpage) => {
-        if (!release_mode) {
-          webpage.withHotReload();
-        }
-        return webpage;
-      }),
+      .withHotReload(!release_mode),
   )
   .appendRoute(docroutine)
   .withHotReload(!release_mode);

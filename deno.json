@@ -1,8 +1,8 @@
 {
   "imports": {
     "@nobody/styled-components-deno": "jsr:@nobody/styled-components-deno@^0.10.1",
-    "@nobody/tananoni": "jsr:@nobody/tananoni@^0.4.9",
-    "preact/signals": "npm:@preact/signals@^2.0.1",
+    "@nobody/tananoni": "jsr:@nobody/tananoni@^0.5.0",
+    "preact/signals": "npm:@preact/signals@^2.0.2",
     "@std/cli": "jsr:@std/cli@^1.0.15",
     "@std/http": "jsr:@std/http@^1.0.13",
     "esbuild": "npm:esbuild@^0.25.1",
