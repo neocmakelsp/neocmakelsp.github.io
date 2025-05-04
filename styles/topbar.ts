@@ -4,11 +4,11 @@ const TopBar = styled.nav<{ isdark?: boolean; autohide?: boolean }>`
   backdrop-filter: blur(10px);
   overflow: hidden;
   background-color: ${({ isdark }) => {
-  if (isdark) {
-    return "#111111";
-  }
-  return "#33333067";
-}};
+    if (isdark) {
+      return "#111111";
+    }
+    return "#33333067";
+  }};
   position: fixed;
   width: 100%;
   top: 0px;
@@ -23,20 +23,20 @@ const TopBar = styled.nav<{ isdark?: boolean; autohide?: boolean }>`
     font-size: 17px;
   }
   & a.right {
-    float: right
+    float: right;
   }
   & a:hover {
     background-color: #ddd;
     color: black;
   }
 
-  @media screen and (max-width:900px) {
+  @media screen and (max-width: 900px) {
     visibility: ${({ autohide }) => {
-  if (autohide) {
-    return "hidden";
-  }
-  return "visible";
-}};
+    if (autohide) {
+      return "hidden";
+    }
+    return "visible";
+  }};
   }
 `;
 

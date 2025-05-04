@@ -56,7 +56,7 @@ const MarkdownAreaCSS = styled.div`
     padding: 10px;
     background-color: #454441;
     border-radius: 5px;
-    overflow-x: auto
+    overflow-x: auto;
   }
   & code {
     background-color: #c9c9c7;

@@ -119,7 +119,7 @@ const SearchGlobalCenter = styled.div<{ visible: boolean }>`
   backdrop-filter: blur(${({ visible }) => visible ? 20 : 0}px);
   height: 100vh;
   display: flex;
-  z-Index: 8;
+  z-index: 8;
   align-items: center;
   flex-direction: column;
   transition: backdrop-filter 0.3s ease-in-out;
@@ -132,7 +132,7 @@ const SearchInputArea = styled.div`
   width: 60%;
   height: 50px;
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
   align-items: center;
 `;
 
@@ -147,19 +147,19 @@ const SearchInput = styled.input`
 `;
 
 const SearchClearBtn = styled.button<{ visible: boolean }>`
-  z-Index: 9;
+  z-index: 9;
   position: fixed;
   top: 30px;
   right: 10px;
   backdrop-filter: blur(${({ visible }) => visible ? 2 : 0}px);
   visibility: ${({ visible }) => visible ? "visible" : "hidden"};
   height: 25px;
-  aspect-ratio : 1 / 1;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   background-color: #ddddddaa;
   cursor: pointer;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  @media screen and (min-width:700px) {
+  @media screen and (min-width: 700px) {
     height: 50px;
     top: 15px;
   }
@@ -171,7 +171,7 @@ const SearchUl = styled.ul`
   background-color: #ffffffaa;
   backdrop-filter: blur(10px);
   width: 60%;
-  overflow:scroll;
+  overflow: scroll;
   overflow-x: hidden;
   scrollbar-width: thin;
   & li {

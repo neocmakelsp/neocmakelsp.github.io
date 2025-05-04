@@ -8,10 +8,10 @@ const FeatureMainCSS = styled.section`
   width: 100%;
 
   & h1 {
-    color: white
+    color: white;
   }
   & p {
-    color: white
+    color: white;
   }
 `;
 
@@ -20,20 +20,20 @@ export default FeatureMainCSS;
 const FeatureTitleCSS = styled.h1`
   text-align: center;
   font-size: 3em;
-  font-weight: 500
+  font-weight: 500;
 `;
 
 const FeatureCardTitleCSS = styled.h1`
   text-align: center;
   font-size: 2em;
-  font-weight: 100
+  font-weight: 100;
 `;
 
 const FeatureGridCSS = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(22em,1fr));
+  grid-template-columns: repeat(auto-fill, minmax(22em, 1fr));
   width: 100%;
-  margin: .5rem;
+  margin: 0.5rem;
   justify-items: stretch;
   overflow-y: auto;
   max-height: 100%;

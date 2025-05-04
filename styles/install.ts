@@ -8,17 +8,17 @@ const InstallMainCSS = styled.section`
   width: 100%;
 
   & h1 {
-    color: white
+    color: white;
   }
   & p {
-    color: white
+    color: white;
   }
 `;
 
 const InstallTitleCSS = styled.h1`
   text-align: center;
   font-size: 3em;
-  font-weight: 500
+  font-weight: 500;
 `;
 
 const InstallBodyCSS = styled.div`
@@ -29,7 +29,7 @@ const InstallBodyCSS = styled.div`
   & span {
     font-size: 32px;
   }
-  @media screen and (max-width:700px) {
+  @media screen and (max-width: 700px) {
     font-size: 22px;
     & span {
       font-size: 22px;
@@ -43,14 +43,14 @@ const InstallCodeCopyCSS = styled.div`
   font-size: 26px;
   margin-right: 50px;
   margin-left: 50px;
-  @media screen and (max-width:700px) {
+  @media screen and (max-width: 700px) {
     font-size: 20px;
   }
   & pre {
     padding: 10px;
     background-color: #0c3e4d;
     border-radius: 5px;
-    overflow-x: auto
+    overflow-x: auto;
   }
   & button {
     position: absolute;
@@ -59,8 +59,8 @@ const InstallCodeCopyCSS = styled.div`
     padding: 5px 10px;
     background-color: #007bff;
     color: #fff;
-    border: none; 
-    border-radius: 5px; 
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
   }
 `;

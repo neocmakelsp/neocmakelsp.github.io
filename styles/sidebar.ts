@@ -22,11 +22,11 @@ const SideBar = styled.li<
   /* move flex-items in column */
   flex-direction: column;
 
-  left: ${({ isOpen }) => isOpen ? "0" : "-200px"} ;
+  left: ${({ isOpen }) => isOpen ? "0" : "-200px"};
   transition: left 0.3s ease-in-out;
 
-  @media screen and (max-width:900px) {
-    visibility: visible
+  @media screen and (max-width: 900px) {
+    visibility: visible;
   }
   & button {
     background-color: transparent;
@@ -62,7 +62,7 @@ const MenuButton = styled.button<
 >`
   position: fixed;
   top: ${({ top }) => top ? top : 20}px;
-  left: ${({ isOpen, left }) => isOpen ? left ? left : 210 : 20}px ;
+  left: ${({ isOpen, left }) => isOpen ? left ? left : 210 : 20}px;
   background-color: white;
   color: white;
   border: none;
@@ -83,10 +83,9 @@ const MenuButton = styled.button<
     background-color: #0056b3;
   }
 
-  @media screen and (max-width:900px) {
+  @media screen and (max-width: 900px) {
     visibility: visible;
   }
-
 `;
 
 const SearchButton = styled.button<
@@ -94,7 +93,7 @@ const SearchButton = styled.button<
 >`
   position: fixed;
   bottom: ${({ bottom }) => bottom ? bottom : 20}px;
-  left: ${({ isOpen, left }) => isOpen ? left ? left : 210 : 20}px ;
+  left: ${({ isOpen, left }) => isOpen ? left ? left : 210 : 20}px;
   background-color: white;
   color: white;
   border: none;
@@ -115,10 +114,9 @@ const SearchButton = styled.button<
     background-color: #0056b3;
   }
 
-  @media screen and (max-width:900px) {
+  @media screen and (max-width: 900px) {
     visibility: visible;
   }
-
 `;
 
 export { MenuButton, SearchButton, SideBar, SideBarA };

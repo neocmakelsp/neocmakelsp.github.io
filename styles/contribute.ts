@@ -5,13 +5,12 @@ const ContributeMainCSS = styled.section`
 
   background-color: white;
   width: 100%;
-
 `;
 
 const ContributeTitleCSS = styled.h1`
   text-align: center;
   font-size: 1em;
-  font-weight: 500
+  font-weight: 500;
 `;
 
 export { ContributeMainCSS, ContributeTitleCSS };
