@@ -597,14 +597,14 @@ var TopBar = mod_default.nav`
     font-size: 17px;
   }
   & a.right {
-    float: right
+    float: right;
   }
   & a:hover {
     background-color: #ddd;
     color: black;
   }
 
-  @media screen and (max-width:900px) {
+  @media screen and (max-width: 900px) {
     visibility: ${({ autohide }) => {
   if (autohide) {
     return "hidden";
@@ -636,7 +636,7 @@ function MainTopBar({ children }) {
 var TopMainAreaCSS = mod_default.section`
   display: grid;
   grid-template-columns: 50% 50%;
-  @media screen and (max-width:1300px) {
+  @media screen and (max-width: 1300px) {
     display: flex;
     flex-direction: column;
   }
@@ -645,26 +645,25 @@ var TopMainAreaCSS = mod_default.section`
   width: 100%;
 
   & h1 {
-    color: white
+    color: white;
   }
   & p {
-    color: white
+    color: white;
   }
 `;
 var TopTextCSS = mod_default.div`
   margin-top: 300px;
   margin-bottom: 300px;
-  @media screen and (max-width:1300px) {
+  @media screen and (max-width: 1300px) {
     margin-bottom: 10px;
     margin-top: 30px;
   }
   height: 60%;
-
 `;
-var TopVideoCSS = mod_default.video` 
+var TopVideoCSS = mod_default.video`
   margin-top: 300px;
   margin-bottom: 300px;
-  @media screen and (max-width:1300px) {
+  @media screen and (max-width: 1300px) {
     margin-top: 10px;
     margin-bottom: 20px;
   }
@@ -674,7 +673,7 @@ var TopVideoCSS = mod_default.video`
 var TopMainTitleCSS = mod_default.h1`
   text-align: center;
   font-size: 3em;
-  font-weight: 500
+  font-weight: 500;
 `;
 var TopMainSmallTitleCSS = mod_default.p`
   margin-left: 60px;
@@ -684,7 +683,7 @@ var TopMainSmallTitleCSS = mod_default.p`
   & span {
     font-size: 32px;
   }
-  @media screen and (max-width:700px) {
+  @media screen and (max-width: 700px) {
     font-size: 22px;
     & span {
       font-size: 22px;
@@ -716,28 +715,28 @@ var FeatureMainCSS = mod_default.section`
   width: 100%;
 
   & h1 {
-    color: white
+    color: white;
   }
   & p {
-    color: white
+    color: white;
   }
 `;
 var feature_default = FeatureMainCSS;
 var FeatureTitleCSS = mod_default.h1`
   text-align: center;
   font-size: 3em;
-  font-weight: 500
+  font-weight: 500;
 `;
 var FeatureCardTitleCSS = mod_default.h1`
   text-align: center;
   font-size: 2em;
-  font-weight: 100
+  font-weight: 100;
 `;
 var FeatureGridCSS = mod_default.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(22em,1fr));
+  grid-template-columns: repeat(auto-fill, minmax(22em, 1fr));
   width: 100%;
-  margin: .5rem;
+  margin: 0.5rem;
   justify-items: stretch;
   overflow-y: auto;
   max-height: 100%;
@@ -827,16 +826,16 @@ var InstallMainCSS = mod_default.section`
   width: 100%;
 
   & h1 {
-    color: white
+    color: white;
   }
   & p {
-    color: white
+    color: white;
   }
 `;
 var InstallTitleCSS = mod_default.h1`
   text-align: center;
   font-size: 3em;
-  font-weight: 500
+  font-weight: 500;
 `;
 var InstallBodyCSS = mod_default.div`
   margin-left: 20px;
@@ -846,7 +845,7 @@ var InstallBodyCSS = mod_default.div`
   & span {
     font-size: 32px;
   }
-  @media screen and (max-width:700px) {
+  @media screen and (max-width: 700px) {
     font-size: 22px;
     & span {
       font-size: 22px;
@@ -859,14 +858,14 @@ var InstallCodeCopyCSS = mod_default.div`
   font-size: 26px;
   margin-right: 50px;
   margin-left: 50px;
-  @media screen and (max-width:700px) {
+  @media screen and (max-width: 700px) {
     font-size: 20px;
   }
   & pre {
     padding: 10px;
     background-color: #0c3e4d;
     border-radius: 5px;
-    overflow-x: auto
+    overflow-x: auto;
   }
   & button {
     position: absolute;
@@ -875,8 +874,8 @@ var InstallCodeCopyCSS = mod_default.div`
     padding: 5px 10px;
     background-color: #007bff;
     color: #fff;
-    border: none; 
-    border-radius: 5px; 
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
   }
 `;
@@ -1032,12 +1031,11 @@ var ContributeMainCSS = mod_default.section`
 
   background-color: white;
   width: 100%;
-
 `;
 var ContributeTitleCSS = mod_default.h1`
   text-align: center;
   font-size: 1em;
-  font-weight: 500
+  font-weight: 500;
 `;
 
 // components/contribute.tsx
@@ -1063,11 +1061,11 @@ var SideBar = mod_default.li`
   /* move flex-items in column */
   flex-direction: column;
 
-  left: ${({ isOpen }) => isOpen ? "0" : "-200px"} ;
+  left: ${({ isOpen }) => isOpen ? "0" : "-200px"};
   transition: left 0.3s ease-in-out;
 
-  @media screen and (max-width:900px) {
-    visibility: visible
+  @media screen and (max-width: 900px) {
+    visibility: visible;
   }
   & button {
     background-color: transparent;
@@ -1099,7 +1097,7 @@ var SideBarA = mod_default.a`
 var MenuButton = mod_default.button`
   position: fixed;
   top: ${({ top }) => top ? top : 20}px;
-  left: ${({ isOpen, left }) => isOpen ? left ? left : 210 : 20}px ;
+  left: ${({ isOpen, left }) => isOpen ? left ? left : 210 : 20}px;
   background-color: white;
   color: white;
   border: none;
@@ -1120,15 +1118,14 @@ var MenuButton = mod_default.button`
     background-color: #0056b3;
   }
 
-  @media screen and (max-width:900px) {
+  @media screen and (max-width: 900px) {
     visibility: visible;
   }
-
 `;
 var SearchButton = mod_default.button`
   position: fixed;
   bottom: ${({ bottom }) => bottom ? bottom : 20}px;
-  left: ${({ isOpen, left }) => isOpen ? left ? left : 210 : 20}px ;
+  left: ${({ isOpen, left }) => isOpen ? left ? left : 210 : 20}px;
   background-color: white;
   color: white;
   border: none;
@@ -1149,10 +1146,9 @@ var SearchButton = mod_default.button`
     background-color: #0056b3;
   }
 
-  @media screen and (max-width:900px) {
+  @media screen and (max-width: 900px) {
     visibility: visible;
   }
-
 `;
 
 // pages/home.tsx

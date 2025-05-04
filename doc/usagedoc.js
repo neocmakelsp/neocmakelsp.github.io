@@ -21136,14 +21136,14 @@ var TopBar = mod_default.nav`
     font-size: 17px;
   }
   & a.right {
-    float: right
+    float: right;
   }
   & a:hover {
     background-color: #ddd;
     color: black;
   }
 
-  @media screen and (max-width:900px) {
+  @media screen and (max-width: 900px) {
     visibility: ${({ autohide }) => {
   if (autohide) {
     return "hidden";
@@ -21186,11 +21186,11 @@ var SideBar = mod_default.li`
   /* move flex-items in column */
   flex-direction: column;
 
-  left: ${({ isOpen }) => isOpen ? "0" : "-200px"} ;
+  left: ${({ isOpen }) => isOpen ? "0" : "-200px"};
   transition: left 0.3s ease-in-out;
 
-  @media screen and (max-width:900px) {
-    visibility: visible
+  @media screen and (max-width: 900px) {
+    visibility: visible;
   }
   & button {
     background-color: transparent;
@@ -21222,7 +21222,7 @@ var SideBarA = mod_default.a`
 var MenuButton = mod_default.button`
   position: fixed;
   top: ${({ top }) => top ? top : 20}px;
-  left: ${({ isOpen, left }) => isOpen ? left ? left : 210 : 20}px ;
+  left: ${({ isOpen, left }) => isOpen ? left ? left : 210 : 20}px;
   background-color: white;
   color: white;
   border: none;
@@ -21243,15 +21243,14 @@ var MenuButton = mod_default.button`
     background-color: #0056b3;
   }
 
-  @media screen and (max-width:900px) {
+  @media screen and (max-width: 900px) {
     visibility: visible;
   }
-
 `;
 var SearchButton = mod_default.button`
   position: fixed;
   bottom: ${({ bottom }) => bottom ? bottom : 20}px;
-  left: ${({ isOpen, left }) => isOpen ? left ? left : 210 : 20}px ;
+  left: ${({ isOpen, left }) => isOpen ? left ? left : 210 : 20}px;
   background-color: white;
   color: white;
   border: none;
@@ -21272,10 +21271,9 @@ var SearchButton = mod_default.button`
     background-color: #0056b3;
   }
 
-  @media screen and (max-width:900px) {
+  @media screen and (max-width: 900px) {
     visibility: visible;
   }
-
 `;
 
 // ../../../.cache/deno/deno_esbuild/registry.npmjs.org/preact@10.26.4/node_modules/preact/hooks/dist/hooks.module.js
@@ -22037,7 +22035,7 @@ var SearchGlobalCenter = mod_default.div`
   backdrop-filter: blur(${({ visible }) => visible ? 20 : 0}px);
   height: 100vh;
   display: flex;
-  z-Index: 8;
+  z-index: 8;
   align-items: center;
   flex-direction: column;
   transition: backdrop-filter 0.3s ease-in-out;
@@ -22049,7 +22047,7 @@ var SearchInputArea = mod_default.div`
   width: 60%;
   height: 50px;
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
   align-items: center;
 `;
 var SearchInput = mod_default.input`
@@ -22062,19 +22060,19 @@ var SearchInput = mod_default.input`
   padding-left: 20px;
 `;
 var SearchClearBtn = mod_default.button`
-  z-Index: 9;
+  z-index: 9;
   position: fixed;
   top: 30px;
   right: 10px;
   backdrop-filter: blur(${({ visible }) => visible ? 2 : 0}px);
   visibility: ${({ visible }) => visible ? "visible" : "hidden"};
   height: 25px;
-  aspect-ratio : 1 / 1;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   background-color: #ddddddaa;
   cursor: pointer;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  @media screen and (min-width:700px) {
+  @media screen and (min-width: 700px) {
     height: 50px;
     top: 15px;
   }
@@ -22085,7 +22083,7 @@ var SearchUl = mod_default.ul`
   background-color: #ffffffaa;
   backdrop-filter: blur(10px);
   width: 60%;
-  overflow:scroll;
+  overflow: scroll;
   overflow-x: hidden;
   scrollbar-width: thin;
   & li {
@@ -22191,7 +22189,7 @@ var MarkdownAreaCSS = mod_default.div`
     padding: 10px;
     background-color: #454441;
     border-radius: 5px;
-    overflow-x: auto
+    overflow-x: auto;
   }
   & code {
     background-color: #c9c9c7;
