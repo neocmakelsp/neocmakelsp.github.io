@@ -32,11 +32,11 @@ const TopBar = styled.nav<{ isdark?: boolean; autohide?: boolean }>`
 
   @media screen and (max-width: 900px) {
     visibility: ${({ autohide }) => {
-    if (autohide) {
-      return "hidden";
-    }
-    return "visible";
-  }};
+      if (autohide) {
+        return "hidden";
+      }
+      return "visible";
+    }};
   }
 `;
 
