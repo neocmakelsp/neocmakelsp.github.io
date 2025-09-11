@@ -8,26 +8,7 @@ Just follow the way in
 For Example:
 
 ```lua
-local configs = require("lspconfig.configs")
-local nvim_lsp = require("lspconfig")
-nvim_lsp.neocmake.setup{
-    cmd = { "neocmakelsp", "--stdio" },
-    filetypes = { "cmake" },
-    root_dir = function(fname)
-        return nvim_lsp.util.find_git_ancestor(fname)
-    end,
-    single_file_support = true,-- suggested
-    on_attach = on_attach, -- on_attach is the on_attach function you defined
-    init_options = {
-        format = {
-            enable = true
-        },
-        lint = {
-            enable = true
-        },
-        scan_cmake_in_package = true -- default is true
-    }
-}
+vim.lsp.enable("neocmake")
 ```
 
 ## Helix
