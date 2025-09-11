@@ -4,9 +4,8 @@ const md = markdownit();
 import { Doc, Header } from "~/pages/doc.tsx";
 import { render } from "preact";
 
-const text = await fetch("./markdowns/Install.md");
+import markdown from "../../markdowns/Install.md" with { type: "text" };
 
-const markdown = await text.text();
 const result = md.render(markdown);
 const mount = document.getElementById("mount");
 if (mount) {

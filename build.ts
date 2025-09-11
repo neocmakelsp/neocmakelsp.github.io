@@ -76,7 +76,6 @@ const docroutine = new Route("doc")
       .withHotReload(!release_mode),
   )
   .withHotReload(!release_mode)
-  .appendAssert({ path: "./markdowns" })
   .appendAssert({ path: "./static/asserts/favicon.ico" });
 
 const homeroute = new Route(route_path)
@@ -101,9 +100,7 @@ const homeroute = new Route(route_path)
   .appendRoute(docroutine)
   .withHotReload(!release_mode);
 
-const webgen = new GenWebsite()
-  .withLogLevel("info")
-  .withImportSource("npm:preact");
+const webgen = new GenWebsite();
 
 await webgen.generateWebsite(homeroute);
 

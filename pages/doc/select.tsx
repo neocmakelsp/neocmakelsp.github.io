@@ -6,26 +6,29 @@ import React from "react";
 
 import { isSearch, setIsSearch } from "~/pages/doc.tsx";
 
+import Introduction from "../../markdowns/Introduction.md" with {
+  type: "text",
+};
+import Install from "../../markdowns/Install.md" with { type: "text" };
+import Usage from "../../markdowns/Usage.md" with { type: "text" };
+
 type DocInfo = {
   name: string;
   mddocument: string;
 };
 
-async function fetchDocument(url: string) {
-  const text = await fetch(url);
-  return await text.text();
-}
+console.log(Install);
 
 const markdownDocuments: DocInfo[] = [
   {
     name: "introduction",
-    mddocument: await fetchDocument("./markdowns/Introduction.md"),
+    mddocument: Introduction,
   },
   {
     name: "install",
-    mddocument: await fetchDocument("./markdowns/Install.md"),
+    mddocument: Install,
   },
-  { name: "usage", mddocument: await fetchDocument("./markdowns/Usage.md") },
+  { name: "usage", mddocument: Usage },
 ];
 
 // 前缀树节点定义

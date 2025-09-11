@@ -3,11 +3,10 @@ import markdownit from "markdown-it";
 import { Doc, Header } from "~/pages/doc.tsx";
 
 import { render } from "preact";
+import markdown from "../../markdowns/Introduction.md" with { type: "text" };
+
 const md = markdownit();
 
-const text = await fetch("./markdowns/Introduction.md");
-
-const markdown = await text.text();
 const result = md.render(markdown);
 
 const mount = document.getElementById("mount");
