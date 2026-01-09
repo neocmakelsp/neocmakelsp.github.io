@@ -17,8 +17,6 @@ type DocInfo = {
   mddocument: string;
 };
 
-console.log(Install);
-
 const markdownDocuments: DocInfo[] = [
   {
     name: "introduction",
