@@ -80,8 +80,8 @@ export function Home() {
             >
               Language Server Protocol
             </DescriptionInlineLink>{" "}
-            to provide various features for cmake, make it easier for
-            developing cpp program.
+            to provide various features for cmake, make it easier for developing
+            cpp program.
           </TopMainAreaSmallTitle>
         </TopText>
         <TopVideoCSS autoplay loop muted>
