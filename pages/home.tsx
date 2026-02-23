@@ -31,7 +31,7 @@ export function Header() {
       <a href="#main">Neocmakelsp</a>
       <a href="#feature">Features</a>
       <a href="#install">Install</a>
-      <a href="https://github.com/neocmakelsp/neocmakelsp/docs">Document</a>
+      <a href="https://neocmakelsp.github.io/docs/">Document</a>
       <a class="right" href="https://github.com/neocmakelsp/neocmakelsp">
         Github
       </a>
