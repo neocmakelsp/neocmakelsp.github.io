@@ -1,6 +1,6 @@
 import { ContributeMainCSS, ContributeTitleCSS } from "~/styles/contribute.ts";
 
-import { PropsWithChildren } from "react";
+import { PropsWithChildren } from "preact/compat";
 
 export default function ContributeMain(
   { children }: PropsWithChildren,

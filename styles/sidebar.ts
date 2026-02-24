@@ -5,7 +5,7 @@ const SideBar = styled.li<
     isOpen?: boolean;
     autohide?: boolean;
     zIndex?: number;
-    top?: string;
+    top?: number;
     width?: number;
   }
 >`

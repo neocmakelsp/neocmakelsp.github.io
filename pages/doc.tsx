@@ -2,7 +2,6 @@ import { DocTopBar } from "~/components/titlebar.tsx";
 import styled from "@nobody/styled-components-deno";
 import { MenuButton, SearchButton, SideBar } from "~/styles/sidebar.ts";
 import { useEffect, useState } from "preact/hooks";
-import React from "react";
 
 import { signal } from "preact/signals";
 
@@ -163,7 +162,8 @@ export function Doc({ title, documentContext }: IndexInfo) {
     }
     return `${key}.html`;
   };
-  const sidebarList: React.FC[] = [];
+  // deno-lint-ignore no-explicit-any
+  const sidebarList: any[] = [];
   documentKeys.forEach((key) => {
     sidebarList.push(
       <LeftA selected={key == selected} href={getHtmlName(key)}>

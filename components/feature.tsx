@@ -6,7 +6,7 @@ import FeatureMainCSS, {
   FeatureTitleCSS,
 } from "~/styles/feature.ts";
 
-import { PropsWithChildren } from "react";
+import { PropsWithChildren } from "preact/compat";
 export default function FeatureMain(
   { children }: PropsWithChildren,
 ) {

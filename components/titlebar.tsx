@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren } from "preact/compat";
 
 import TopBarClass from "~/styles/topbar.ts";
 

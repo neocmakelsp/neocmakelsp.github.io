@@ -3,7 +3,7 @@ import TopMainAreaCSS, {
   TopMainTitleCSS,
   TopTextCSS,
 } from "~/styles/topmainarea.ts";
-import { PropsWithChildren } from "react";
+import { PropsWithChildren } from "preact/compat";
 
 export default function TopMainArea(
   { children }: PropsWithChildren,

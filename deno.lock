@@ -21,8 +21,7 @@
     "npm:@preact/signals@^2.8.1": "2.8.1_preact@10.28.4",
     "npm:highlightjs@^9.16.2": "9.16.2",
     "npm:markdown-it@^14.1.1": "14.1.1",
-    "npm:preact@^10.28.4": "10.28.4",
-    "npm:react@^19.2.4": "19.2.4"
+    "npm:preact@^10.28.4": "10.28.4"
   },
   "jsr": {
     "@nobody/styled-components-deno@0.11.2": {
@@ -156,9 +155,6 @@
     "punycode.js@2.3.1": {
       "integrity": "sha512-uxFIHU0YlHYhDQtV4R9J6a52SLx28BCjT+4ieh7IGbgwVJWO+km431c4yRlREUAsAmt/uMjQUyQHNEPf0M39CA=="
     },
-    "react@19.2.4": {
-      "integrity": "sha512-9nfp2hYpCwOjAN+8TZFGhtWEwgvWHXqESH8qT89AT/lWklpLON22Lc8pEtnpsZz7VmawabSU0gCjnj8aC0euHQ=="
-    },
     "uc.micro@2.1.0": {
       "integrity": "sha512-ARDJmphmdvUk6Glw7y9DQ2bFkKBHwQHLi2lsaH6PPmz/Ka9sFOBsBluozhDltWmnv9u/cF6Rt87znRTPV+yp/A=="
     }
@@ -172,8 +168,7 @@
       "npm:@preact/signals@^2.8.1",
       "npm:highlightjs@^9.16.2",
       "npm:markdown-it@^14.1.1",
-      "npm:preact@^10.28.4",
-      "npm:react@^19.2.4"
+      "npm:preact@^10.28.4"
     ]
   }
 }

@@ -7,7 +7,7 @@ import {
 
 import { useState } from "preact/hooks";
 
-import { PropsWithChildren } from "react";
+import { PropsWithChildren } from "preact/compat";
 export default function InstallMain(
   { children }: PropsWithChildren,
 ) {
