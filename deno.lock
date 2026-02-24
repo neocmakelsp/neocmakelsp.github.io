@@ -1,7 +1,7 @@
 {
   "version": "5",
   "specifiers": {
-    "jsr:@nobody/styled-components-deno@~0.11.2": "0.11.2",
+    "jsr:@nobody/styled-components-deno@~0.11.3": "0.11.3",
     "jsr:@nobody/tananoni@~0.6.0-beta1": "0.6.0-beta1",
     "jsr:@std/assert@^1.0.14": "1.0.19",
     "jsr:@std/async@^1.0.14": "1.2.0",
@@ -24,8 +24,8 @@
     "npm:preact@^10.28.4": "10.28.4"
   },
   "jsr": {
-    "@nobody/styled-components-deno@0.11.2": {
-      "integrity": "251aacee753d83e7adc091cce9d91207436edf89446d773c994cec60652e3680",
+    "@nobody/styled-components-deno@0.11.3": {
+      "integrity": "46c47b5f5109ebca873789f11a83d1c43d2d46fa30138587057b7c7a2b6fa3de",
       "dependencies": [
         "npm:preact"
       ]
@@ -161,7 +161,7 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@nobody/styled-components-deno@~0.11.2",
+      "jsr:@nobody/styled-components-deno@~0.11.3",
       "jsr:@nobody/tananoni@~0.6.0-beta1",
       "jsr:@std/cli@^1.0.28",
       "jsr:@std/http@^1.0.25",
