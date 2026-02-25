@@ -4,7 +4,7 @@ import { MenuButton, SearchButton, SideBar } from "~/styles/sidebar.ts";
 import { useEffect, useState } from "preact/hooks";
 
 import { signal } from "preact/signals";
-
+import { VNode } from "preact";
 import { SearchGlobalView } from "~/pages/doc/select.tsx";
 
 import hljs from "highlightjs";
@@ -162,8 +162,7 @@ export function Doc({ title, documentContext }: IndexInfo) {
     }
     return `${key}.html`;
   };
-  // deno-lint-ignore no-explicit-any
-  const sidebarList: any[] = [];
+  const sidebarList: VNode[] = [];
   documentKeys.forEach((key) => {
     sidebarList.push(
       <LeftA selected={key == selected} href={getHtmlName(key)}>
