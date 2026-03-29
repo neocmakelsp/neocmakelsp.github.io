@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren } from "preact/compat";
 import { InlineLinkCSS } from "~/styles/common.ts";
 
 export type InlineLinkProps = {
