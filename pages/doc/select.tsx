@@ -1,8 +1,7 @@
 import styled from "@nobody/styled-components-deno";
 
 import { useState } from "preact/hooks";
-import type { JSX } from "preact";
-import React from "react";
+import type { JSX, TargetedEvent } from "preact";
 
 import { isSearch, setIsSearch } from "~/pages/doc.tsx";
 
@@ -53,7 +52,7 @@ function max(a: number, b: number): number {
 function min(a: number, b: number): number {
   return a < b ? a : b;
 }
-function get_diff({ start, length, text }: SearchResult): React.RC {
+function get_diff({ start, length, text }: SearchResult): JSX.Element {
   const realstart = max(start - 100, 0);
   const realend = min(start + length + 90, text.length);
   const text_pre = text.slice(realstart, start);
@@ -200,7 +199,7 @@ function gotoPage(key: string) {
 
 export function SearchGlobalView() {
   const [searchRs, setSearchRs] = useState<SearchResult[]>([]);
-  const onTextChange = (input: JSX.TargetedEvent<HTMLInputElement>) => {
+  const onTextChange = (input: TargetedEvent<HTMLInputElement>) => {
     const value = input.currentTarget.value;
     if (value.length === 0) {
       setSearchRs([]);
