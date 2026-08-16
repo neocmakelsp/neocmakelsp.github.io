@@ -23,6 +23,4 @@ jobs:
 
       - run: corepack pnpm install
       - name: Build site
-        env:
-          BASE_PATH: '${{ github.event.repository.name }}'
         run: corepack pnpm build
