@@ -3,7 +3,7 @@
   import ShowVideo from '$lib/assets/neocmakelsp.mp4';
 </script>
 
-<section class="slide grid balance showGrid" id="mainTitle">
+<section class="slide grid show showGrid" id="mainTitle">
   <div class="textArea">
     <h1 class="title">neocmakelsp</h1>
     <p class="description">
@@ -34,13 +34,13 @@
 
   .description {
     padding: 60px;
-    font-size: 32px;
+    font-size: 2em;
     margin-top: 1px;
-    @media screen and (max-width: 700px) {
-      font-size: 3em;
+    @media screen and (max-width: 800px) {
+      font-size: 1.7em;
     }
     @media screen and (max-width: 600px) {
-      font-size: 1.7em;
+      font-size: 1.4em;
     }
   }
 
@@ -51,8 +51,8 @@
     text-align: center;
     font-size: 4em;
     font-weight: 500;
-    @media screen and (max-width: 700px) {
-      font-size: 4em;
+    @media screen and (max-width: 800px) {
+      font-size: 3em;
     }
     @media screen and (max-width: 600px) {
       font-size: 2.5em;

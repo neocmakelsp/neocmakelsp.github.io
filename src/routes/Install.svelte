@@ -93,8 +93,7 @@
         </div>
       </div>
       <div id="neovim-install">
-        <h3>Visual Studio Code</h3>
-        <p></p>
+        <h3>Neovim</h3>
         <div class="instructions">
           <ol>
             <li>
@@ -145,6 +144,7 @@
 <style>
   .title {
     color: white;
+    font-size: 2.7em;
   }
 
   .install {
@@ -266,10 +266,21 @@
 
         h3 {
           margin-bottom: auto;
+          font-size: 2.2em;
+          @media screen and (max-width: 800px) {
+            font-size: 1.7em;
+          }
         }
 
         & > p {
+          font-size: 1.3em;
           text-align: center;
+          @media screen and (max-width: 800px) {
+            font-size: 1em;
+          }
+          @media screen and (max-width: 700px) {
+            font-size: 0.7em;
+          }
         }
 
         &.active {
@@ -280,6 +291,13 @@
         }
 
         .instructions {
+          font-size: 1.3em;
+          @media screen and (max-width: 800px) {
+            font-size: 1em;
+          }
+          @media screen and (max-width: 700px) {
+            font-size: 0.7em;
+          }
           code {
             background-color: #323237;
             display: inline;

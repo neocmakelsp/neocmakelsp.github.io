@@ -36,7 +36,9 @@
 .grid.reserve {
   grid-template-columns: 65% 35%;
 }
-
+.grid.show {
+  grid-template-columns: 46% 54%;
+}
 .grid.balance {
   grid-template-columns: 50% 50%;
 }
