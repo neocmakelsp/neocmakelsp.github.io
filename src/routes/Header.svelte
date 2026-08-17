@@ -7,7 +7,7 @@
 
 <header>
   <nav>
-    <Link href="/" tooltip="Home">
+    <Link href="#mainTitle" tooltip="Home">
       <FontAwesomeIcon icon={faHouse} class="icon" size="2x" />
     </Link>
     <Link href="#install" tooltip="Install">
