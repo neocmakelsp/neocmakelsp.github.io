@@ -111,9 +111,6 @@
                     <li>
                       Macports: <code>sudo port install neocmakelsp</code>
                     </li>
-                    <li>
-                      mise-en-place: <code>mise use aqua:LuaLS/lua-language-server</code>
-                    </li>
                   </ul>
                 </li>
                 <li>
@@ -293,9 +290,6 @@
           @media screen and (max-width: 800px) {
             font-size: 1em;
           }
-          @media screen and (max-width: 700px) {
-            font-size: 0.7em;
-          }
         }
 
         &.active {
@@ -310,15 +304,13 @@
           @media screen and (max-width: 800px) {
             font-size: 1em;
           }
-          @media screen and (max-width: 700px) {
-            font-size: 0.7em;
-          }
+
           code {
             background-color: #323237;
             display: inline;
             vertical-align: middle;
             border-radius: 0.3em;
-            font-size: 0.9em;
+            font-size: 1em;
           }
           ol {
             margin-left: 0.5em;

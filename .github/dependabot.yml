@@ -7,27 +7,27 @@
 # https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
       # We release on Tuesdays and open dependabot PRs will rebase after the
       # version bump and thus consume unnecessary workers during release, thus
       # let's open new ones on Wednesday
-      day: "wednesday"
+      day: 'wednesday'
     ignore:
-      - dependency-name: "*"
-        update-types: ["version-update:semver-patch"]
+      - dependency-name: '*'
+        update-types: ['version-update:semver-patch']
     groups:
       # Only update polars as a whole as there are many subcrates that need to
       # be updated at once. We explicitly depend on some of them, so batch their
       # updates to not take up dependabot PR slots with dysfunctional PRs
       polars:
         patterns:
-          - "polars"
-          - "polars-*"
-  - package-ecosystem: "github-actions"
-    directory: "/"
+          - 'polars'
+          - 'polars-*'
+  - package-ecosystem: 'github-actions'
+    directory: '/'
     schedule:
-      interval: "weekly"
-      day: "wednesday"
+      interval: 'weekly'
+      day: 'wednesday'
