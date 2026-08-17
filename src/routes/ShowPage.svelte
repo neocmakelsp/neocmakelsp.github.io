@@ -33,7 +33,7 @@
   }
 
   .description {
-    padding: 60px;
+    padding: 30px;
     font-size: 2em;
     margin-top: 1px;
     @media screen and (max-width: 800px) {
@@ -68,7 +68,7 @@
       width: 60%;
     }
     @media screen and (max-width: 900px) {
-      width: 80%;
+      width: 90%;
     }
   }
 </style>

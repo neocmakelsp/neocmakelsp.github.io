@@ -176,7 +176,12 @@
       width: 46%;
       height: 20%;
       z-index: 1;
-
+      @media screen and (max-width: 800px) {
+        width: 50%;
+      }
+      @media screen and (max-width: 600px) {
+        width: 80%;
+      }
       button {
         border: none;
         aspect-ratio: 1;
@@ -264,17 +269,27 @@
         grid-row: 1/1;
         transition: opacity ease-in 0.3s;
 
+        width: 100%;
+        @media screen and (max-width: 600px) {
+          width: 90%;
+        }
         h3 {
           margin-bottom: auto;
           font-size: 2.2em;
           @media screen and (max-width: 800px) {
             font-size: 1.7em;
           }
+          @media screen and (max-width: 600px) {
+            font-size: 1.5em;
+          }
         }
 
         & > p {
           font-size: 1.3em;
           text-align: center;
+          @media screen and (max-width: 600px) {
+            text-align: left;
+          }
           @media screen and (max-width: 800px) {
             font-size: 1em;
           }

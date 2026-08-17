@@ -37,16 +37,20 @@
     color: #dddddd;
     gap: 2px;
     & p {
-      font-size: 30px;
+      font-size: 2em;
+      @media screen and (max-width: 600px) {
+        font-size: 1.5em;
+      }
     }
     & h1 {
+      text-align: center;
       font-size: 3em;
+      @media screen and (max-width: 600px) {
+        font-size: 2em;
+      }
     }
   }
   .descriptionArea {
     gap: 0px;
-    & p {
-      font-size: 30px;
-    }
   }
 </style>
